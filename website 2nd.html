@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zoca - Exquisite Dining Experience</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#D4AF37",
+              secondary: "#2C3E50",
+            },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^="ri-"])::before {
+          content: "\f3c2";
+      }
+
+      body {
+          font-family: 'Inter', sans-serif;
+      }
+
+      .scroll-animate {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: all 0.6s ease-out;
+      }
+
+      .scroll-animate.visible {
+          opacity: 1;
+          transform: translateY(0);
+      }
+
+      .cart-bubble {
+          animation: bounce 0.5s ease-in-out;
+      }
+
+      @keyframes bounce {
+          0%, 20%, 60%, 100% { transform: translateY(0); }
+          40% { transform: translateY(-10px); }
+          80% { transform: translateY(-5px); }
+      }
+
+      .menu-tab.active {
+          background: linear-gradient(135deg, #D4AF37, #F4D03F);
+          color: #2C3E50;
+      }
+
+      .hero-bg {
+          background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.5)),
+                      url('https://readdy.ai/api/search-image?query=elegant%20restaurant%20interior%20with%20warm%20golden%20lighting%2C%20sophisticated%20dining%20atmosphere%2C%20modern%20luxury%20ambiance%2C%20charcoal%20blue%20and%20gold%20color%20scheme%2C%20fine%20dining%20establishment%20with%20contemporary%20design&width=1920&height=1080&seq=hero1&orientation=landscape');
+          background-size: cover;
+          background-position: center;
+      }
+    </style>
+  </head>
+  <body class="bg-secondary text-white">
+    <nav
+      class="fixed top-0 w-full bg-secondary/95 backdrop-blur-sm z-50 border-b border-primary/20"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="font-['Pacifico'] text-2xl text-primary">Zoca</div>
+          <div class="hidden md:flex space-x-8">
+            <a
+              href="#home"
+              class="text-white hover:text-primary transition-colors"
+              >Home</a
+            >
+            <a
+              href="#recommended"
+              class="text-white hover:text-primary transition-colors"
+              >Recommended</a
+            >
+            <a
+              href="#menu"
+              class="text-white hover:text-primary transition-colors"
+              >Menu</a
+            >
+            <a
+              href="#reviews"
+              class="text-white hover:text-primary transition-colors"
+              >Reviews</a
+            >
+            <a
+              href="#contact"
+              class="text-white hover:text-primary transition-colors"
+              >Contact</a
+            >
+          </div>
+          <div class="relative">
+            <button
+              id="cart-icon"
+              class="w-10 h-10 flex items-center justify-center bg-primary text-secondary !rounded-button hover:bg-primary/90 transition-colors"
+            >
+              <i class="ri-shopping-cart-line text-lg"></i>
+            </button>
+            <span
+              id="cart-count"
+              class="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center hidden"
+              >0</span
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section
+      id="home"
+      class="hero-bg min-h-screen flex items-center justify-center"
+    >
+      <div class="text-center px-4 scroll-animate">
+        <h1 class="font-['Pacifico'] text-5xl md:text-7xl text-primary mb-6">
+          Zoca
+        </h1>
+        <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
+          Where Culinary Excellence Meets Unforgettable Moments
+        </p>
+        <button
+          class="bg-primary text-secondary px-8 py-3 !rounded-button font-semibold hover:bg-primary/90 transition-colors whitespace-nowrap"
+        >
+          Explore Our Menu
+        </button>
+      </div>
+    </section>
+
+    <section id="recommended" class="py-16 px-4">
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="text-4xl font-bold text-center text-primary mb-12 scroll-animate"
+        >
+          Chef's Recommendations
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="bg-white/5 backdrop-blur-sm rounded-xl p-6 hover:bg-white/10 transition-colors scroll-animate"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=gourmet%20margherita%20pizza%20with%20fresh%20basil%20and%20mozzarella%2C%20elegant%20plating%20on%20dark%20background%2C%20professional%20food%20photography%2C%20golden%20lighting&width=400&height=300&seq=rec1&orientation=landscape"
+              alt="Signature Pizza"
+              class="w-full h-48 object-cover rounded-lg mb-4"
+            />
+            <h3 class="text-xl font-semibold text-primary mb-2">
+              Signature Margherita Pizza
+            </h3>
+            <p class="text-white/80 text-sm mb-4">
+              Fresh basil, premium mozzarella, and our secret tomato sauce on
+              handcrafted dough
+            </p>
+            <div class="flex justify-between items-center">
+              <span class="text-primary font-bold text-lg">$18.99</span>
+              <button
+                class="bg-primary text-secondary px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+                onclick="addToCart('Signature Margherita Pizza', 18.99)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="bg-white/5 backdrop-blur-sm rounded-xl p-6 hover:bg-white/10 transition-colors scroll-animate"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=creamy%20truffle%20pasta%20with%20parmesan%20cheese%2C%20elegant%20restaurant%20presentation%2C%20golden%20lighting%2C%20gourmet%20Italian%20cuisine%20on%20dark%20background&width=400&height=300&seq=rec2&orientation=landscape"
+              alt="Truffle Pasta"
+              class="w-full h-48 object-cover rounded-lg mb-4"
+            />
+            <h3 class="text-xl font-semibold text-primary mb-2">
+              Truffle Cream Pasta
+            </h3>
+            <p class="text-white/80 text-sm mb-4">
+              Handmade fettuccine with black truffle cream sauce and aged
+              parmesan
+            </p>
+            <div class="flex justify-between items-center">
+              <span class="text-primary font-bold text-lg">$24.99</span>
+              <button
+                class="bg-primary text-secondary px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+                onclick="addToCart('Truffle Cream Pasta', 24.99)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="bg-white/5 backdrop-blur-sm rounded-xl p-6 hover:bg-white/10 transition-colors scroll-animate"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=grilled%20salmon%20fillet%20with%20vegetables%2C%20fine%20dining%20presentation%2C%20golden%20lighting%2C%20restaurant%20quality%20plating%20on%20dark%20background&width=400&height=300&seq=rec3&orientation=landscape"
+              alt="Grilled Salmon"
+              class="w-full h-48 object-cover rounded-lg mb-4"
+            />
+            <h3 class="text-xl font-semibold text-primary mb-2">
+              Grilled Atlantic Salmon
+            </h3>
+            <p class="text-white/80 text-sm mb-4">
+              Fresh Atlantic salmon with seasonal vegetables and lemon herb
+              butter
+            </p>
+            <div class="flex justify-between items-center">
+              <span class="text-primary font-bold text-lg">$28.99</span>
+              <button
+                class="bg-primary text-secondary px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+                onclick="addToCart('Grilled Atlantic Salmon', 28.99)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="py-16 px-4 bg-white/5">
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="text-4xl font-bold text-center text-primary mb-12 scroll-animate"
+        >
+          Menu
+        </h2>
+
+        <div class="flex justify-center mb-8">
+          <div class="bg-white/10 rounded-full p-1 flex space-x-1">
+            <button
+              class="menu-tab px-6 py-2 rounded-full transition-all active"
+              onclick="showMenu('italian')"
+            >
+              Italian
+            </button>
+            <button
+              class="menu-tab px-6 py-2 rounded-full transition-all"
+              onclick="showMenu('chinese')"
+            >
+              Chinese
+            </button>
+            <button
+              class="menu-tab px-6 py-2 rounded-full transition-all"
+              onclick="showMenu('indian')"
+            >
+              Indian
+            </button>
+          </div>
+        </div>
+
+        <div id="italian-menu" class="menu-content">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div
+              class="bg-white/5 rounded-xl p-6 hover:bg-white/10 transition-colors"
+            >
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-lg font-semibold text-primary">
+                  Carbonara Classica
+                </h3>
+                <span class="text-primary font-bold">$19.99</span>
+              </div>
+              <p class="text-white/70 text-sm mb-4">
+                Traditional Roman pasta with pancetta, eggs, and pecorino cheese
+              </p>
+              <div class="flex items-center space-x-4">
+                <button
+                  class="bg-primary text-secondary px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+                  onclick="addToCart('Carbonara Classica', 19.99)"
+                >
+                  Add to Cart
+                </button>
+                <div
+                  id="counter-carbonara-classica"
+                  class="counter hidden items-center space-x-2"
+                >
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="decreaseQuantity('Carbonara Classica')"
+                  >
+                    <i class="ri-subtract-line"></i>
+                  </button>
+                  <span class="quantity text-primary font-medium">1</span>
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="increaseQuantity('Carbonara Classica')"
+                  >
+                    <i class="ri-add-line"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-white/5 rounded-xl p-6 hover:bg-white/10 transition-colors"
+            >
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-lg font-semibold text-primary">
+                  Osso Buco Milanese
+                </h3>
+                <span class="text-primary font-bold">$32.99</span>
+              </div>
+              <p class="text-white/70 text-sm mb-4">
+                Braised veal shanks with saffron risotto and gremolata
+              </p>
+              <div class="flex items-center space-x-4">
+                <button
+                  class="bg-primary text-secondary px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+                  onclick="addToCart('Osso Buco Milanese', 32.99)"
+                >
+                  Add to Cart
+                </button>
+                <div
+                  id="counter-osso-buco-milanese"
+                  class="counter hidden items-center space-x-2"
+                >
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="decreaseQuantity('Osso Buco Milanese')"
+                  >
+                    <i class="ri-subtract-line"></i>
+                  </button>
+                  <span class="quantity text-primary font-medium">1</span>
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="increaseQuantity('Osso Buco Milanese')"
+                  >
+                    <i class="ri-add-line"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-white/5 rounded-xl p-6 hover:bg-white/10 transition-colors"
+            >
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-lg font-semibold text-primary">
+                  Tiramisu della Casa
+                </h3>
+                <span class="text-primary font-bold">$12.99</span>
+              </div>
+              <p class="text-white/70 text-sm mb-4">
+                House-made tiramisu with espresso-soaked ladyfingers and
+                mascarpone
+              </p>
+              <div class="flex items-center space-x-4">
+                <button
+                  class="bg-primary text-secondary px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+                  onclick="addToCart('Tiramisu della Casa', 12.99)"
+                >
+                  Add to Cart
+                </button>
+                <div
+                  id="counter-tiramisu-della-casa"
+                  class="counter hidden items-center space-x-2"
+                >
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="decreaseQuantity('Tiramisu della Casa')"
+                  >
+                    <i class="ri-subtract-line"></i>
+                  </button>
+                  <span class="quantity text-primary font-medium">1</span>
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="increaseQuantity('Tiramisu della Casa')"
+                  >
+                    <i class="ri-add-line"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-white/5 rounded-xl p-6 hover:bg-white/10 transition-colors"
+            >
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-lg font-semibold text-primary">
+                  Risotto ai Funghi Porcini
+                </h3>
+                <span class="text-primary font-bold">$22.99</span>
+              </div>
+              <p class="text-white/70 text-sm mb-4">
+                Creamy arborio rice with porcini mushrooms and truffle oil
+              </p>
+              <div class="flex items-center space-x-4">
+                <button
+                  class="bg-primary text-secondary px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+                  onclick="addToCart('Risotto ai Funghi Porcini', 22.99)"
+                >
+                  Add to Cart
+                </button>
+                <div
+                  id="counter-risotto-ai-funghi-porcini"
+                  class="counter hidden items-center space-x-2"
+                >
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="decreaseQuantity('Risotto ai Funghi Porcini')"
+                  >
+                    <i class="ri-subtract-line"></i>
+                  </button>
+                  <span class="quantity text-primary font-medium">1</span>
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="increaseQuantity('Risotto ai Funghi Porcini')"
+                  >
+                    <i class="ri-add-line"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="chinese-menu" class="menu-content hidden">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div
+              class="bg-white/5 rounded-xl p-6 hover:bg-white/10 transition-colors"
+            >
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-lg font-semibold text-primary">Peking Duck</h3>
+                <span class="text-primary font-bold">$35.99</span>
+              </div>
+              <p class="text-white/70 text-sm mb-4">
+                Traditional roasted duck with pancakes, scallions, and hoisin
+                sauce
+              </p>
+              <div class="flex items-center space-x-4">
+                <button
+                  class="bg-primary text-secondary px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+                  onclick="addToCart('Peking Duck', 35.99)"
+                >
+                  Add to Cart
+                </button>
+                <div
+                  id="counter-peking-duck"
+                  class="counter hidden items-center space-x-2"
+                >
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="decreaseQuantity('Peking Duck')"
+                  >
+                    <i class="ri-subtract-line"></i>
+                  </button>
+                  <span class="quantity text-primary font-medium">1</span>
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="increaseQuantity('Peking Duck')"
+                  >
+                    <i class="ri-add-line"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-white/5 rounded-xl p-6 hover:bg-white/10 transition-colors"
+            >
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-lg font-semibold text-primary">
+                  Kung Pao Chicken
+                </h3>
+                <span class="text-primary font-bold">$16.99</span>
+              </div>
+              <p class="text-white/70 text-sm mb-4">
+                Diced chicken with peanuts, vegetables, and chili peppers in
+                savory sauce
+              </p>
+              <div class="flex items-center space-x-4">
+                <button
+                  class="bg-primary text-secondary px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+                  onclick="addToCart('Kung Pao Chicken', 16.99)"
+                >
+                  Add to Cart
+                </button>
+                <div
+                  id="counter-kung-pao-chicken"
+                  class="counter hidden items-center space-x-2"
+                >
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="decreaseQuantity('Kung Pao Chicken')"
+                  >
+                    <i class="ri-subtract-line"></i>
+                  </button>
+                  <span class="quantity text-primary font-medium">1</span>
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="increaseQuantity('Kung Pao Chicken')"
+                  >
+                    <i class="ri-add-line"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-white/5 rounded-xl p-6 hover:bg-white/10 transition-colors"
+            >
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-lg font-semibold text-primary">Mapo Tofu</h3>
+                <span class="text-primary font-bold">$14.99</span>
+              </div>
+              <p class="text-white/70 text-sm mb-4">
+                Silky tofu in spicy Sichuan sauce with ground pork and green
+                onions
+              </p>
+              <div class="flex items-center space-x-4">
+                <button
+                  class="bg-primary text-secondary px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+                  onclick="addToCart('Mapo Tofu', 14.99)"
+                >
+                  Add to Cart
+                </button>
+                <div
+                  id="counter-mapo-tofu"
+                  class="counter hidden items-center space-x-2"
+                >
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="decreaseQuantity('Mapo Tofu')"
+                  >
+                    <i class="ri-subtract-line"></i>
+                  </button>
+                  <span class="quantity text-primary font-medium">1</span>
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="increaseQuantity('Mapo Tofu')"
+                  >
+                    <i class="ri-add-line"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-white/5 rounded-xl p-6 hover:bg-white/10 transition-colors"
+            >
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-lg font-semibold text-primary">
+                  Sweet & Sour Pork
+                </h3>
+                <span class="text-primary font-bold">$18.99</span>
+              </div>
+              <p class="text-white/70 text-sm mb-4">
+                Crispy pork pieces with pineapple and bell peppers in tangy
+                sauce
+              </p>
+              <div class="flex items-center space-x-4">
+                <button
+                  class="bg-primary text-secondary px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+                  onclick="addToCart('Sweet & Sour Pork', 18.99)"
+                >
+                  Add to Cart
+                </button>
+                <div
+                  id="counter-sweet-sour-pork"
+                  class="counter hidden items-center space-x-2"
+                >
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="decreaseQuantity('Sweet & Sour Pork')"
+                  >
+                    <i class="ri-subtract-line"></i>
+                  </button>
+                  <span class="quantity text-primary font-medium">1</span>
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="increaseQuantity('Sweet & Sour Pork')"
+                  >
+                    <i class="ri-add-line"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="indian-menu" class="menu-content hidden">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div
+              class="bg-white/5 rounded-xl p-6 hover:bg-white/10 transition-colors"
+            >
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-lg font-semibold text-primary">
+                  Butter Chicken
+                </h3>
+                <span class="text-primary font-bold">$19.99</span>
+              </div>
+              <p class="text-white/70 text-sm mb-4">
+                Tender chicken in rich tomato and cream sauce with aromatic
+                spices
+              </p>
+              <div class="flex items-center space-x-4">
+                <button
+                  class="bg-primary text-secondary px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+                  onclick="addToCart('Butter Chicken', 19.99)"
+                >
+                  Add to Cart
+                </button>
+                <div
+                  id="counter-butter-chicken"
+                  class="counter hidden items-center space-x-2"
+                >
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="decreaseQuantity('Butter Chicken')"
+                  >
+                    <i class="ri-subtract-line"></i>
+                  </button>
+                  <span class="quantity text-primary font-medium">1</span>
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="increaseQuantity('Butter Chicken')"
+                  >
+                    <i class="ri-add-line"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-white/5 rounded-xl p-6 hover:bg-white/10 transition-colors"
+            >
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-lg font-semibold text-primary">Lamb Biryani</h3>
+                <span class="text-primary font-bold">$24.99</span>
+              </div>
+              <p class="text-white/70 text-sm mb-4">
+                Fragrant basmati rice with spiced lamb, saffron, and caramelized
+                onions
+              </p>
+              <div class="flex items-center space-x-4">
+                <button
+                  class="bg-primary text-secondary px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+                  onclick="addToCart('Lamb Biryani', 24.99)"
+                >
+                  Add to Cart
+                </button>
+                <div
+                  id="counter-lamb-biryani"
+                  class="counter hidden items-center space-x-2"
+                >
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="decreaseQuantity('Lamb Biryani')"
+                  >
+                    <i class="ri-subtract-line"></i>
+                  </button>
+                  <span class="quantity text-primary font-medium">1</span>
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="increaseQuantity('Lamb Biryani')"
+                  >
+                    <i class="ri-add-line"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-white/5 rounded-xl p-6 hover:bg-white/10 transition-colors"
+            >
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-lg font-semibold text-primary">Palak Paneer</h3>
+                <span class="text-primary font-bold">$16.99</span>
+              </div>
+              <p class="text-white/70 text-sm mb-4">
+                Fresh cottage cheese in creamy spinach curry with traditional
+                spices
+              </p>
+              <div class="flex items-center space-x-4">
+                <button
+                  class="bg-primary text-secondary px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+                  onclick="addToCart('Palak Paneer', 16.99)"
+                >
+                  Add to Cart
+                </button>
+                <div
+                  id="counter-palak-paneer"
+                  class="counter hidden items-center space-x-2"
+                >
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="decreaseQuantity('Palak Paneer')"
+                  >
+                    <i class="ri-subtract-line"></i>
+                  </button>
+                  <span class="quantity text-primary font-medium">1</span>
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="increaseQuantity('Palak Paneer')"
+                  >
+                    <i class="ri-add-line"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-white/5 rounded-xl p-6 hover:bg-white/10 transition-colors"
+            >
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-lg font-semibold text-primary">
+                  Tandoori Chicken
+                </h3>
+                <span class="text-primary font-bold">$21.99</span>
+              </div>
+              <p class="text-white/70 text-sm mb-4">
+                Clay oven roasted chicken marinated in yogurt and traditional
+                spices
+              </p>
+              <div class="flex items-center space-x-4">
+                <button
+                  class="bg-primary text-secondary px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+                  onclick="addToCart('Tandoori Chicken', 21.99)"
+                >
+                  Add to Cart
+                </button>
+                <div
+                  id="counter-tandoori-chicken"
+                  class="counter hidden items-center space-x-2"
+                >
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="decreaseQuantity('Tandoori Chicken')"
+                  >
+                    <i class="ri-subtract-line"></i>
+                  </button>
+                  <span class="quantity text-primary font-medium">1</span>
+                  <button
+                    class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full"
+                    onclick="increaseQuantity('Tandoori Chicken')"
+                  >
+                    <i class="ri-add-line"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" class="py-16 px-4">
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="text-4xl font-bold text-center text-primary mb-12 scroll-animate"
+        >
+          What Our Guests Say
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="bg-white/5 backdrop-blur-sm rounded-xl p-6 scroll-animate"
+          >
+            <div class="flex items-center mb-4">
+              <div class="flex text-primary">
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+              </div>
+              <span class="ml-2 text-white/70 text-sm">5.0</span>
+            </div>
+            <p class="text-white/80 mb-4">
+              "Absolutely phenomenal dining experience! The truffle pasta was
+              divine and the service was impeccable. Will definitely be
+              returning soon."
+            </p>
+            <div class="flex items-center">
+              <div
+                class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-secondary font-semibold mr-3"
+              >
+                SM
+              </div>
+              <div>
+                <p class="text-white font-medium">Sarah Mitchell</p>
+                <p class="text-white/60 text-sm">Food Enthusiast</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white/5 backdrop-blur-sm rounded-xl p-6 scroll-animate"
+          >
+            <div class="flex items-center mb-4">
+              <div class="flex text-primary">
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+              </div>
+              <span class="ml-2 text-white/70 text-sm">5.0</span>
+            </div>
+            <p class="text-white/80 mb-4">
+              "The ambiance is perfect for special occasions. The Peking duck
+              was cooked to perfection and the staff made us feel like royalty."
+            </p>
+            <div class="flex items-center">
+              <div
+                class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-secondary font-semibold mr-3"
+              >
+                MJ
+              </div>
+              <div>
+                <p class="text-white font-medium">Michael Johnson</p>
+                <p class="text-white/60 text-sm">Business Executive</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white/5 backdrop-blur-sm rounded-xl p-6 scroll-animate"
+          >
+            <div class="flex items-center mb-4">
+              <div class="flex text-primary">
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+              </div>
+              <span class="ml-2 text-white/70 text-sm">5.0</span>
+            </div>
+            <p class="text-white/80 mb-4">
+              "Outstanding cuisine from multiple cultures! The butter chicken
+              was authentic and flavorful. Zoca has become our go-to
+              restaurant."
+            </p>
+            <div class="flex items-center">
+              <div
+                class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-secondary font-semibold mr-3"
+              >
+                EP
+              </div>
+              <div>
+                <p class="text-white font-medium">Emily Parker</p>
+                <p class="text-white/60 text-sm">Local Resident</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-16 px-4 bg-white/5">
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="text-4xl font-bold text-center text-primary mb-12 scroll-animate"
+        >
+          Contact Us
+        </h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div class="scroll-animate">
+            <div class="space-y-6">
+              <div class="flex items-start space-x-4">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-primary text-secondary rounded-lg"
+                >
+                  <i class="ri-map-pin-line text-lg"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-primary mb-1">
+                    Address
+                  </h3>
+                  <p class="text-white/80">
+                    123 Gourmet Street, Culinary District<br />New York, NY
+                    10001
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-4">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-primary text-secondary rounded-lg"
+                >
+                  <i class="ri-phone-line text-lg"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-primary mb-1">Phone</h3>
+                  <p class="text-white/80">+1 (555) 123-4567</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-4">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-primary text-secondary rounded-lg"
+                >
+                  <i class="ri-mail-line text-lg"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-primary mb-1">Email</h3>
+                  <p class="text-white/80">info@zoca.restaurant</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-4">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-primary text-secondary rounded-lg"
+                >
+                  <i class="ri-time-line text-lg"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-primary mb-1">Hours</h3>
+                  <div class="text-white/80">
+                    <p>Monday - Thursday: 5:00 PM - 10:00 PM</p>
+                    <p>Friday - Saturday: 5:00 PM - 11:00 PM</p>
+                    <p>Sunday: 4:00 PM - 9:00 PM</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="scroll-animate">
+            <div class="bg-white/5 rounded-xl p-8">
+              <h3 class="text-2xl font-semibold text-primary mb-6">
+                Make a Reservation
+              </h3>
+              <form class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    placeholder="First Name"
+                    class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:border-primary"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Last Name"
+                    class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:border-primary"
+                  />
+                </div>
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:border-primary"
+                />
+                <input
+                  type="tel"
+                  placeholder="Phone Number"
+                  class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:border-primary"
+                />
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <input
+                    type="date"
+                    class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:border-primary"
+                  />
+                  <input
+                    type="time"
+                    class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:border-primary"
+                  />
+                </div>
+                <textarea
+                  placeholder="Special Requests"
+                  rows="4"
+                  class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:border-primary resize-none"
+                ></textarea>
+                <button
+                  type="submit"
+                  class="w-full bg-primary text-secondary py-3 !rounded-button font-semibold hover:bg-primary/90 transition-colors whitespace-nowrap"
+                >
+                  Make Reservation
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-secondary/80 py-12 px-4 border-t border-primary/20">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <div class="font-['Pacifico'] text-2xl text-primary mb-4">Zoca</div>
+            <p class="text-white/70 text-sm">
+              Where culinary excellence meets unforgettable moments. Experience
+              the finest dining in the heart of the city.
+            </p>
+          </div>
+          <div>
+            <h4 class="text-primary font-semibold mb-4">Quick Links</h4>
+            <div class="space-y-2">
+              <a
+                href="#home"
+                class="block text-white/70 hover:text-primary transition-colors text-sm"
+                >Home</a
+              >
+              <a
+                href="#menu"
+                class="block text-white/70 hover:text-primary transition-colors text-sm"
+                >Menu</a
+              >
+              <a
+                href="#reviews"
+                class="block text-white/70 hover:text-primary transition-colors text-sm"
+                >Reviews</a
+              >
+              <a
+                href="#contact"
+                class="block text-white/70 hover:text-primary transition-colors text-sm"
+                >Contact</a
+              >
+            </div>
+          </div>
+          <div>
+            <h4 class="text-primary font-semibold mb-4">Follow Us</h4>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full hover:bg-primary/90 transition-colors"
+              >
+                <i class="ri-facebook-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full hover:bg-primary/90 transition-colors"
+              >
+                <i class="ri-instagram-line"></i>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 flex items-center justify-center bg-primary text-secondary rounded-full hover:bg-primary/90 transition-colors"
+              >
+                <i class="ri-twitter-line"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-primary font-semibold mb-4">Newsletter</h4>
+            <p class="text-white/70 text-sm mb-4">
+              Subscribe for exclusive offers and updates
+            </p>
+            <div class="flex">
+              <input
+                type="email"
+                placeholder="Your email"
+                class="flex-1 px-3 py-2 bg-white/10 border border-white/20 rounded-l-lg text-white placeholder-white/60 text-sm focus:outline-none focus:border-primary"
+              />
+              <button
+                class="bg-primary text-secondary px-4 py-2 rounded-r-lg hover:bg-primary/90 transition-colors"
+              >
+                <i class="ri-send-plane-line"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-white/20 mt-8 pt-8 text-center">
+          <p class="text-white/60 text-sm">
+            &copy; 2024 Zoca Restaurant. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <div
+      id="cart-bubble"
+      class="fixed bottom-6 right-6 bg-primary text-secondary w-16 h-16 rounded-full flex items-center justify-center cursor-pointer shadow-lg hover:bg-primary/90 transition-all hidden"
+    >
+      <i class="ri-shopping-cart-line text-xl"></i>
+      <span
+        id="cart-bubble-count"
+        class="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center"
+        >0</span
+      >
+    </div>
+
+    <div
+      id="cart-panel"
+      class="fixed inset-y-0 right-0 w-96 bg-secondary border-l border-primary/20 transform translate-x-full transition-transform duration-300 z-50"
+    >
+      <div class="p-6 border-b border-primary/20">
+        <div class="flex justify-between items-center">
+          <h3 class="text-xl font-semibold text-primary">Your Order</h3>
+          <button
+            id="close-cart"
+            class="w-8 h-8 flex items-center justify-center text-white/70 hover:text-primary"
+          >
+            <i class="ri-close-line"></i>
+          </button>
+        </div>
+      </div>
+      <div id="cart-items" class="flex-1 overflow-y-auto p-6">
+        <p class="text-white/60 text-center">Your cart is empty</p>
+      </div>
+      <div class="p-6 border-t border-primary/20">
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-lg font-semibold text-white">Total:</span>
+          <span id="cart-total" class="text-xl font-bold text-primary"
+            >$0.00</span
+          >
+        </div>
+        <button
+          class="w-full bg-primary text-secondary py-3 !rounded-button font-semibold hover:bg-primary/90 transition-colors whitespace-nowrap"
+        >
+          Proceed to Checkout
+        </button>
+      </div>
+    </div>
+
+    <div id="cart-overlay" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+
+    <script id="scroll-animations">
+      document.addEventListener("DOMContentLoaded", function () {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll(".scroll-animate").forEach((el) => {
+          observer.observe(el);
+        });
+      });
+    </script>
+
+    <script id="navigation">
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              target.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          });
+        });
+      });
+    </script>
+
+    <script id="menu-tabs">
+      function showMenu(cuisine) {
+        document.querySelectorAll(".menu-content").forEach((menu) => {
+          menu.classList.add("hidden");
+        });
+
+        document.querySelectorAll(".menu-tab").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+
+        document.getElementById(cuisine + "-menu").classList.remove("hidden");
+        event.target.classList.add("active");
+      }
+    </script>
+
+    <script id="cart-functionality">
+      let cart = {};
+      let cartTotal = 0;
+
+      function addToCart(itemName, price) {
+        const itemId = itemName.toLowerCase().replace(/[^a-z0-9]/g, "-");
+
+        if (cart[itemName]) {
+          cart[itemName].quantity += 1;
+        } else {
+          cart[itemName] = {
+            price: price,
+            quantity: 1,
+            id: itemId,
+          };
+        }
+
+        updateCartDisplay();
+        showCounter(itemId);
+        animateCartBubble();
+      }
+
+      function increaseQuantity(itemName) {
+        if (cart[itemName]) {
+          cart[itemName].quantity += 1;
+          updateCartDisplay();
+          updateCounter(itemName);
+        }
+      }
+
+      function decreaseQuantity(itemName) {
+        if (cart[itemName]) {
+          cart[itemName].quantity -= 1;
+          if (cart[itemName].quantity <= 0) {
+            delete cart[itemName];
+            hideCounter(itemName.toLowerCase().replace(/[^a-z0-9]/g, "-"));
+          } else {
+            updateCounter(itemName);
+          }
+          updateCartDisplay();
+        }
+      }
+
+      function showCounter(itemId) {
+        const counter = document.getElementById(`counter-${itemId}`);
+        if (counter) {
+          counter.classList.remove("hidden");
+          counter.classList.add("flex");
+        }
+      }
+
+      function hideCounter(itemId) {
+        const counter = document.getElementById(`counter-${itemId}`);
+        if (counter) {
+          counter.classList.add("hidden");
+          counter.classList.remove("flex");
+        }
+      }
+
+      function updateCounter(itemName) {
+        const itemId = itemName.toLowerCase().replace(/[^a-z0-9]/g, "-");
+        const counter = document.getElementById(`counter-${itemId}`);
+        if (counter && cart[itemName]) {
+          const quantitySpan = counter.querySelector(".quantity");
+          if (quantitySpan) {
+            quantitySpan.textContent = cart[itemName].quantity;
+          }
+        }
+      }
+
+      function updateCartDisplay() {
+        const cartCount = Object.values(cart).reduce(
+          (sum, item) => sum + item.quantity,
+          0,
+        );
+        cartTotal = Object.values(cart).reduce(
+          (sum, item) => sum + item.price * item.quantity,
+          0,
+        );
+
+        document.getElementById("cart-count").textContent = cartCount;
+        document.getElementById("cart-bubble-count").textContent = cartCount;
+        document.getElementById("cart-total").textContent =
+          `$${cartTotal.toFixed(2)}`;
+
+        if (cartCount > 0) {
+          document.getElementById("cart-count").classList.remove("hidden");
+          document.getElementById("cart-bubble").classList.remove("hidden");
+        } else {
+          document.getElementById("cart-count").classList.add("hidden");
+          document.getElementById("cart-bubble").classList.add("hidden");
+        }
+
+        updateCartItems();
+      }
+
+      function updateCartItems() {
+        const cartItemsContainer = document.getElementById("cart-items");
+
+        if (Object.keys(cart).length === 0) {
+          cartItemsContainer.innerHTML =
+            '<p class="text-white/60 text-center">Your cart is empty</p>';
+          return;
+        }
+
+        let cartHTML = "";
+        for (const [itemName, item] of Object.entries(cart)) {
+          cartHTML += `
+                          <div class="flex justify-between items-center py-3 border-b border-white/10">
+                              <div class="flex-1">
+                                  <h4 class="text-white font-medium text-sm">${itemName}</h4>
+                                  <p class="text-primary text-sm">$${item.price.toFixed(2)} each</p>
+                              </div>
+                              <div class="flex items-center space-x-2">
+                                  <button class="w-6 h-6 flex items-center justify-center bg-primary text-secondary rounded-full text-xs" onclick="decreaseQuantity('${itemName}')">
+                                      <i class="ri-subtract-line"></i>
+                                  </button>
+                                  <span class="text-primary font-medium text-sm w-8 text-center">${item.quantity}</span>
+                                  <button class="w-6 h-6 flex items-center justify-center bg-primary text-secondary rounded-full text-xs" onclick="increaseQuantity('${itemName}')">
+                                      <i class="ri-add-line"></i>
+                                  </button>
+                              </div>
+                          </div>
+                      `;
+        }
+
+        cartItemsContainer.innerHTML = cartHTML;
+      }
+
+      function animateCartBubble() {
+        const bubble = document.getElementById("cart-bubble");
+        bubble.classList.add("cart-bubble");
+        setTimeout(() => {
+          bubble.classList.remove("cart-bubble");
+        }, 500);
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("cart-icon").addEventListener("click", function () {
+          document.getElementById("cart-panel").classList.remove("translate-x-full");
+          document.getElementById("cart-overlay").classList.remove("hidden");
+        });
+
+        document.getElementById("cart-bubble").addEventListener("click", function () {
+          document.getElementById("cart-panel").classList.remove("translate-x-full");
+          document.getElementById("cart-overlay").classList.remove("hidden");
+        });
+
+        document.getElementById("close-cart").addEventListener("click", function () {
+          document.getElementById("cart-panel").classList.add("translate-x-full");
+          document.getElementById("cart-overlay").classList.add("hidden");
+        });
+
+        document
+          .getElementById("cart-overlay")
+          .addEventListener("click", function () {
+            document.getElementById("cart-panel").classList.add("translate-x-full");
+            document.getElementById("cart-overlay").classList.add("hidden");
+          });
+      });
+    </script>
+  </body>
+</html>
