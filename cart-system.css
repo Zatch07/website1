@@ -1,0 +1,611 @@
+/* Global Shopping Cart System Styles */
+
+/* Shopping Cart Icon */
+.cart-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #07252d;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(7, 37, 45, 0.3);
+    transition: all 0.3s ease;
+    border: 2px solid #e3dac6;
+}
+
+.cart-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(7, 37, 45, 0.5);
+}
+
+.cart-icon i {
+    color: #e3dac6;
+    font-size: 24px;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #e3dac6;
+    color: #07252d;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 24px;
+}
+
+/* Menu Item Layout */
+.menu-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--price-spacing, 10px); /* Adjustable spacing */
+}
+
+.food-menu-title {
+    flex: 1;
+    margin-right: 15px;
+}
+
+.food-menu-price {
+    color: #e3dac6;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.price-add-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Add to Cart Controls */
+.add-to-cart-controls {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.add-btn {
+    background: #07252d;
+    color: #e3dac6;
+    border: 2px solid #e3dac6;
+    border-radius: 6px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    min-width: 60px;
+}
+
+.add-btn:hover {
+    background: #e3dac6;
+    color: #07252d;
+    transform: scale(1.05);
+}
+
+.quantity-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border-radius: 6px;
+    padding: 4px 8px;
+    border: 2px solid #e3dac6;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    height: 32px; /* Fixed height to prevent vertical expansion */
+    white-space: nowrap;
+}
+
+.quantity-btn {
+    background: #07252d;
+    color: #e3dac6;
+    border: 1px solid #e3dac6;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.quantity-btn:hover {
+    background: #e3dac6;
+    color: #07252d;
+    transform: scale(1.1);
+}
+
+.quantity {
+    color: #07252d;
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+    font-size: 14px;
+    background: #f8f8f8;
+    padding: 2px 6px;
+    border-radius: 3px;
+    line-height: 1.2;
+}
+
+/* Cart Modal */
+.cart-modal {
+    display: none;
+    position: fixed;
+    z-index: 999999 !important;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    pointer-events: auto !important;
+}
+
+.cart-modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease-out;
+    pointer-events: auto !important;
+    z-index: 999999 !important;
+    position: relative;
+}
+
+.cart-header {
+    background: #07252d;
+    color: #e3dac6;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: auto !important;
+}
+
+.cart-header * {
+    pointer-events: auto !important;
+}
+
+.cart-header h2 {
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+}
+
+.cart-close {
+    color: #e3dac6;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.cart-close:hover {
+    color: #fff;
+}
+
+.cart-items {
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    pointer-events: auto !important;
+}
+
+.cart-items * {
+    pointer-events: auto !important;
+}
+
+.empty-cart {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    margin: 40px 0;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-name {
+    font-weight: bold;
+    color: #07252d;
+    margin-bottom: 5px;
+}
+
+.cart-item-price {
+    color: #666;
+    font-size: 14px;
+}
+
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-footer {
+    background: #f8f8f8;
+    padding: 20px;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+.cart-total {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #07252d;
+    font-weight: bold;
+}
+
+.cart-message {
+    color: #666;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.empty-cart {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    margin: 40px 0;
+    font-size: 16px;
+}
+
+
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design for Cart System */
+@media (max-width: 768px) {
+    .cart-icon {
+        width: 55px;
+        height: 55px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .cart-icon i {
+        font-size: 22px;
+    }
+
+    .cart-count {
+        width: 22px;
+        height: 22px;
+        font-size: 11px;
+    }
+
+    .cart-modal-content {
+        width: 95%;
+        margin: 10% auto;
+        max-height: 85vh;
+    }
+
+    .cart-header h2 {
+        font-size: 20px;
+    }
+
+    .food-menu-price {
+        height: 32px; /* Smaller height on mobile */
+        display: flex;
+        align-items: center; /* Center the price text vertically */
+    }
+
+    .add-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+        min-width: 50px;
+        height: 32px; /* Match mobile price height */
+        display: flex;
+        align-items: center; /* Center the button text vertically */
+        justify-content: center;
+    }
+
+    .quantity-btn {
+        width: 26px;
+        height: 26px;
+        font-size: 14px;
+    }
+
+    .quantity {
+        font-size: 13px;
+    }
+
+    /* Mobile responsive adjustments */
+    .menu-item-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .food-menu-title {
+        margin-right: 0;
+        margin-bottom: 0;
+        width: 100%;
+    }
+
+    .add-to-cart-controls {
+        display: none; /* Hide from header on mobile */
+    }
+
+    .price-add-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    .price-add-container .add-to-cart-controls {
+        display: flex; /* Show next to price on mobile */
+        align-self: center; /* Center relative to price */
+        transform: translateY(var(--mobile-add-button-offset, 0px)); /* Adjustable vertical position */
+    }
+
+    .add-btn {
+        padding: 5px 10px;
+        font-size: 12px;
+        min-width: 45px;
+    }
+
+    .quantity-controls {
+        padding: 3px 6px;
+        gap: 6px;
+        height: 28px;
+        transform: translateY(var(--mobile-add-button-offset, 0px)); /* Same offset as Add button */
+    }
+
+    .quantity-btn {
+        width: 22px;
+        height: 22px;
+        font-size: 12px;
+    }
+
+    .quantity {
+        font-size: 12px;
+        min-width: 18px;
+        padding: 1px 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cart-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .cart-icon i {
+        font-size: 20px;
+    }
+
+    .add-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+        min-width: 45px;
+    }
+
+    .quantity-btn {
+        width: 24px;
+        height: 24px;
+        font-size: 13px;
+    }
+
+    .menu-item-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .price-add-container .add-to-cart-controls {
+        display: flex;
+        align-self: center; /* Center relative to price */
+        transform: translateY(var(--mobile-add-button-offset, 0px)); /* Adjustable vertical position */
+    }
+
+    .add-btn {
+        padding: 4px 8px;
+        font-size: 11px;
+        min-width: 40px;
+    }
+
+    .quantity-controls {
+        padding: 2px 4px;
+        gap: 4px;
+        height: 26px;
+        transform: translateY(var(--mobile-add-button-offset, 0px)); /* Same offset as Add button */
+    }
+
+    .quantity-btn {
+        width: 20px;
+        height: 20px;
+        font-size: 11px;
+    }
+
+    .quantity {
+        font-size: 11px;
+        min-width: 16px;
+        padding: 1px 3px;
+    }
+}
+
+/* Ensure text doesn't get hidden */
+.food-menu-title {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    text-transform: none !important; /* Override any uppercase transformation */
+}
+
+.food-menu-content-title-holder {
+    overflow: visible;
+}
+
+/* Hide mobile controls on desktop */
+.price-add-container .add-to-cart-controls {
+    display: none;
+}
+
+/* Fix navigation header interactability when hidden */
+.elementor-element-cb73338 {
+    pointer-events: auto;
+}
+
+.elementor-element-cb73338:not(.elementor-motion-effects-element-type-background) {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.elementor-element-cb73338[style*="display: none"],
+.elementor-element-cb73338[style*="opacity: 0"],
+.elementor-element-cb73338[style*="visibility: hidden"] {
+    pointer-events: none !important;
+}
+
+/* Fix header interactability when scrolled out of view */
+.elementor-element-cb73338[style*="transform: translateY(-"] {
+    pointer-events: none !important;
+}
+
+/* Also target the main header that disappears on scroll */
+.elementor-element-36eaf0d {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.elementor-element-36eaf0d[style*="transform: translateY(-"],
+.elementor-element-36eaf0d[style*="opacity: 0"] {
+    pointer-events: none !important;
+}
+
+/* Target specific header elements that remain clickable */
+.elementor-element-9c402bf, /* Menu Button (hamburger) */
+.elementor-element-2df9abe, /* Logo */
+.elementor-element-d816994, /* RSVP Button */
+.elementor-element-5133fca, /* Logo container */
+.elementor-element-ea80152, /* RSVP container */
+.elementor-element-ab4359f, /* Menu button container */
+.elementor-element-74166a6, /* Full menu logo */
+.elementor-element-03cf286, /* Full menu RSVP */
+.elementor-element-1a659ab { /* Full menu RSVP button */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Disable pointer events when these elements are hidden/scrolled */
+.elementor-element-9c402bf[style*="transform: translateY(-"],
+.elementor-element-9c402bf[style*="opacity: 0"],
+.elementor-element-2df9abe[style*="transform: translateY(-"],
+.elementor-element-2df9abe[style*="opacity: 0"],
+.elementor-element-d816994[style*="transform: translateY(-"],
+.elementor-element-d816994[style*="opacity: 0"],
+.elementor-element-5133fca[style*="transform: translateY(-"],
+.elementor-element-5133fca[style*="opacity: 0"],
+.elementor-element-ea80152[style*="transform: translateY(-"],
+.elementor-element-ea80152[style*="opacity: 0"],
+.elementor-element-ab4359f[style*="transform: translateY(-"],
+.elementor-element-ab4359f[style*="opacity: 0"],
+.elementor-element-74166a6[style*="transform: translateY(-"],
+.elementor-element-74166a6[style*="opacity: 0"],
+.elementor-element-03cf286[style*="transform: translateY(-"],
+.elementor-element-03cf286[style*="opacity: 0"],
+.elementor-element-1a659ab[style*="transform: translateY(-"],
+.elementor-element-1a659ab[style*="opacity: 0"] {
+    pointer-events: none !important;
+}
+
+/* Also disable child links and buttons */
+.elementor-element-9c402bf[style*="transform: translateY(-"] a,
+.elementor-element-9c402bf[style*="opacity: 0"] a,
+.elementor-element-2df9abe[style*="transform: translateY(-"] a,
+.elementor-element-2df9abe[style*="opacity: 0"] a,
+.elementor-element-d816994[style*="transform: translateY(-"] a,
+.elementor-element-d816994[style*="opacity: 0"] a,
+.elementor-element-5133fca[style*="transform: translateY(-"] a,
+.elementor-element-5133fca[style*="opacity: 0"] a,
+.elementor-element-ea80152[style*="transform: translateY(-"] a,
+.elementor-element-ea80152[style*="opacity: 0"] a,
+.elementor-element-ab4359f[style*="transform: translateY(-"] a,
+.elementor-element-ab4359f[style*="opacity: 0"] a {
+    pointer-events: none !important;
+    z-index: -9999 !important;
+    visibility: hidden !important;
+}
+
+/* Targeted header blocking prevention */
+.elementor-element-36eaf0d[style*="opacity: 0"],
+.elementor-element-36eaf0d[style*="transform: translateY(-"] {
+    pointer-events: none !important;
+}
+
+/* Also fix for when the full menu is closed */
+.elementor-148:not(.elementor-motion-effects-element-type-background) {
+    pointer-events: none;
+}
+
+.elementor-148.elementor-active,
+.elementor-148[style*="display: block"] {
+    pointer-events: auto;
+}
+
+/* Ensure cart modal is always clickable */
+.cart-modal,
+.cart-modal *,
+.cart-modal-content,
+.cart-modal-content *,
+.cart-header,
+.cart-header *,
+.cart-items,
+.cart-items *,
+.cart-footer,
+.cart-footer *,
+.cart-close,
+.quantity-btn,
+.remove-item {
+    pointer-events: auto !important;
+    z-index: 999999 !important;
+}

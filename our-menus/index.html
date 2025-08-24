@@ -32,7 +32,7 @@
         <link data-minify="1" rel='stylesheet' id='jquery-ui-css' href='../wp-content/cache/min/3/asian/wp-content/themes/grandrestaurant/css/jqueryui/custom36d2.css?ver=1741843632' type='text/css' media='all' />
         <link rel='stylesheet' id='mediaelement-css' href='../wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css' type='text/css' media='all' />
         <link data-minify="1" rel='stylesheet' id='flexslider-css' href='../wp-content/cache/min/3/asian/wp-content/themes/grandrestaurant/js/flexslider/flexslider36d2.css?ver=1741843632' type='text/css' media='all' />
-        <link data-minify="1" rel='stylesheet' id='tooltipster-css' href='../wp-content/cache/min/3/asian/wp-content/themes/grandrestaurant/css/tooltipster36d2.css?ver=1741843632' type='text/css' media='all' />
+
         <link data-minify="1" rel='stylesheet' id='odometer-theme-css' href='../wp-content/cache/min/3/asian/wp-content/themes/grandrestaurant/css/odometer-theme-minimal36d2.css?ver=1741843632' type='text/css' media='all' />
         <link data-minify="1" rel='stylesheet' id='hw-parallax-css' href='../wp-content/cache/min/3/asian/wp-content/themes/grandrestaurant/css/hw-parallax36d2.css?ver=1741843632' type='text/css' media='all' />
         <link data-minify="1" rel='stylesheet' id='screen-css' href='../wp-content/cache/min/3/asian/wp-content/themes/grandrestaurant/css/screen36d2.css?ver=1741843632' type='text/css' media='all' />
@@ -45,6 +45,9 @@
         <link rel='stylesheet' id='elementor-frontend-css' href='../wp-content/plugins/elementor/assets/css/frontend-lite.min.css' type='text/css' media='all' />
         <link data-minify="1" rel='stylesheet' id='swiper-css' href='../wp-content/cache/min/3/asian/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min36d2.css?ver=1741843632' type='text/css' media='all' />
         <link rel='stylesheet' id='elementor-post-5-css' href='../wp-content/uploads/sites/3/elementor/css/post-5.css' type='text/css' media='all' />
+
+        <!-- Cart System CSS -->
+        <link rel='stylesheet' href='../cart-system.css' type='text/css' media='all' />
 
         <!-- Plugin Stylesheets -->
         <link data-minify="1" rel='stylesheet' id='animatedheadline-css' href='../wp-content/cache/min/3/asian/wp-content/plugins/grandrestaurant-elementor/assets/css/animatedheadline36d2.css?ver=1741843632' type='text/css' media='all' />
@@ -546,177 +549,131 @@
                                 <div class="food-menu-container">
                                     <div class="food-menu-content-wrapper food-menu">
                                         <!-- BBQ Ribs Menu Item -->
-                                        <div class="food-menu-grid-wrapper food-tooltip food-menu-1" data-tooltip-content="#tooltip-content-56d6df6-1">
-
-                                            <!-- Nutrition Tooltip -->
-                                            <div class="tooltip_templates">
-                                                <div id="tooltip-content-56d6df6-1" class="food-menu-tooltip-content">
-                                                    <h5>Menu Information</h5>
-                                                    <div class="food-menu-tooltip-templates-content">
-                                                        <ul>
-                                                            <li><strong>Calories</strong> 480</li>
-                                                            <li><strong>Total Fat</strong> 20g</li>
-                                                            <li><strong>Cholesterol</strong> 60mg</li>
-                                                            <li><strong>Sodium</strong> 220 mg</li>
-                                                            <li><strong>Total Carbohydrates</strong> 71g</li>
-                                                            <li><strong>Protein</strong> 5g</li>
-                                                        </ul>
-                                                        * 2,000 calories a day is used for general nutrition advice, but calorie needs vary.
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="food-menu-grid-wrapper food-menu-1">
 
                                             <!-- Menu Item Content -->
                                             <div class="food-menu-content no-food-img">
-                                                <div class="food-menu-content-top-holder">
-                                                    <div class="food-menu-content-title-holder">
-                                                        <h3 class="food-menu-title">
-                                                            BBQ Ribs
-                                                        </h3>
-                                                    </div>
-
-                                                    <div class="food-menu-content-title-line"></div>
-
-                                                    <div class="food-menu-content-price-holder">
-                                                        <span class="food-menu-content-price-normal">
-                                                            €26.0
-                                                        </span>
+                                                <div class="menu-item-header">
+                                                    <h3 class="food-menu-title">Veg Steam Momos</h3>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('veg-steam-momos', 'Veg Steam Momos', 120, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('veg-steam-momos', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('veg-steam-momos', this)">+</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-
+                                                <div class="price-add-container">
+                                                    <div class="food-menu-price">₹120.0</div>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('veg-steam-momos', 'Veg Steam Momos', 120, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('veg-steam-momos', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('veg-steam-momos', this)">+</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="food-menu-desc">
-                                                    1/2 rack of house smoked ribs brushed with zesty BBQ sauce. Served with kaleslaw, french fries, &amp; corn bread muffin served with a side of honey cinnamon butter
+                                                    Steamed dumplings filled with fresh vegetables and aromatic spices, served with spicy chutney
                                                 </div>
                                             </div>
                                         </div>
 
                                         <!-- Grilled Salmon Menu Item -->
-                                        <div class="food-menu-grid-wrapper food-tooltip food-menu-2" data-tooltip-content="#tooltip-content-56d6df6-2">
-
-                                            <!-- Nutrition Tooltip -->
-                                            <div class="tooltip_templates">
-                                                <div id="tooltip-content-56d6df6-2" class="food-menu-tooltip-content">
-                                                    <h5>Menu Information</h5>
-                                                    <div class="food-menu-tooltip-templates-content">
-                                                        <ul>
-                                                            <li><strong>Calories</strong> 480</li>
-                                                            <li><strong>Total Fat</strong> 20g</li>
-                                                            <li><strong>Cholesterol</strong> 60mg</li>
-                                                            <li><strong>Sodium</strong> 220 mg</li>
-                                                            <li><strong>Total Carbohydrates</strong> 71g</li>
-                                                            <li><strong>Protein</strong> 5g</li>
-                                                        </ul>
-                                                        * 2,000 calories a day is used for general nutrition advice, but calorie needs vary.
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="food-menu-grid-wrapper food-menu-2">
 
                                             <!-- Menu Item Content -->
                                             <div class="food-menu-content no-food-img">
-                                                <div class="food-menu-content-top-holder">
-                                                    <div class="food-menu-content-title-holder">
-                                                        <h3 class="food-menu-title">
-                                                            Grilled Salmon
-                                                        </h3>
-                                                    </div>
-
-                                                    <div class="food-menu-content-title-line"></div>
-
-                                                    <div class="food-menu-content-price-holder">
-                                                        <span class="food-menu-content-price-normal">
-                                                            $28.0
-                                                        </span>
+                                                <div class="menu-item-header">
+                                                    <h3 class="food-menu-title">Margherita Pizza</h3>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('margherita-pizza', 'Margherita Pizza', 280, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('margherita-pizza', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('margherita-pizza', this)">+</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-
+                                                <div class="price-add-container">
+                                                    <div class="food-menu-price">₹280.0</div>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('margherita-pizza', 'Margherita Pizza', 280, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('margherita-pizza', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('margherita-pizza', this)">+</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="food-menu-desc">
-                                                    Eco-friendlygrilledNorwegiansalmon,wildrice, roasted butternut squash &amp; brussel sprouts. Topped with garlic-rosemary lemon butter
+                                                    Classic Italian pizza with fresh mozzarella, tomato sauce, and basil leaves
                                                 </div>
                                             </div>
                                         </div>
 
                                         <!-- Cavatappi Pasta Menu Item -->
-                                        <div class="food-menu-grid-wrapper food-tooltip food-menu-3" data-tooltip-content="#tooltip-content-56d6df6-3">
-
-                                            <!-- Nutrition Tooltip -->
-                                            <div class="tooltip_templates">
-                                                <div id="tooltip-content-56d6df6-3" class="food-menu-tooltip-content">
-                                                    <h5>Menu Information</h5>
-                                                    <div class="food-menu-tooltip-templates-content">
-                                                        <ul>
-                                                            <li><strong>Calories</strong> 480</li>
-                                                            <li><strong>Total Fat</strong> 20g</li>
-                                                            <li><strong>Cholesterol</strong> 60mg</li>
-                                                            <li><strong>Sodium</strong> 220 mg</li>
-                                                            <li><strong>Total Carbohydrates</strong> 71g</li>
-                                                            <li><strong>Protein</strong> 5g</li>
-                                                        </ul>
-                                                        * 2,000 calories a day is used for general nutrition advice, but calorie needs vary.
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="food-menu-grid-wrapper food-menu-3">
 
                                             <!-- Menu Item Content -->
                                             <div class="food-menu-content no-food-img">
-                                                <div class="food-menu-content-top-holder">
-                                                    <div class="food-menu-content-title-holder">
-                                                        <h3 class="food-menu-title">
-                                                            Cavatappi Pasta
-                                                        </h3>
-                                                    </div>
-
-                                                    <div class="food-menu-content-title-line"></div>
-
-                                                    <div class="food-menu-content-price-holder">
-                                                        <span class="food-menu-content-price-normal">
-                                                            $18.0
-                                                        </span>
+                                                <div class="menu-item-header">
+                                                    <h3 class="food-menu-title">Paneer Tikka</h3>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('paneer-tikka', 'Paneer Tikka', 240, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('paneer-tikka', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('paneer-tikka', this)">+</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-
-                                                <div class="food-menu-desc">Butternut squash, brussels sprouts, parmesan, &amp; white wine cream sauce</div>
+                                                <div class="price-add-container">
+                                                    <div class="food-menu-price">₹240.0</div>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('paneer-tikka', 'Paneer Tikka', 240, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('paneer-tikka', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('paneer-tikka', this)">+</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="food-menu-desc">Grilled cottage cheese marinated in aromatic spices and yogurt, served with mint chutney</div>
                                             </div>
                                         </div>
-                                        <div class="food-menu-grid-wrapper food-tooltip food-menu-4 food-menu-highlight" data-tooltip-content="#tooltip-content-56d6df6-4">
-                                            <div class="tooltip_templates">
-                                                <div id="tooltip-content-56d6df6-4" class="food-menu-tooltip-content">
-                                                    <h5>Menu Information</h5>
-                                                    <div class="food-menu-tooltip-templates-content">
-                                                        <ul>
-                                                            <li><strong>Calories</strong> 480</li>
-                                                            <li><strong>Total Fat</strong> 20g</li>
-                                                            <li><strong>Cholesterol</strong> 60mg</li>
-                                                            <li><strong>Sodium</strong> 220 mg</li>
-                                                            <li><strong>Total Carbohydrates</strong> 71g</li>
-                                                            <li><strong>Protein</strong> 5g</li>
-                                                        </ul>
-                                                        * 2,000 calories a day is used for general nutrition advice, but calorie needs vary.
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="food-menu-grid-wrapper food-menu-4 food-menu-highlight">
 
                                             <div class="food-menu-content-highlight-holder">
                                                 <h4>Original Taste</h4>
                                             </div>
 
                                             <div class="food-menu-content no-food-img menu-highlight">
-                                                <div class="food-menu-content-top-holder">
-                                                    <div class="food-menu-content-title-holder">
-                                                        <h3 class="food-menu-title">
-                                                            Summertime Pesto Pasta
-                                                        </h3>
-                                                    </div>
-
-                                                    <div class="food-menu-content-title-line"></div>
-
-                                                    <div class="food-menu-content-price-holder">
-                                                        <span class="food-menu-content-price-normal">
-                                                            $21.0
-                                                        </span>
+                                                <div class="menu-item-header">
+                                                    <h3 class="food-menu-title">Loaded Vegan Fries</h3>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('loaded-vegan-fries', 'Loaded Vegan Fries', 180, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('loaded-vegan-fries', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('loaded-vegan-fries', this)">+</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-
-                                                <div class="food-menu-desc">Fettuccine, nut-free pesto, shaved parm, cherry tomatoes + summer vegetables</div>
+                                                <div class="price-add-container">
+                                                    <div class="food-menu-price">₹180.0</div>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('loaded-vegan-fries', 'Loaded Vegan Fries', 180, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('loaded-vegan-fries', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('loaded-vegan-fries', this)">+</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="food-menu-desc">Crispy fries topped with vegan cheese, jalapeños, and fresh herbs</div>
                                             </div>
                         </div>
                     </div>
@@ -736,43 +693,55 @@
                     <div class="food-menu-content-wrapper food-menu">
                         <div class="food-menu-grid-wrapper food-tooltip food-menu-1">
                             <div class="food-menu-content no-food-img">
-                                <div class="food-menu-content-top-holder">
-                                    <div class="food-menu-content-title-holder">
-                                        <h3 class="food-menu-title">
-                                            The Vintage
-                                        </h3>
-                                    </div>
-
-                                    <div class="food-menu-content-title-line"></div>
-
-                                    <div class="food-menu-content-price-holder">
-                                        <span class="food-menu-content-price-normal">
-                                            $12.0
-                                        </span>
+                                <div class="menu-item-header">
+                                    <h3 class="food-menu-title">The Vintage</h3>
+                                    <div class="add-to-cart-controls">
+                                        <button class="add-btn" onclick="addToCart('the-vintage', 'The Vintage', 12, this)">Add</button>
+                                        <div class="quantity-controls" style="display: none;">
+                                            <button class="quantity-btn minus" onclick="decreaseQuantity('the-vintage', this)">-</button>
+                                            <span class="quantity">1</span>
+                                            <button class="quantity-btn plus" onclick="increaseQuantity('the-vintage', this)">+</button>
+                                        </div>
                                     </div>
                                 </div>
-
+                                <div class="price-add-container">
+                                    <div class="food-menu-price">$12.0</div>
+                                    <div class="add-to-cart-controls">
+                                        <button class="add-btn" onclick="addToCart('the-vintage', 'The Vintage', 12, this)">Add</button>
+                                        <div class="quantity-controls" style="display: none;">
+                                            <button class="quantity-btn minus" onclick="decreaseQuantity('the-vintage', this)">-</button>
+                                            <span class="quantity">1</span>
+                                            <button class="quantity-btn plus" onclick="increaseQuantity('the-vintage', this)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="food-menu-desc">Four Roses, brown sugar simple, fresh squeezed orange juice, &amp; barrel aged whiskey bitters stirred to perfection.</div>
                             </div>
                         </div>
                         <div class="food-menu-grid-wrapper food-tooltip food-menu-2">
                             <div class="food-menu-content no-food-img">
-                                <div class="food-menu-content-top-holder">
-                                    <div class="food-menu-content-title-holder">
-                                        <h3 class="food-menu-title">
-                                            When Life Gives You Lemons
-                                        </h3>
-                                    </div>
-
-                                    <div class="food-menu-content-title-line"></div>
-
-                                    <div class="food-menu-content-price-holder">
-                                        <span class="food-menu-content-price-normal">
-                                            $10.0
-                                        </span>
+                                <div class="menu-item-header">
+                                    <h3 class="food-menu-title">When Life Gives You Lemons</h3>
+                                    <div class="add-to-cart-controls">
+                                        <button class="add-btn" onclick="addToCart('when-life-gives-you-lemons', 'When Life Gives You Lemons', 10, this)">Add</button>
+                                        <div class="quantity-controls" style="display: none;">
+                                            <button class="quantity-btn minus" onclick="decreaseQuantity('when-life-gives-you-lemons', this)">-</button>
+                                            <span class="quantity">1</span>
+                                            <button class="quantity-btn plus" onclick="increaseQuantity('when-life-gives-you-lemons', this)">+</button>
+                                        </div>
                                     </div>
                                 </div>
-
+                                <div class="price-add-container">
+                                    <div class="food-menu-price">$10.0</div>
+                                    <div class="add-to-cart-controls">
+                                        <button class="add-btn" onclick="addToCart('when-life-gives-you-lemons', 'When Life Gives You Lemons', 10, this)">Add</button>
+                                        <div class="quantity-controls" style="display: none;">
+                                            <button class="quantity-btn minus" onclick="decreaseQuantity('when-life-gives-you-lemons', this)">-</button>
+                                            <span class="quantity">1</span>
+                                            <button class="quantity-btn plus" onclick="increaseQuantity('when-life-gives-you-lemons', this)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="food-menu-desc">House-infused cucumber vodka, fresh lemon, simple, &amp; garnished with a cucumber</div>
                             </div>
                         </div>
@@ -780,22 +749,28 @@
                                         <div class="food-menu-grid-wrapper food-tooltip food-menu-3">
                                             <!-- Menu Item Content -->
                                             <div class="food-menu-content no-food-img">
-                                                <div class="food-menu-content-top-holder">
-                                                    <div class="food-menu-content-title-holder">
-                                                        <h3 class="food-menu-title">
-                                                            Jesse Gemstone
-                                                        </h3>
-                                                    </div>
-
-                                                    <div class="food-menu-content-title-line"></div>
-
-                                                    <div class="food-menu-content-price-holder">
-                                                        <span class="food-menu-content-price-normal">
-                                                            $10.0
-                                                        </span>
+                                                <div class="menu-item-header">
+                                                    <h3 class="food-menu-title">Jesse Gemstone</h3>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('jesse-gemstone', 'Jesse Gemstone', 10, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('jesse-gemstone', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('jesse-gemstone', this)">+</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-
+                                                <div class="price-add-container">
+                                                    <div class="food-menu-price">$10.0</div>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('jesse-gemstone', 'Jesse Gemstone', 10, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('jesse-gemstone', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('jesse-gemstone', this)">+</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="food-menu-desc">
                                                     Your choice of gin or vodka, St. Germaine, lemon simple syrup, muddled strawberries &amp; topped with soda
                                                 </div>
@@ -805,22 +780,28 @@
                                         <div class="food-menu-grid-wrapper food-tooltip food-menu-4">
                                             <!-- Menu Item Content -->
                                             <div class="food-menu-content no-food-img">
-                                                <div class="food-menu-content-top-holder">
-                                                    <div class="food-menu-content-title-holder">
-                                                        <h3 class="food-menu-title">
-                                                            Bebida Margarita
-                                                        </h3>
-                                                    </div>
-
-                                                    <div class="food-menu-content-title-line"></div>
-
-                                                    <div class="food-menu-content-price-holder">
-                                                        <span class="food-menu-content-price-normal">
-                                                            $12.0
-                                                        </span>
+                                                <div class="menu-item-header">
+                                                    <h3 class="food-menu-title">Bebida Margarita</h3>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('bebida-margarita', 'Bebida Margarita', 12, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('bebida-margarita', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('bebida-margarita', this)">+</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-
+                                                <div class="price-add-container">
+                                                    <div class="food-menu-price">$12.0</div>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('bebida-margarita', 'Bebida Margarita', 12, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('bebida-margarita', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('bebida-margarita', this)">+</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="food-menu-desc">
                                                     House-infused pineapple &amp; jalapeno tequila, house made sour, &amp; orange liqueur served on the rocks with salt &amp; sugar rim.
                                                 </div>
@@ -876,106 +857,136 @@
                                     <div class="food-menu-content-wrapper food-menu">
                                         <div class="food-menu-grid-wrapper food-tooltip food-menu-1">
                                             <div class="food-menu-content no-food-img">
-                                                <div class="food-menu-content-top-holder">
-                                                    <div class="food-menu-content-title-holder">
-                                                        <h3 class="food-menu-title">
-                                                            Punto Final Malbec
-                                                        </h3>
-                                                    </div>
-
-                                                    <div class="food-menu-content-title-line"></div>
-
-                                                    <div class="food-menu-content-price-holder">
-                                                        <span class="food-menu-content-price-normal">
-                                                            $32.0
-                                                        </span>
+                                                <div class="menu-item-header">
+                                                    <h3 class="food-menu-title">Punto Final Malbec</h3>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('punto-final-malbec', 'Punto Final Malbec', 32, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('punto-final-malbec', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('punto-final-malbec', this)">+</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-
+                                                <div class="price-add-container">
+                                                    <div class="food-menu-price">$32.0</div>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('punto-final-malbec', 'Punto Final Malbec', 32, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('punto-final-malbec', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('punto-final-malbec', this)">+</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="food-menu-desc">Mendoza, Argentina - Flavors of dark currants &amp; juicy plums</div>
                                             </div>
                                         </div>
                                         <div class="food-menu-grid-wrapper food-tooltip food-menu-2">
                                             <div class="food-menu-content no-food-img">
-                                                <div class="food-menu-content-top-holder">
-                                                    <div class="food-menu-content-title-holder">
-                                                        <h3 class="food-menu-title">
-                                                            Piquitos Moscato
-                                                        </h3>
-                                                    </div>
-
-                                                    <div class="food-menu-content-title-line"></div>
-
-                                                    <div class="food-menu-content-price-holder">
-                                                        <span class="food-menu-content-price-normal">
-                                                            $32.0
-                                                        </span>
+                                                <div class="menu-item-header">
+                                                    <h3 class="food-menu-title">Piquitos Moscato</h3>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('piquitos-moscato', 'Piquitos Moscato', 32, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('piquitos-moscato', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('piquitos-moscato', this)">+</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-
+                                                <div class="price-add-container">
+                                                    <div class="food-menu-price">$32.0</div>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('piquitos-moscato', 'Piquitos Moscato', 32, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('piquitos-moscato', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('piquitos-moscato', this)">+</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="food-menu-desc">Valencia, Spain - Honeysuckle, mandarin peel, sweet orange blossom</div>
                                             </div>
                                         </div>
                                         <div class="food-menu-grid-wrapper food-tooltip food-menu-3">
                                             <div class="food-menu-content no-food-img">
-                                                <div class="food-menu-content-top-holder">
-                                                    <div class="food-menu-content-title-holder">
-                                        <h3 class="food-menu-title">
-                                            Sonoma-Cutrer Chardonnay
-                                        </h3>
-                                    </div>
-
-                                    <div class="food-menu-content-title-line"></div>
-
-                                    <div class="food-menu-content-price-holder">
-                                        <span class="food-menu-content-price-normal">
-                                            $48.0
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class="food-menu-desc">Sonoma, California - Roasted nuts, oak spice &amp; citrus blossom</div>
-                            </div>
+                                                <div class="menu-item-header">
+                                                    <h3 class="food-menu-title">Sonoma-Cutrer Chardonnay</h3>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('sonoma-cutrer-chardonnay', 'Sonoma-Cutrer Chardonnay', 48, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('sonoma-cutrer-chardonnay', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('sonoma-cutrer-chardonnay', this)">+</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="price-add-container">
+                                                    <div class="food-menu-price">$48.0</div>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('sonoma-cutrer-chardonnay', 'Sonoma-Cutrer Chardonnay', 48, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('sonoma-cutrer-chardonnay', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('sonoma-cutrer-chardonnay', this)">+</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="food-menu-desc">Sonoma, California - Roasted nuts, oak spice &amp; citrus blossom</div>
+                                            </div>
                         </div>
                         <div class="food-menu-grid-wrapper food-tooltip food-menu-4">
                             <div class="food-menu-content no-food-img">
-                                <div class="food-menu-content-top-holder">
-                                    <div class="food-menu-content-title-holder">
-                                        <h3 class="food-menu-title">
-                                            Justin Cabernet
-                                        </h3>
-                                    </div>
-
-                                    <div class="food-menu-content-title-line"></div>
-
-                                    <div class="food-menu-content-price-holder">
-                                        <span class="food-menu-content-price-normal">
-                                            $54.0
-                                        </span>
+                                <div class="menu-item-header">
+                                    <h3 class="food-menu-title">Justin Cabernet</h3>
+                                    <div class="add-to-cart-controls">
+                                        <button class="add-btn" onclick="addToCart('justin-cabernet', 'Justin Cabernet', 54, this)">Add</button>
+                                        <div class="quantity-controls" style="display: none;">
+                                            <button class="quantity-btn minus" onclick="decreaseQuantity('justin-cabernet', this)">-</button>
+                                            <span class="quantity">1</span>
+                                            <button class="quantity-btn plus" onclick="increaseQuantity('justin-cabernet', this)">+</button>
+                                        </div>
                                     </div>
                                 </div>
-
+                                <div class="price-add-container">
+                                    <div class="food-menu-price">$54.0</div>
+                                    <div class="add-to-cart-controls">
+                                        <button class="add-btn" onclick="addToCart('justin-cabernet', 'Justin Cabernet', 54, this)">Add</button>
+                                        <div class="quantity-controls" style="display: none;">
+                                            <button class="quantity-btn minus" onclick="decreaseQuantity('justin-cabernet', this)">-</button>
+                                            <span class="quantity">1</span>
+                                            <button class="quantity-btn plus" onclick="increaseQuantity('justin-cabernet', this)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="food-menu-desc">Paso Robles, California - Dry ripe blackcurrant, cherry, vanilla spice &amp; red fruit</div>
                             </div>
                         </div>
                         <div class="food-menu-grid-wrapper food-tooltip food-menu-5">
                             <div class="food-menu-content no-food-img">
-                                <div class="food-menu-content-top-holder">
-                                    <div class="food-menu-content-title-holder">
-                                        <h3 class="food-menu-title">
-                                            Terrazas Malbec-Mendoza
-                                        </h3>
-                                    </div>
-
-                                    <div class="food-menu-content-title-line"></div>
-
-                                    <div class="food-menu-content-price-holder">
-                                        <span class="food-menu-content-price-normal">
-                                            $36.0
-                                        </span>
+                                <div class="menu-item-header">
+                                    <h3 class="food-menu-title">Terrazas Malbec-Mendoza</h3>
+                                    <div class="add-to-cart-controls">
+                                        <button class="add-btn" onclick="addToCart('terrazas-malbec-mendoza', 'Terrazas Malbec-Mendoza', 36, this)">Add</button>
+                                        <div class="quantity-controls" style="display: none;">
+                                            <button class="quantity-btn minus" onclick="decreaseQuantity('terrazas-malbec-mendoza', this)">-</button>
+                                            <span class="quantity">1</span>
+                                            <button class="quantity-btn plus" onclick="increaseQuantity('terrazas-malbec-mendoza', this)">+</button>
+                                        </div>
                                     </div>
                                 </div>
-
+                                <div class="price-add-container">
+                                    <div class="food-menu-price">$36.0</div>
+                                    <div class="add-to-cart-controls">
+                                        <button class="add-btn" onclick="addToCart('terrazas-malbec-mendoza', 'Terrazas Malbec-Mendoza', 36, this)">Add</button>
+                                        <div class="quantity-controls" style="display: none;">
+                                            <button class="quantity-btn minus" onclick="decreaseQuantity('terrazas-malbec-mendoza', this)">-</button>
+                                            <span class="quantity">1</span>
+                                            <button class="quantity-btn plus" onclick="increaseQuantity('terrazas-malbec-mendoza', this)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="food-menu-desc">Notes of cherries &amp; forest berries</div>
                             </div>
                         </div>
@@ -994,61 +1005,35 @@
                             <div class="elementor-widget-container">
                                 <div class="food-menu-container">
                                     <div class="food-menu-content-wrapper food-menu">
-                                        <div class="food-menu-grid-wrapper food-tooltip food-menu-1" data-tooltip-content="#tooltip-content-5599ce1-1">
-                                            <div class="tooltip_templates">
-                                                <div id="tooltip-content-5599ce1-1" class="food-menu-tooltip-content">
-                                                    <h5>Menu Information</h5>
-                                                    <div class="food-menu-tooltip-templates-content">
-                                                        <ul>
-                                                            <li><strong>Calories</strong> 480</li>
-                                                            <li><strong>Total Fat</strong> 20g</li>
-                                                            <li><strong>Cholesterol</strong> 60mg</li>
-                                                            <li><strong>Sodium</strong> 220 mg</li>
-                                                            <li><strong>Total Carbohydrates</strong> 71g</li>
-                                                            <li><strong>Protein</strong> 5g</li>
-                                                        </ul>
-                                                        * 2,000 calories a day is used for general nutrition advice, but calorie needs vary.
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="food-menu-grid-wrapper food-menu-1">
 
                                             <div class="food-menu-content no-food-img">
-                                                <div class="food-menu-content-top-holder">
-                                                    <div class="food-menu-content-title-holder">
-                                                        <h3 class="food-menu-title">
-                                                            House Smoked Wings
-                                                        </h3>
-                                                    </div>
-
-                                                    <div class="food-menu-content-title-line"></div>
-
-                                                    <div class="food-menu-content-price-holder">
-                                                        <span class="food-menu-content-price-normal">
-                                                            $12.0
-                                                        </span>
+                                                <div class="menu-item-header">
+                                                    <h3 class="food-menu-title">Paneer Butter Masala</h3>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('paneer-butter-masala', 'Paneer Butter Masala', 260, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('paneer-butter-masala', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('paneer-butter-masala', this)">+</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-
-                                                <div class="food-menu-desc">6 house smoked wings tossed in house hickory dry rub. Served with celery &amp; bleu cheese or ranch</div>
+                                                <div class="price-add-container">
+                                                    <div class="food-menu-price">₹260.0</div>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('paneer-butter-masala', 'Paneer Butter Masala', 260, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('paneer-butter-masala', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('paneer-butter-masala', this)">+</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="food-menu-desc">Rich and creamy cottage cheese curry in tomato-based gravy with aromatic spices</div>
                                             </div>
                                         </div>
-                                        <div class="food-menu-grid-wrapper food-tooltip food-menu-2 food-menu-highlight" data-tooltip-content="#tooltip-content-5599ce1-2">
-                                            <div class="tooltip_templates">
-                                                <div id="tooltip-content-5599ce1-2" class="food-menu-tooltip-content">
-                                                    <h5>Menu Information</h5>
-                                                    <div class="food-menu-tooltip-templates-content">
-                                                        <ul>
-                                                            <li><strong>Calories</strong> 480</li>
-                                                            <li><strong>Total Fat</strong> 20g</li>
-                                                            <li><strong>Cholesterol</strong> 60mg</li>
-                                                            <li><strong>Sodium</strong> 220 mg</li>
-                                                            <li><strong>Total Carbohydrates</strong> 71g</li>
-                                                            <li><strong>Protein</strong> 5g</li>
-                                                        </ul>
-                                                        * 2,000 calories a day is used for general nutrition advice, but calorie needs vary.
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="food-menu-grid-wrapper food-menu-2 food-menu-highlight">
 
                                             <div class="food-menu-content-highlight-holder">
                                                 <h4>Chef Recommend</h4>
@@ -1056,100 +1041,86 @@
 
                                             <!-- Sweet Potato Fries (Chef Recommended) -->
                                             <div class="food-menu-content no-food-img menu-highlight">
-                                                <div class="food-menu-content-top-holder">
-                                                    <div class="food-menu-content-title-holder">
-                                                        <h3 class="food-menu-title">
-                                                            Sweet Potato Fries
-                                                        </h3>
-                                                    </div>
-
-                                                    <div class="food-menu-content-title-line"></div>
-
-                                                    <div class="food-menu-content-price-holder">
-                                                        <span class="food-menu-content-price-normal">
-                                                            $8.0
-                                                        </span>
+                                                <div class="menu-item-header">
+                                                    <h3 class="food-menu-title">Sweet Potato Fries</h3>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('sweet-potato-fries', 'Sweet Potato Fries', 8, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('sweet-potato-fries', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('sweet-potato-fries', this)">+</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-
+                                                <div class="price-add-container">
+                                                    <div class="food-menu-price">$8.0</div>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('sweet-potato-fries', 'Sweet Potato Fries', 8, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('sweet-potato-fries', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('sweet-potato-fries', this)">+</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="food-menu-desc">
                                                     Sweet Potato Fries dusted with rosemary salt &amp; served with smoked honey
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="food-menu-grid-wrapper food-tooltip food-menu-3" data-tooltip-content="#tooltip-content-5599ce1-3">
-                                            <div class="tooltip_templates">
-                                                <div id="tooltip-content-5599ce1-3" class="food-menu-tooltip-content">
-                                                    <h5>Menu Information</h5>
-                                                    <div class="food-menu-tooltip-templates-content">
-                                                        <ul>
-                                                            <li><strong>Calories</strong> 480</li>
-                                                            <li><strong>Total Fat</strong> 20g</li>
-                                                            <li><strong>Cholesterol</strong> 60mg</li>
-                                                            <li><strong>Sodium</strong> 220 mg</li>
-                                                            <li><strong>Total Carbohydrates</strong> 71g</li>
-                                                            <li><strong>Protein</strong> 5g</li>
-                                                        </ul>
-                                                        * 2,000 calories a day is used for general nutrition advice, but calorie needs vary.
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="food-menu-grid-wrapper food-menu-3">
 
                                             <div class="food-menu-content no-food-img">
-                                                <div class="food-menu-content-top-holder">
-                                                    <div class="food-menu-content-title-holder">
-                                                        <h3 class="food-menu-title">
-                                                            Crispy Brussel Sprouts
-                                                        </h3>
-                                                    </div>
-
-                                                    <div class="food-menu-content-title-line"></div>
-
-                                                    <div class="food-menu-content-price-holder">
-                                                        <span class="food-menu-content-price-normal">
-                                                            $10.0
-                                                        </span>
+                                                <div class="menu-item-header">
+                                                    <h3 class="food-menu-title">Vegan Buddha Bowl</h3>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('vegan-buddha-bowl', 'Vegan Buddha Bowl', 220, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('vegan-buddha-bowl', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('vegan-buddha-bowl', this)">+</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-
-                                                <div class="food-menu-desc">Crispy fried brussel sprouts topped with crispy bacon lardons, feta cheese, balsamic reduction &amp; green onions</div>
+                                                <div class="price-add-container">
+                                                    <div class="food-menu-price">₹220.0</div>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('vegan-buddha-bowl', 'Vegan Buddha Bowl', 220, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('vegan-buddha-bowl', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('vegan-buddha-bowl', this)">+</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="food-menu-desc">Nutritious bowl with quinoa, roasted vegetables, avocado, and tahini dressing</div>
                                             </div>
                                         </div>
-                                        <div class="food-menu-grid-wrapper food-tooltip food-menu-4" data-tooltip-content="#tooltip-content-5599ce1-4">
-                                            <div class="tooltip_templates">
-                                                <div id="tooltip-content-5599ce1-4" class="food-menu-tooltip-content">
-                                                    <h5>Menu Information</h5>
-                                                    <div class="food-menu-tooltip-templates-content">
-                                                        <ul>
-                                                            <li><strong>Calories</strong> 480</li>
-                                                            <li><strong>Total Fat</strong> 20g</li>
-                                                            <li><strong>Cholesterol</strong> 60mg</li>
-                                                            <li><strong>Sodium</strong> 220 mg</li>
-                                                            <li><strong>Total Carbohydrates</strong> 71g</li>
-                                                            <li><strong>Protein</strong> 5g</li>
-                                                        </ul>
-                                                        * 2,000 calories a day is used for general nutrition advice, but calorie needs vary.
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="food-menu-grid-wrapper food-menu-4">
 
                                             <div class="food-menu-content no-food-img">
-                                                <div class="food-menu-content-top-holder">
-                                                    <div class="food-menu-content-title-holder">
-                                                        <h3 class="food-menu-title">
-                                                            Sesame Seared Tuna
-                                                        </h3>
-                                                    </div>
-
-                                                    <div class="food-menu-content-title-line"></div>
-
-                                                    <div class="food-menu-content-price-holder">
-                                                        <span class="food-menu-content-price-normal">
-                                                            $22.0
-                                                        </span>
+                                                <div class="menu-item-header">
+                                                    <h3 class="food-menu-title">Sesame Seared Tuna</h3>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('sesame-seared-tuna', 'Sesame Seared Tuna', 22, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('sesame-seared-tuna', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('sesame-seared-tuna', this)">+</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-
+                                                <div class="price-add-container">
+                                                    <div class="food-menu-price">$22.0</div>
+                                                    <div class="add-to-cart-controls">
+                                                        <button class="add-btn" onclick="addToCart('sesame-seared-tuna', 'Sesame Seared Tuna', 22, this)">Add</button>
+                                                        <div class="quantity-controls" style="display: none;">
+                                                            <button class="quantity-btn minus" onclick="decreaseQuantity('sesame-seared-tuna', this)">-</button>
+                                                            <span class="quantity">1</span>
+                                                            <button class="quantity-btn plus" onclick="increaseQuantity('sesame-seared-tuna', this)">+</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="food-menu-desc">6oz tuna steak seared rare. Served atop a small Kale Slaw salad with fennel vinaigrette, pickled red onion</div>
                                             </div>
                                         </div>
@@ -1326,7 +1297,36 @@
 
 </div>
 
-<a id="toTop"><i class="fa fa-angle-up"></i></a>
+
+<!-- Shopping Cart System -->
+<div id="cart-icon" class="cart-icon" onclick="toggleCart()">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="cart-count" class="cart-count">0</span>
+</div>
+
+<!-- Cart Modal -->
+<div id="cart-modal" class="cart-modal">
+    <div class="cart-modal-content">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <span class="cart-close" onclick="toggleCart()">&times;</span>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <p class="empty-cart">Your cart is waiting for some delicious choices! 🌟<br>Browse our menu and add your favorites.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                Total: ₹<span id="cart-total">0</span>
+            </div>
+            <div id="cart-message" class="cart-message">
+                Pass your order to our staff and we'll get busy! 🍽️
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cart Animation Dot -->
+<div id="cart-animation-dot" class="cart-animation-dot"></div>
 <div id="overlay_background"></div>
 
 <div id="fullmenu-wrapper-148" class="fullmenu-wrapper">
@@ -1507,6 +1507,161 @@
     <script data-minify="1" type='text/javascript' src='../wp-content/cache/min/3/asian/wp-content/themes/grandrestaurant/js/customcb4c.js?ver=1741843633' id='custom.js-js'></script>
     <script data-minify="1" type='text/javascript' src='../wp-content/cache/min/3/asian/wp-content/themes/grandrestaurant/js/jquery.cookiecb4c.js?ver=1741843633' id='jquery-cookie-js'></script>
     <script data-minify="1" type='text/javascript' src='../wp-content/cache/min/3/asian/wp-content/themes/grandrestaurant/js/custom-democb4c.js?ver=1741843633' id='script-demo-js'></script>
+
+    <!-- Cart System JavaScript -->
+    <script src='../cart-system.js'></script>
+
+    <!-- Header Blocking Fix -->
+    <script>
+        // Fix header interactability when scrolled out of view
+        function initializeHeaderScrollFix() {
+            const headerElements = [
+                // Main header containers
+                document.querySelector('.elementor-element-cb73338'),
+                document.querySelector('.elementor-element-36eaf0d'),
+                document.querySelector('.elementor-148'),
+                document.querySelector('#elementor-header'), // THE MISSING CULPRIT!
+                document.querySelector('.main-menu-wrapper'), // Alternative selector
+                // Correct header elements (found the right IDs!)
+                document.querySelector('.elementor-element-9c402bf'), // Menu Button (hamburger)
+                document.querySelector('.elementor-element-2df9abe'), // Logo
+                document.querySelector('.elementor-element-d816994'), // RSVP Button
+                document.querySelector('.elementor-element-5133fca'), // Logo container
+                document.querySelector('.elementor-element-ea80152'), // RSVP container
+                document.querySelector('.elementor-element-ab4359f'), // Menu button container
+                // Full menu elements
+                document.querySelector('.elementor-element-74166a6'), // Full menu logo
+                document.querySelector('.elementor-element-03cf286'), // Full menu RSVP
+                document.querySelector('.elementor-element-1a659ab')  // Full menu RSVP button
+            ];
+
+            function checkHeaderVisibility() {
+                headerElements.forEach((header, index) => {
+                    if (!header) return;
+
+                    const rect = header.getBoundingClientRect();
+                    const style = window.getComputedStyle(header);
+
+                    // Check if header is scrolled out of view or hidden
+                    const isScrolledOut = rect.bottom < 0 || rect.top > window.innerHeight;
+                    const isHidden = style.opacity === '0' ||
+                                   style.visibility === 'hidden' ||
+                                   style.display === 'none' ||
+                                   style.transform.includes('translateY(-') ||
+                                   parseFloat(style.opacity) < 0.1; // Also catch very low opacity
+
+                    // More aggressive detection - check parent opacity too
+                    let parentElement = header.parentElement;
+                    let parentHidden = false;
+                    while (parentElement && parentElement !== document.body) {
+                        const parentStyle = window.getComputedStyle(parentElement);
+                        if (parseFloat(parentStyle.opacity) < 0.1 ||
+                            parentStyle.visibility === 'hidden' ||
+                            parentStyle.display === 'none' ||
+                            parentStyle.transform.includes('translateY(-')) {
+                            parentHidden = true;
+                            break;
+                        }
+                        parentElement = parentElement.parentElement;
+                    }
+
+                    if (isScrolledOut || isHidden || parentHidden) {
+                        header.style.pointerEvents = 'none';
+                        // Also disable child elements
+                        const clickableChildren = header.querySelectorAll('*');
+                        clickableChildren.forEach(child => {
+                            child.style.pointerEvents = 'none';
+                        });
+                    } else {
+                        header.style.pointerEvents = '';
+                        // Re-enable child elements
+                        const clickableChildren = header.querySelectorAll('*');
+                        clickableChildren.forEach(child => {
+                            child.style.pointerEvents = '';
+                        });
+                    }
+                });
+            }
+
+            // Check on scroll and resize
+            window.addEventListener('scroll', checkHeaderVisibility);
+            window.addEventListener('resize', checkHeaderVisibility);
+
+            // Initial check
+            checkHeaderVisibility();
+
+            // Also check periodically in case of dynamic changes
+            setInterval(checkHeaderVisibility, 500);
+
+            // Additional targeted fix for header blocking
+            function targetedHeaderFix() {
+                const scrollY = window.scrollY;
+
+                if (scrollY > 80) {
+                    // Find all elements that might be in the header area
+                    const allElements = document.querySelectorAll('*');
+
+                    allElements.forEach(element => {
+                        const elementRect = element.getBoundingClientRect();
+
+                        // Only target elements in the top 100px area
+                        if (elementRect.top < 100 && elementRect.bottom > -10) {
+                            const style = window.getComputedStyle(element);
+
+                            // Only target elements that are likely header-related
+                            if (style.position === 'fixed' ||
+                                style.position === 'sticky' ||
+                                element.closest('.elementor-element-36eaf0d') ||
+                                element.closest('#elementor-header') ||
+                                element.classList.contains('elementor-element-36eaf0d') ||
+                                element.classList.contains('elementor-element-897d875') ||
+                                element.classList.contains('elementor-element-9c402bf') ||
+                                element.classList.contains('elementor-element-2df9abe') ||
+                                element.classList.contains('elementor-element-d816994') ||
+                                element.classList.contains('elementor-element-5133fca') ||
+                                element.classList.contains('elementor-element-ea80152') ||
+                                element.id === 'elementor-header' ||
+                                element.classList.contains('main-menu-wrapper')) {
+
+                                element.style.pointerEvents = 'none';
+                            }
+                        }
+                    });
+                } else {
+                    // Re-enable elements when at top
+                    const elementsToRestore = document.querySelectorAll('[style*="pointer-events: none"]');
+                    elementsToRestore.forEach(element => {
+                        // Only restore header-related elements
+                        if (element.closest('.elementor-element-36eaf0d') ||
+                            element.closest('#elementor-header') ||
+                            element.classList.contains('elementor-element-36eaf0d') ||
+                            element.classList.contains('elementor-element-897d875') ||
+                            element.classList.contains('elementor-element-9c402bf') ||
+                            element.classList.contains('elementor-element-2df9abe') ||
+                            element.classList.contains('elementor-element-d816994') ||
+                            element.classList.contains('elementor-element-5133fca') ||
+                            element.classList.contains('elementor-element-ea80152') ||
+                            element.id === 'elementor-header' ||
+                            element.classList.contains('main-menu-wrapper')) {
+
+                            element.style.pointerEvents = '';
+                        }
+                    });
+                }
+            }
+
+            // Run targeted fix on scroll
+            window.addEventListener('scroll', targetedHeaderFix);
+            targetedHeaderFix(); // Run immediately
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeHeaderScrollFix);
+        } else {
+            initializeHeaderScrollFix();
+        }
+    </script>
 
     <!-- Elementor Scripts -->
     <script type='text/javascript' src='../wp-content/plugins/grandrestaurant-elementor/assets/js/tweenmax.min.js' id='tweenmax-js'></script>

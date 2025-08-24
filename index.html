@@ -540,6 +540,590 @@
             50% { transform: translateX(4px) translateY(-7px); }
             75% { transform: translateX(-1px) translateY(-3px); }
         }
+
+        /* Shopping Cart System Styles */
+        .cart-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #07252d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(7, 37, 45, 0.3);
+            transition: all 0.3s ease;
+            border: 2px solid #e3dac6;
+        }
+
+        .cart-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(7, 37, 45, 0.5);
+        }
+
+        .cart-icon i {
+            color: #e3dac6;
+            font-size: 24px;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #e3dac6;
+            color: #07252d;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            min-width: 24px;
+        }
+
+        /* Menu Item Layout */
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--price-spacing, 0px); /* Line 595 - Adjustable spacing for price and menu items */
+        }
+
+        .food-menu-title {
+            flex: 1;
+            margin-right: 15px;
+        }
+
+        .food-menu-price {
+            color: #e3dac6;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            height: 40px; /* Match Add button height */
+        }
+
+        .price-add-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Hide mobile controls on desktop */
+        .price-add-container .add-to-cart-controls {
+            display: none;
+        }
+
+        /* Add to Cart Controls */
+        .add-to-cart-controls {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .add-btn {
+            background: #07252d;
+            color: #e3dac6;
+            border: 2px solid #e3dac6;
+            border-radius: 6px;
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            min-width: 60px;
+            height: 40px; /* Match price height */
+        }
+
+        .add-btn:hover {
+            background: #e3dac6;
+            color: #07252d;
+            transform: scale(1.05);
+        }
+
+        .quantity-controls {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #fff;
+            border-radius: 6px;
+            padding: 4px 8px;
+            border: 2px solid #e3dac6;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            height: 40px; /* Match Add button and price height */
+            white-space: nowrap;
+        }
+
+        .quantity-btn {
+            background: #07252d;
+            color: #e3dac6;
+            border: 1px solid #e3dac6;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .quantity-btn:hover {
+            background: #e3dac6;
+            color: #07252d;
+            transform: scale(1.1);
+        }
+
+        .quantity {
+            color: #07252d;
+            font-weight: bold;
+            min-width: 20px;
+            text-align: center;
+            font-size: 14px;
+            background: #f8f8f8;
+            padding: 2px 6px;
+            border-radius: 3px;
+            line-height: 1.2;
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .cart-modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease-out;
+        }
+
+        .cart-header {
+            background: #07252d;
+            color: #e3dac6;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h2 {
+            margin: 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+        }
+
+        .cart-close {
+            color: #e3dac6;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .cart-close:hover {
+            color: #fff;
+        }
+
+        .cart-items {
+            padding: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .empty-cart {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin: 40px 0;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: bold;
+            color: #07252d;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cart-footer {
+            background: #f8f8f8;
+            padding: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+
+        .cart-total {
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #07252d;
+            font-weight: bold;
+        }
+
+        .cart-message {
+            color: #666;
+            font-style: italic;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .empty-cart {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin: 40px 0;
+            font-size: 16px;
+        }
+
+        /* Cart Animation Dot */
+        .cart-animation-dot {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: #07252d;
+            border-radius: 50%;
+            z-index: 1500;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes cartDrop {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+        }
+
+        /* Responsive Design for Cart System */
+        @media (max-width: 768px) {
+            .cart-icon {
+                width: 55px;
+                height: 55px;
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .cart-icon i {
+                font-size: 22px;
+            }
+
+            .cart-count {
+                width: 22px;
+                height: 22px;
+                font-size: 11px;
+            }
+
+            .cart-modal-content {
+                width: 95%;
+                margin: 10% auto;
+                max-height: 85vh;
+            }
+
+            .cart-header h2 {
+                font-size: 20px;
+            }
+
+            .add-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
+
+            .quantity-btn {
+                width: 26px;
+                height: 26px;
+                font-size: 14px;
+            }
+
+            .quantity {
+                font-size: 13px;
+            }
+
+            /* Mobile responsive adjustments */
+            .menu-item-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .food-menu-title {
+                margin-right: 0;
+                margin-bottom: 0;
+                width: 100%;
+            }
+
+            .add-to-cart-controls {
+                display: none; /* Hide from header on mobile */
+            }
+
+            .price-add-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                margin-top: 5px;
+            }
+
+            .price-add-container .add-to-cart-controls {
+                display: flex; /* Show next to price on mobile */
+                align-self: center; /* Center relative to price */
+                transform: translateY(var(--mobile-add-button-offset, -10px)); /* Adjustable vertical position */
+            }
+
+            .food-menu-price {
+                height: 32px; /* Smaller height on mobile */
+                display: flex;
+                align-items: center; /* Center the price text vertically */
+            }
+
+            .add-btn {
+                height: 32px; /* Match mobile price height */
+                display: flex;
+                align-items: center; /* Center the button text vertically */
+                justify-content: center;
+            }
+
+            .add-btn {
+                padding: 5px 10px;
+                font-size: 12px;
+                min-width: 45px;
+            }
+
+            .quantity-controls {
+                padding: 3px 6px;
+                gap: 6px;
+                height: 32px; /* Match mobile Add button height */
+                transform: translateY(var(--mobile-add-button-offset, 0px)); /* Same offset as Add button */
+            }
+
+            .quantity-btn {
+                width: 22px;
+                height: 22px;
+                font-size: 12px;
+            }
+
+            .quantity {
+                font-size: 12px;
+                min-width: 18px;
+                padding: 1px 4px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cart-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .cart-icon i {
+                font-size: 20px;
+            }
+
+            .add-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 15px;
+            }
+
+            .quantity-btn {
+                width: 24px;
+                height: 24px;
+                font-size: 13px;
+            }
+
+            .food-menu-content-top-holder {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .add-to-cart-controls {
+                align-self: flex-end;
+                margin-top: 8px;
+            }
+        }
+
+        /* Ensure text doesn't get hidden */
+        .food-menu-title {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            text-transform: none !important; /* Override any uppercase transformation */
+        }
+
+        .food-menu-content-title-holder {
+            overflow: visible;
+        }
+
+        /* Fix navigation header interactability when hidden */
+        .elementor-element-cb73338 {
+            pointer-events: auto;
+        }
+
+        .elementor-element-cb73338:not(.elementor-motion-effects-element-type-background) {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .elementor-element-cb73338[style*="display: none"],
+        .elementor-element-cb73338[style*="opacity: 0"],
+        .elementor-element-cb73338[style*="visibility: hidden"] {
+            pointer-events: none !important;
+        }
+
+        /* Fix header interactability when scrolled out of view */
+        .elementor-element-cb73338[style*="transform: translateY(-"] {
+            pointer-events: none !important;
+        }
+
+        /* Also target the main header that disappears on scroll */
+        .elementor-element-36eaf0d {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .elementor-element-36eaf0d[style*="transform: translateY(-"],
+        .elementor-element-36eaf0d[style*="opacity: 0"] {
+            pointer-events: none !important;
+        }
+
+        /* Target specific header elements that remain clickable */
+        .elementor-element-9c402bf, /* Menu Button (hamburger) */
+        .elementor-element-2df9abe, /* Logo */
+        .elementor-element-d816994, /* RSVP Button */
+        .elementor-element-5133fca, /* Logo container */
+        .elementor-element-ea80152, /* RSVP container */
+        .elementor-element-ab4359f, /* Menu button container */
+        .elementor-element-74166a6, /* Full menu logo */
+        .elementor-element-03cf286, /* Full menu RSVP */
+        .elementor-element-1a659ab { /* Full menu RSVP button */
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Disable pointer events when these elements are hidden/scrolled */
+        .elementor-element-9c402bf[style*="transform: translateY(-"],
+        .elementor-element-9c402bf[style*="opacity: 0"],
+        .elementor-element-2df9abe[style*="transform: translateY(-"],
+        .elementor-element-2df9abe[style*="opacity: 0"],
+        .elementor-element-d816994[style*="transform: translateY(-"],
+        .elementor-element-d816994[style*="opacity: 0"],
+        .elementor-element-5133fca[style*="transform: translateY(-"],
+        .elementor-element-5133fca[style*="opacity: 0"],
+        .elementor-element-ea80152[style*="transform: translateY(-"],
+        .elementor-element-ea80152[style*="opacity: 0"],
+        .elementor-element-ab4359f[style*="transform: translateY(-"],
+        .elementor-element-ab4359f[style*="opacity: 0"],
+        .elementor-element-74166a6[style*="transform: translateY(-"],
+        .elementor-element-74166a6[style*="opacity: 0"],
+        .elementor-element-03cf286[style*="transform: translateY(-"],
+        .elementor-element-03cf286[style*="opacity: 0"],
+        .elementor-element-1a659ab[style*="transform: translateY(-"],
+        .elementor-element-1a659ab[style*="opacity: 0"] {
+            pointer-events: none !important;
+        }
+
+        /* Also disable child links and buttons */
+        .elementor-element-9c402bf[style*="transform: translateY(-"] a,
+        .elementor-element-9c402bf[style*="opacity: 0"] a,
+        .elementor-element-2df9abe[style*="transform: translateY(-"] a,
+        .elementor-element-2df9abe[style*="opacity: 0"] a,
+        .elementor-element-d816994[style*="transform: translateY(-"] a,
+        .elementor-element-d816994[style*="opacity: 0"] a,
+        .elementor-element-5133fca[style*="transform: translateY(-"] a,
+        .elementor-element-5133fca[style*="opacity: 0"] a,
+        .elementor-element-ea80152[style*="transform: translateY(-"] a,
+        .elementor-element-ea80152[style*="opacity: 0"] a,
+        .elementor-element-ab4359f[style*="transform: translateY(-"] a,
+        .elementor-element-ab4359f[style*="opacity: 0"] a {
+            pointer-events: none !important;
+            z-index: -9999 !important;
+            visibility: hidden !important;
+        }
+
+        /* Aggressive header blocking prevention */
+        .elementor-element-36eaf0d[style*="opacity: 0"],
+        .elementor-element-36eaf0d[style*="transform: translateY(-"] {
+            pointer-events: none !important;
+            z-index: -9999 !important;
+            visibility: hidden !important;
+        }
+
+        /* Also fix for when the full menu is closed */
+        .elementor-148:not(.elementor-motion-effects-element-type-background) {
+            pointer-events: none;
+        }
+
+        .elementor-148.elementor-active,
+        .elementor-148[style*="display: block"] {
+            pointer-events: auto;
+        }
     </style>
     <!-- Kirki Inline Styles -->
     <style id="kirki-inline-styles">
@@ -1491,13 +2075,26 @@
                                     <!-- Menu Item 1: Veg Steam Momos -->
                                     <div class="food-menu-grid-wrapper food-menu-1">
                                         <div class="food-menu-content no-food-img">
-                                            <div class="food-menu-content-top-holder">
-                                                <div class="food-menu-content-title-holder">
-                                                    <h3 class="food-menu-title">Veg Steam Momos</h3>
+                                            <div class="menu-item-header">
+                                                <h3 class="food-menu-title">Veg Steam Momos</h3>
+                                                <div class="add-to-cart-controls">
+                                                    <button class="add-btn" onclick="addToCart('veg-steam-momos', 'Veg Steam Momos', 120, this)">Add</button>
+                                                    <div class="quantity-controls" style="display: none;">
+                                                        <button class="quantity-btn minus" onclick="decreaseQuantity('veg-steam-momos', this)">-</button>
+                                                        <span class="quantity">1</span>
+                                                        <button class="quantity-btn plus" onclick="increaseQuantity('veg-steam-momos', this)">+</button>
+                                                    </div>
                                                 </div>
-                                                <div class="food-menu-content-title-line"></div>
-                                                <div class="food-menu-content-price-holder">
-                                                    <span class="food-menu-content-price-normal">₹120.0</span>
+                                            </div>
+                                            <div class="price-add-container">
+                                                <div class="food-menu-price">₹120.0</div>
+                                                <div class="add-to-cart-controls">
+                                                    <button class="add-btn" onclick="addToCart('veg-steam-momos', 'Veg Steam Momos', 120, this)">Add</button>
+                                                    <div class="quantity-controls" style="display: none;">
+                                                        <button class="quantity-btn minus" onclick="decreaseQuantity('veg-steam-momos', this)">-</button>
+                                                        <span class="quantity">1</span>
+                                                        <button class="quantity-btn plus" onclick="increaseQuantity('veg-steam-momos', this)">+</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="food-menu-desc">Soft steamed dumplings filled with fresh vegetables, cabbage, carrots, and herbs. Served with spicy tomato chutney and sesame dipping sauce.</div>
@@ -1508,13 +2105,26 @@
                                     <!-- Menu Item 2: Margherita Pizza -->
                                     <div class="food-menu-grid-wrapper food-menu-2">
                                         <div class="food-menu-content no-food-img">
-                                            <div class="food-menu-content-top-holder">
-                                                <div class="food-menu-content-title-holder">
-                                                    <h3 class="food-menu-title">Margherita Pizza</h3>
+                                            <div class="menu-item-header">
+                                                <h3 class="food-menu-title">Margherita Pizza</h3>
+                                                <div class="add-to-cart-controls">
+                                                    <button class="add-btn" onclick="addToCart('margherita-pizza', 'Margherita Pizza', 280, this)">Add</button>
+                                                    <div class="quantity-controls" style="display: none;">
+                                                        <button class="quantity-btn minus" onclick="decreaseQuantity('margherita-pizza', this)">-</button>
+                                                        <span class="quantity">1</span>
+                                                        <button class="quantity-btn plus" onclick="increaseQuantity('margherita-pizza', this)">+</button>
+                                                    </div>
                                                 </div>
-                                                <div class="food-menu-content-title-line"></div>
-                                                <div class="food-menu-content-price-holder">
-                                                    <span class="food-menu-content-price-normal">₹280.0</span>
+                                            </div>
+                                            <div class="price-add-container">
+                                                <div class="food-menu-price">₹280.0</div>
+                                                <div class="add-to-cart-controls">
+                                                    <button class="add-btn" onclick="addToCart('margherita-pizza', 'Margherita Pizza', 280, this)">Add</button>
+                                                    <div class="quantity-controls" style="display: none;">
+                                                        <button class="quantity-btn minus" onclick="decreaseQuantity('margherita-pizza', this)">-</button>
+                                                        <span class="quantity">1</span>
+                                                        <button class="quantity-btn plus" onclick="increaseQuantity('margherita-pizza', this)">+</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="food-menu-desc">Classic thin-crust pizza topped with fresh tomato sauce, vegan mozzarella cheese, basil leaves, and a drizzle of olive oil.</div>
@@ -1524,13 +2134,26 @@
                                     <!-- Menu Item 3: Paneer Tikka -->
                                     <div class="food-menu-grid-wrapper food-menu-3">
                                         <div class="food-menu-content no-food-img">
-                                            <div class="food-menu-content-top-holder">
-                                                <div class="food-menu-content-title-holder">
-                                                    <h3 class="food-menu-title">Paneer Tikka</h3>
+                                            <div class="menu-item-header">
+                                                <h3 class="food-menu-title">Paneer Tikka</h3>
+                                                <div class="add-to-cart-controls">
+                                                    <button class="add-btn" onclick="addToCart('paneer-tikka', 'Paneer Tikka', 240, this)">Add</button>
+                                                    <div class="quantity-controls" style="display: none;">
+                                                        <button class="quantity-btn minus" onclick="decreaseQuantity('paneer-tikka', this)">-</button>
+                                                        <span class="quantity">1</span>
+                                                        <button class="quantity-btn plus" onclick="increaseQuantity('paneer-tikka', this)">+</button>
+                                                    </div>
                                                 </div>
-                                                <div class="food-menu-content-title-line"></div>
-                                                <div class="food-menu-content-price-holder">
-                                                    <span class="food-menu-content-price-normal">₹240.0</span>
+                                            </div>
+                                            <div class="price-add-container">
+                                                <div class="food-menu-price">₹240.0</div>
+                                                <div class="add-to-cart-controls">
+                                                    <button class="add-btn" onclick="addToCart('paneer-tikka', 'Paneer Tikka', 240, this)">Add</button>
+                                                    <div class="quantity-controls" style="display: none;">
+                                                        <button class="quantity-btn minus" onclick="decreaseQuantity('paneer-tikka', this)">-</button>
+                                                        <span class="quantity">1</span>
+                                                        <button class="quantity-btn plus" onclick="increaseQuantity('paneer-tikka', this)">+</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="food-menu-desc">Marinated cottage cheese cubes grilled with bell peppers, onions, and aromatic spices. Served with mint chutney and sliced onions.</div>
@@ -1543,13 +2166,26 @@
                                             <h4>Chef's Special</h4>
                                         </div>
                                         <div class="food-menu-content no-food-img menu-highlight">
-                                            <div class="food-menu-content-top-holder">
-                                                <div class="food-menu-content-title-holder">
-                                                    <h3 class="food-menu-title">Loaded Vegan Fries</h3>
+                                            <div class="menu-item-header">
+                                                <h3 class="food-menu-title">Loaded Vegan Fries</h3>
+                                                <div class="add-to-cart-controls">
+                                                    <button class="add-btn" onclick="addToCart('loaded-vegan-fries', 'Loaded Vegan Fries', 180, this)">Add</button>
+                                                    <div class="quantity-controls" style="display: none;">
+                                                        <button class="quantity-btn minus" onclick="decreaseQuantity('loaded-vegan-fries', this)">-</button>
+                                                        <span class="quantity">1</span>
+                                                        <button class="quantity-btn plus" onclick="increaseQuantity('loaded-vegan-fries', this)">+</button>
+                                                    </div>
                                                 </div>
-                                                <div class="food-menu-content-title-line"></div>
-                                                <div class="food-menu-content-price-holder">
-                                                    <span class="food-menu-content-price-normal">₹180.0</span>
+                                            </div>
+                                            <div class="price-add-container">
+                                                <div class="food-menu-price">₹180.0</div>
+                                                <div class="add-to-cart-controls">
+                                                    <button class="add-btn" onclick="addToCart('loaded-vegan-fries', 'Loaded Vegan Fries', 180, this)">Add</button>
+                                                    <div class="quantity-controls" style="display: none;">
+                                                        <button class="quantity-btn minus" onclick="decreaseQuantity('loaded-vegan-fries', this)">-</button>
+                                                        <span class="quantity">1</span>
+                                                        <button class="quantity-btn plus" onclick="increaseQuantity('loaded-vegan-fries', this)">+</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="food-menu-desc">Crispy golden fries topped with vegan cheese sauce, jalapeños, caramelized onions, fresh herbs, and tangy barbecue drizzle.</div>
@@ -1559,13 +2195,26 @@
                                     <!-- Menu Item 5: Paneer Butter Masala -->
                                     <div class="food-menu-grid-wrapper food-menu-5">
                                         <div class="food-menu-content no-food-img">
-                                            <div class="food-menu-content-top-holder">
-                                                <div class="food-menu-content-title-holder">
-                                                    <h3 class="food-menu-title">Paneer Butter Masala</h3>
+                                            <div class="menu-item-header">
+                                                <h3 class="food-menu-title">Paneer Butter Masala</h3>
+                                                <div class="add-to-cart-controls">
+                                                    <button class="add-btn" onclick="addToCart('paneer-butter-masala', 'Paneer Butter Masala', 260, this)">Add</button>
+                                                    <div class="quantity-controls" style="display: none;">
+                                                        <button class="quantity-btn minus" onclick="decreaseQuantity('paneer-butter-masala', this)">-</button>
+                                                        <span class="quantity">1</span>
+                                                        <button class="quantity-btn plus" onclick="increaseQuantity('paneer-butter-masala', this)">+</button>
+                                                    </div>
                                                 </div>
-                                                <div class="food-menu-content-title-line"></div>
-                                                <div class="food-menu-content-price-holder">
-                                                    <span class="food-menu-content-price-normal">₹260.0</span>
+                                            </div>
+                                            <div class="price-add-container">
+                                                <div class="food-menu-price">₹260.0</div>
+                                                <div class="add-to-cart-controls">
+                                                    <button class="add-btn" onclick="addToCart('paneer-butter-masala', 'Paneer Butter Masala', 260, this)">Add</button>
+                                                    <div class="quantity-controls" style="display: none;">
+                                                        <button class="quantity-btn minus" onclick="decreaseQuantity('paneer-butter-masala', this)">-</button>
+                                                        <span class="quantity">1</span>
+                                                        <button class="quantity-btn plus" onclick="increaseQuantity('paneer-butter-masala', this)">+</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="food-menu-desc">Soft paneer cubes in a rich, creamy tomato-based gravy with butter, cashews, and aromatic spices. Served with basmati rice or naan.</div>
@@ -1575,13 +2224,26 @@
                                     <!-- Menu Item 6: Vegan Buddha Bowl -->
                                     <div class="food-menu-grid-wrapper food-menu-6">
                                         <div class="food-menu-content no-food-img">
-                                            <div class="food-menu-content-top-holder">
-                                                <div class="food-menu-content-title-holder">
-                                                    <h3 class="food-menu-title">Vegan Buddha Bowl</h3>
+                                            <div class="menu-item-header">
+                                                <h3 class="food-menu-title">Vegan Buddha Bowl</h3>
+                                                <div class="add-to-cart-controls">
+                                                    <button class="add-btn" onclick="addToCart('vegan-buddha-bowl', 'Vegan Buddha Bowl', 220, this)">Add</button>
+                                                    <div class="quantity-controls" style="display: none;">
+                                                        <button class="quantity-btn minus" onclick="decreaseQuantity('vegan-buddha-bowl', this)">-</button>
+                                                        <span class="quantity">1</span>
+                                                        <button class="quantity-btn plus" onclick="increaseQuantity('vegan-buddha-bowl', this)">+</button>
+                                                    </div>
                                                 </div>
-                                                <div class="food-menu-content-title-line"></div>
-                                                <div class="food-menu-content-price-holder">
-                                                    <span class="food-menu-content-price-normal">₹220.0</span>
+                                            </div>
+                                            <div class="price-add-container">
+                                                <div class="food-menu-price">₹220.0</div>
+                                                <div class="add-to-cart-controls">
+                                                    <button class="add-btn" onclick="addToCart('vegan-buddha-bowl', 'Vegan Buddha Bowl', 220, this)">Add</button>
+                                                    <div class="quantity-controls" style="display: none;">
+                                                        <button class="quantity-btn minus" onclick="decreaseQuantity('vegan-buddha-bowl', this)">-</button>
+                                                        <span class="quantity">1</span>
+                                                        <button class="quantity-btn plus" onclick="increaseQuantity('vegan-buddha-bowl', this)">+</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="food-menu-desc">Nutritious bowl with quinoa, roasted vegetables, chickpeas, avocado, mixed greens, and tahini dressing. A complete plant-based meal.</div>
@@ -2195,8 +2857,35 @@
 </div>
 </div>
 
-<!-- Back to Top Button -->
-<a id="toTop"><i class="fa fa-angle-up"></i></a>
+<!-- Shopping Cart System -->
+<div id="cart-icon" class="cart-icon" onclick="toggleCart()">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="cart-count" class="cart-count">0</span>
+</div>
+
+<!-- Cart Modal -->
+<div id="cart-modal" class="cart-modal">
+    <div class="cart-modal-content">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <span class="cart-close" onclick="toggleCart()">&times;</span>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <p class="empty-cart">Your cart is waiting for some delicious choices! 🌟<br>Browse our menu and add your favorites.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                Total: ₹<span id="cart-total">0</span>
+            </div>
+            <div id="cart-message" class="cart-message">
+                Pass your order to our staff and we'll get busy! 🍽️
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cart Animation Dot -->
+<div id="cart-animation-dot" class="cart-animation-dot"></div>
 <div id="overlay_background"></div>
 
 <!-- Full Menu Overlay -->
@@ -2794,6 +3483,393 @@
                 }
             }
         });
+    </script>
+
+    <!-- Shopping Cart System JavaScript -->
+    <script>
+        // Cart data storage
+        let cart = {};
+        let cartTotal = 0;
+
+        // Add item to cart
+        function addToCart(itemId, itemName, itemPrice, buttonElement) {
+            // Add to cart data
+            if (cart[itemId]) {
+                cart[itemId].quantity += 1;
+            } else {
+                cart[itemId] = {
+                    name: itemName,
+                    price: itemPrice,
+                    quantity: 1
+                };
+            }
+
+            // Update UI
+            updateCartUI();
+            showQuantityControls(buttonElement, itemId);
+            animateToCart(buttonElement);
+        }
+
+        // Show quantity controls
+        function showQuantityControls(buttonElement, itemId) {
+            const addBtn = buttonElement;
+            const quantityControls = addBtn.nextElementSibling;
+            const quantitySpan = quantityControls.querySelector('.quantity');
+
+            addBtn.style.display = 'none';
+            quantityControls.style.display = 'flex';
+            quantitySpan.textContent = cart[itemId].quantity;
+        }
+
+        // Increase quantity
+        function increaseQuantity(itemId, buttonElement) {
+            cart[itemId].quantity += 1;
+            const quantitySpan = buttonElement.parentElement.querySelector('.quantity');
+            quantitySpan.textContent = cart[itemId].quantity;
+            updateCartUI();
+            animateToCart(buttonElement);
+        }
+
+        // Decrease quantity
+        function decreaseQuantity(itemId, buttonElement) {
+            cart[itemId].quantity -= 1;
+
+            if (cart[itemId].quantity <= 0) {
+                delete cart[itemId];
+                hideQuantityControls(buttonElement);
+            } else {
+                const quantitySpan = buttonElement.parentElement.querySelector('.quantity');
+                quantitySpan.textContent = cart[itemId].quantity;
+            }
+
+            updateCartUI();
+        }
+
+        // Hide quantity controls and show add button
+        function hideQuantityControls(buttonElement) {
+            const quantityControls = buttonElement.parentElement;
+            const addBtn = quantityControls.previousElementSibling;
+
+            quantityControls.style.display = 'none';
+            addBtn.style.display = 'flex';
+        }
+
+        // Update cart UI (count and total)
+        function updateCartUI() {
+            const cartCount = document.getElementById('cart-count');
+            const cartTotalElement = document.getElementById('cart-total');
+
+            let totalItems = 0;
+            cartTotal = 0;
+
+            for (let itemId in cart) {
+                totalItems += cart[itemId].quantity;
+                cartTotal += cart[itemId].price * cart[itemId].quantity;
+            }
+
+            cartCount.textContent = totalItems;
+            cartTotalElement.textContent = cartTotal.toFixed(1);
+
+            // Update cart modal content
+            updateCartModal();
+        }
+
+        // Animate cart icon immediately (no flying dot)
+        function animateToCart(sourceElement) {
+            const cartIcon = document.getElementById('cart-icon');
+
+            if (!cartIcon) return;
+
+            // Bounce cart icon immediately
+            cartIcon.style.transform = 'scale(1.2)';
+            cartIcon.style.transition = 'transform 0.2s ease';
+
+            setTimeout(() => {
+                cartIcon.style.transform = '';
+            }, 200);
+        }
+
+        // Toggle cart modal
+        function toggleCart() {
+            const modal = document.getElementById('cart-modal');
+            if (modal.style.display === 'block') {
+                modal.style.display = 'none';
+            } else {
+                modal.style.display = 'block';
+                updateCartModal();
+            }
+        }
+
+        // Update cart modal content
+        function updateCartModal() {
+            const cartItems = document.getElementById('cart-items');
+            const cartMessage = document.getElementById('cart-message');
+
+            if (Object.keys(cart).length === 0) {
+                cartItems.innerHTML = '<p class="empty-cart">Your cart is waiting for some delicious choices! 🌟<br>Browse our menu and add your favorites.</p>';
+                if (cartMessage) cartMessage.style.display = 'none';
+                return;
+            }
+
+            if (cartMessage) cartMessage.style.display = 'block';
+
+            let html = '';
+            for (let itemId in cart) {
+                const item = cart[itemId];
+                html += `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">₹${item.price.toFixed(1)} each</div>
+                        </div>
+                        <div class="cart-item-controls">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn minus" onclick="updateCartItem('${itemId}', -1)">-</button>
+                                <span class="quantity">${item.quantity}</span>
+                                <button class="quantity-btn plus" onclick="updateCartItem('${itemId}', 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            cartItems.innerHTML = html;
+        }
+
+        // Update cart item from modal
+        function updateCartItem(itemId, change) {
+            cart[itemId].quantity += change;
+
+            if (cart[itemId].quantity <= 0) {
+                delete cart[itemId];
+                // Also update the menu item UI
+                updateMenuItemUI(itemId);
+            } else {
+                // Update quantity display on menu items
+                updateMenuItemQuantityDisplay(itemId, cart[itemId].quantity);
+            }
+
+            updateCartUI();
+        }
+
+        // Update quantity display on menu items
+        function updateMenuItemQuantityDisplay(itemId, quantity) {
+            const menuItems = document.querySelectorAll(`[onclick*="${itemId}"]`);
+
+            menuItems.forEach(menuItem => {
+                let container = menuItem.closest('.add-to-cart-controls');
+                if (!container) {
+                    container = menuItem.parentElement;
+                }
+
+                if (container) {
+                    const quantitySpan = container.querySelector('.quantity');
+                    if (quantitySpan) {
+                        quantitySpan.textContent = quantity;
+                    }
+                }
+            });
+        }
+
+        // Update menu item UI when item is removed from cart
+        function updateMenuItemUI(itemId) {
+            // Find ALL instances of this item (both in header and mobile price containers)
+            const menuItems = document.querySelectorAll(`[onclick*="${itemId}"]`);
+
+            menuItems.forEach(menuItem => {
+                // Find the parent container that has both add button and quantity controls
+                let container = menuItem.closest('.add-to-cart-controls');
+                if (!container) {
+                    container = menuItem.parentElement;
+                }
+
+                if (container) {
+                    const quantityControls = container.querySelector('.quantity-controls');
+                    const addBtn = container.querySelector('.add-btn');
+
+                    if (quantityControls && addBtn) {
+                        quantityControls.style.display = 'none';
+                        addBtn.style.display = 'flex';
+
+                        // Reset quantity display to 1
+                        const quantitySpan = quantityControls.querySelector('.quantity');
+                        if (quantitySpan) {
+                            quantitySpan.textContent = '1';
+                        }
+                    }
+                }
+            });
+        }
+
+
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('cart-modal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Initialize cart on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartUI();
+            initializeHeaderScrollFix();
+        });
+
+        // Fix header interactability when scrolled out of view
+        function initializeHeaderScrollFix() {
+            const headerElements = [
+                // Main header containers
+                document.querySelector('.elementor-element-cb73338'),
+                document.querySelector('.elementor-element-36eaf0d'),
+                document.querySelector('.elementor-148'),
+                document.querySelector('#elementor-header'), // THE MISSING CULPRIT!
+                document.querySelector('.main-menu-wrapper'), // Alternative selector
+                // Correct header elements (found the right IDs!)
+                document.querySelector('.elementor-element-9c402bf'), // Menu Button (hamburger)
+                document.querySelector('.elementor-element-2df9abe'), // Logo
+                document.querySelector('.elementor-element-d816994'), // RSVP Button
+                document.querySelector('.elementor-element-5133fca'), // Logo container
+                document.querySelector('.elementor-element-ea80152'), // RSVP container
+                document.querySelector('.elementor-element-ab4359f'), // Menu button container
+                // Full menu elements
+                document.querySelector('.elementor-element-74166a6'), // Full menu logo
+                document.querySelector('.elementor-element-03cf286'), // Full menu RSVP
+                document.querySelector('.elementor-element-1a659ab')  // Full menu RSVP button
+            ];
+
+            function checkHeaderVisibility() {
+                headerElements.forEach((header, index) => {
+                    if (!header) return;
+
+                    const rect = header.getBoundingClientRect();
+                    const style = window.getComputedStyle(header);
+
+                    // Check if header is scrolled out of view or hidden
+                    const isScrolledOut = rect.bottom < 0 || rect.top > window.innerHeight;
+                    const isHidden = style.opacity === '0' ||
+                                   style.visibility === 'hidden' ||
+                                   style.display === 'none' ||
+                                   style.transform.includes('translateY(-') ||
+                                   parseFloat(style.opacity) < 0.1; // Also catch very low opacity
+
+                    // More aggressive detection - check parent opacity too
+                    let parentElement = header.parentElement;
+                    let parentHidden = false;
+                    while (parentElement && parentElement !== document.body) {
+                        const parentStyle = window.getComputedStyle(parentElement);
+                        if (parseFloat(parentStyle.opacity) < 0.1 ||
+                            parentStyle.visibility === 'hidden' ||
+                            parentStyle.display === 'none' ||
+                            parentStyle.transform.includes('translateY(-')) {
+                            parentHidden = true;
+                            break;
+                        }
+                        parentElement = parentElement.parentElement;
+                    }
+
+                    if (isScrolledOut || isHidden || parentHidden) {
+                        header.style.pointerEvents = 'none';
+                        // Also disable child elements
+                        const clickableChildren = header.querySelectorAll('*');
+                        clickableChildren.forEach(child => {
+                            child.style.pointerEvents = 'none';
+                        });
+                    } else {
+                        header.style.pointerEvents = '';
+                        // Re-enable child elements
+                        const clickableChildren = header.querySelectorAll('*');
+                        clickableChildren.forEach(child => {
+                            child.style.pointerEvents = '';
+                        });
+                    }
+                });
+            }
+
+            // Check on scroll and resize
+            window.addEventListener('scroll', checkHeaderVisibility);
+            window.addEventListener('resize', checkHeaderVisibility);
+
+            // Initial check
+            checkHeaderVisibility();
+
+            // Also check periodically in case of dynamic changes
+            setInterval(checkHeaderVisibility, 500);
+
+            // Additional targeted fix for header blocking
+            function targetedHeaderFix() {
+                const scrollY = window.scrollY;
+
+                if (scrollY > 80) {
+                    // Target only the main header container and its immediate area
+                    const mainHeader = document.querySelector('.elementor-element-36eaf0d');
+                    if (mainHeader) {
+                        const rect = mainHeader.getBoundingClientRect();
+
+                        // If header is not visible (scrolled out or hidden)
+                        if (rect.bottom <= 10 || rect.top >= window.innerHeight) {
+                            // Find all elements that might be in the header area
+                            const allElements = document.querySelectorAll('*');
+
+                            allElements.forEach(element => {
+                                const elementRect = element.getBoundingClientRect();
+
+                                // Only target elements in the top 100px area
+                                if (elementRect.top < 100 && elementRect.bottom > -10) {
+                                    const style = window.getComputedStyle(element);
+
+                                    // Only target elements that are likely header-related
+                                    if (style.position === 'fixed' ||
+                                        style.position === 'sticky' ||
+                                        element.closest('.elementor-element-36eaf0d') ||
+                                        element.closest('#elementor-header') ||
+                                        element.classList.contains('elementor-element-36eaf0d') ||
+                                        element.classList.contains('elementor-element-897d875') ||
+                                        element.classList.contains('elementor-element-9c402bf') ||
+                                        element.classList.contains('elementor-element-2df9abe') ||
+                                        element.classList.contains('elementor-element-d816994') ||
+                                        element.classList.contains('elementor-element-5133fca') ||
+                                        element.classList.contains('elementor-element-ea80152') ||
+                                        element.id === 'elementor-header' ||
+                                        element.classList.contains('main-menu-wrapper')) {
+
+                                        element.style.pointerEvents = 'none';
+                                    }
+                                }
+                            });
+                        }
+                    }
+                } else {
+                    // Re-enable elements when at top
+                    const elementsToRestore = document.querySelectorAll('[style*="pointer-events: none"]');
+                    elementsToRestore.forEach(element => {
+                        // Only restore header-related elements, but exclude full menu
+                        if (!element.closest('#fullmenu-wrapper-148') &&
+                            !element.closest('.fullmenu-wrapper') &&
+                            !element.classList.contains('fullmenu-wrapper') &&
+                            (element.closest('.elementor-element-36eaf0d') ||
+                            element.closest('#elementor-header') ||
+                            element.classList.contains('elementor-element-36eaf0d') ||
+                            element.classList.contains('elementor-element-897d875') ||
+                            element.classList.contains('elementor-element-9c402bf') ||
+                            element.classList.contains('elementor-element-2df9abe') ||
+                            element.classList.contains('elementor-element-d816994') ||
+                            element.classList.contains('elementor-element-5133fca') ||
+                            element.classList.contains('elementor-element-ea80152') ||
+                            element.id === 'elementor-header' ||
+                            element.classList.contains('main-menu-wrapper'))) {
+
+                            element.style.pointerEvents = '';
+                        }
+                    });
+                }
+            }
+
+            // Run targeted fix on scroll
+            window.addEventListener('scroll', targetedHeaderFix);
+            targetedHeaderFix(); // Run immediately
+        }
     </script>
 
 </body>
