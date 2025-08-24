@@ -1115,15 +1115,7 @@
             visibility: hidden !important;
         }
 
-        /* Also fix for when the full menu is closed */
-        .elementor-148:not(.elementor-motion-effects-element-type-background) {
-            pointer-events: none;
-        }
-
-        .elementor-148.elementor-active,
-        .elementor-148[style*="display: block"] {
-            pointer-events: auto;
-        }
+        /* Removed .elementor-148 CSS rules - this was blocking the navigation menu! */
     </style>
     <!-- Kirki Inline Styles -->
     <style id="kirki-inline-styles">
@@ -3723,7 +3715,7 @@
                 // Main header containers
                 document.querySelector('.elementor-element-cb73338'),
                 document.querySelector('.elementor-element-36eaf0d'),
-                document.querySelector('.elementor-148'),
+                // REMOVED .elementor-148 - this is the navigation menu container!
                 document.querySelector('#elementor-header'), // THE MISSING CULPRIT!
                 document.querySelector('.main-menu-wrapper'), // Alternative selector
                 // Correct header elements (found the right IDs!)

@@ -582,15 +582,7 @@
     pointer-events: none !important;
 }
 
-/* Also fix for when the full menu is closed */
-.elementor-148:not(.elementor-motion-effects-element-type-background) {
-    pointer-events: none;
-}
-
-.elementor-148.elementor-active,
-.elementor-148[style*="display: block"] {
-    pointer-events: auto;
-}
+/* Removed .elementor-148 CSS rules - this was blocking the navigation menu! */
 
 /* Ensure cart modal is always clickable */
 .cart-modal,

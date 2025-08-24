@@ -343,7 +343,7 @@ function initializeHeaderScrollFix() {
         // Main header containers
         document.querySelector('.elementor-element-cb73338'),
         document.querySelector('.elementor-element-36eaf0d'),
-        document.querySelector('.elementor-148'),
+        // REMOVED .elementor-148 - this is the navigation menu container!
         document.querySelector('#elementor-header'), // THE MISSING CULPRIT!
         document.querySelector('.main-menu-wrapper'), // Alternative selector
         // Correct header elements (found the right IDs!)
