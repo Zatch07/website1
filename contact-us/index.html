@@ -40,6 +40,150 @@
             background: none !important;
             padding: 0 !important;
         }
+
+        /* Perfect Bookmark Icon with Advanced Animations - Using Custom Image */
+        .bookmark-icon {
+            position: relative;
+            top: var(--bookmark-top-offset, 0px);
+            left: var(--bookmark-left-offset, 0px);
+            width: 55px;
+            height: 75px;
+            background-image: url('../images/bookmark.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: elegantDropNoRotation 1.2s ease-out 0.8s forwards;
+            filter: drop-shadow(0 8px 25px rgba(7, 37, 45, 0.15));
+            overflow: hidden;
+            margin: auto;
+        }
+
+        /* Bookmark positioning controls */
+        :root {
+            --bookmark-top-offset: 0px;    /* Adjust vertical position */
+            --bookmark-left-offset: 0px;   /* Adjust horizontal position */
+        }
+
+        /* Remove pseudo-elements since we're using custom image */
+        .bookmark-icon::before,
+        .bookmark-icon::after {
+            display: none;
+        }
+
+        /* Keep ribbon effect but make it subtle overlay */
+        .bookmark-icon .ribbon {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(227, 218, 198, 0.3), transparent);
+            opacity: 0;
+            transition: all 0.4s ease;
+            pointer-events: none;
+        }
+
+        /* Hover effects for custom image */
+        .bookmark-icon:hover {
+            transform: translateY(-3px) scale(1.05);
+            filter:
+                drop-shadow(0 15px 35px rgba(7, 37, 45, 0.25))
+                drop-shadow(0 0 25px rgba(227, 218, 198, 0.4))
+                brightness(1.1)
+                contrast(1.05);
+        }
+
+        .bookmark-icon:hover .ribbon {
+            opacity: 1;
+            width: 35px;
+            background: linear-gradient(90deg, transparent, rgba(227, 218, 198, 0.6), transparent);
+        }
+
+        /* Elegant drop animation without rotation */
+        @keyframes elegantDropNoRotation {
+            0% {
+                transform: translateY(-50px) scale(0.8);
+                opacity: 0;
+            }
+            60% {
+                transform: translateY(5px) scale(1.05);
+                opacity: 1;
+            }
+            80% {
+                transform: translateY(-2px) scale(0.98);
+            }
+            100% {
+                transform: translateY(0px) scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Subtle floating animation */
+        .bookmark-icon {
+            animation: elegantDropNoRotation 1.2s ease-out 0.8s forwards,
+                      gentleFloatNoRotation 4s ease-in-out 2s infinite;
+        }
+
+        @keyframes gentleFloatNoRotation {
+            0%, 100% { transform: translateY(0px); }
+            25% { transform: translateY(-2px); }
+            50% { transform: translateY(-1px); }
+            75% { transform: translateY(-3px); }
+        }
+
+        /* Active/click animation */
+        .bookmark-icon:active {
+            transform: translateY(-1px) scale(0.95);
+            transition: all 0.1s ease;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .bookmark-icon {
+                width: 45px;
+                height: 60px;
+            }
+
+            .bookmark-icon .ribbon {
+                width: 25px;
+                top: 12px;
+            }
+
+            .bookmark-icon:hover .ribbon {
+                width: 28px;
+            }
+
+            @keyframes elegantDropNoRotation {
+                0% {
+                    transform: translateY(-40px) scale(0.8);
+                    opacity: 0;
+                }
+                60% {
+                    transform: translateY(3px) scale(1.05);
+                    opacity: 1;
+                }
+                80% {
+                    transform: translateY(-1px) scale(0.98);
+                }
+                100% {
+                    transform: translateY(0px) scale(1);
+                    opacity: 1;
+                }
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .modern-rsvp-btn {
+                padding: 12px 28px !important;
+                font-size: 14px !important;
+                letter-spacing: 1.5px !important;
+            }
+        }
     </style>
 
     <style id='classic-theme-styles-inline-css' type='text/css'>
@@ -76,6 +220,9 @@
     <link rel='stylesheet' id='elementor-post-92-css' href='../wp-content/uploads/sites/3/elementor/css/post-92.css' type='text/css' media='all' />
     <link data-minify="1" rel='stylesheet' id='responsive-css' href='../wp-content/cache/min/3/asian/wp-content/themes/grandrestaurant/css/gridcb4c.css?ver=1741843633' type='text/css' media='all' />
     <link data-minify="1" rel='stylesheet' id='grandrestaurant-custom-css-css' href='../wp-content/cache/min/3/asian/wp-content/cache/busting/3/asian/wp-content/themes/grandrestaurant/templates/custom-csscb4c.css?ver=1741843633' type='text/css' media='all' />
+
+    <!-- Cart System CSS -->
+    <link rel='stylesheet' href='../cart-system.css' type='text/css' media='all' />
 
     <link rel="preconnect" href="../../../fonts.gstatic.com/index.html" crossorigin>
     <script type='text/javascript' src='../wp-includes/js/jquery/jquery.min.js' id='jquery-core-js'></script>
@@ -267,14 +414,16 @@
                     </div>
 
                     <div class="elementor-element elementor-element-ea80152 e-con-full e-flex e-con e-child" data-id="ea80152" data-element_type="container" data-settings='{"content_width":"full","grandrestaurant_ext_is_background_parallax":"false","grandrestaurant_ext_is_background_backdrop":"false","grandrestaurant_ext_is_background_on_scroll":"false","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}'>
-                        <div class="elementor-element elementor-element-d816994 elementor-align-center elementor-widget elementor-widget-button" data-id="d816994" data-element_type="widget" data-settings='{"grandrestaurant_ext_is_infinite":"true","grandrestaurant_ext_infinite_animation":"if_spin","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_infinite_easing":"0.250, 0.250, 0.750, 0.750","grandrestaurant_ext_infinite_duration":4,"grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="button.default">
+                        <div class="elementor-element elementor-element-d816994 elementor-align-center elementor-widget elementor-widget-button"
+                             data-id="d816994"
+                             data-element_type="widget"
+                             data-widget_type="button.default">
                             <div class="elementor-widget-container">
                                 <div class="elementor-button-wrapper">
-                                    <a class="elementor-button elementor-button-link elementor-size-sm" href="index.html" target="_blank">
-                                        <span class="elementor-button-content-wrapper">
-                                            <span class="elementor-button-text">RSVP</span>
-                                        </span>
-                                    </a>
+                                    <!-- Perfect Bookmark Icon -->
+                                    <div class="bookmark-icon" onclick="window.open('index.html', '_blank')" title="Make a Reservation">
+                                        <div class="ribbon"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -692,17 +841,7 @@
                         </div>
                     </div>
                     <div class="elementor-element elementor-element-03cf286 e-con-full e-flex e-con e-child" data-id="03cf286" data-element_type="container" data-settings='{"content_width":"full","grandrestaurant_ext_is_background_parallax":"false","grandrestaurant_ext_is_background_backdrop":"false","grandrestaurant_ext_is_background_on_scroll":"false","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}'>
-                        <div class="elementor-element elementor-element-1a659ab elementor-align-center elementor-widget elementor-widget-button" data-id="1a659ab" data-element_type="widget" data-settings='{"grandrestaurant_ext_is_infinite":"true","grandrestaurant_ext_infinite_animation":"if_spin","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_infinite_easing":"0.250, 0.250, 0.750, 0.750","grandrestaurant_ext_infinite_duration":4,"grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="button.default">
-                            <div class="elementor-widget-container">
-                                <div class="elementor-button-wrapper">
-                                    <a class="elementor-button elementor-button-link elementor-size-sm" href="index.html">
-                                        <span class="elementor-button-content-wrapper">
-                                            <span class="elementor-button-text">RSVP</span>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- Second RSVP button removed - using fixed bookmark icon instead -->
                     </div>
                 </div>
             </div>
@@ -825,7 +964,174 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 <script>window.lazyLoadOptions={elements_selector:"iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
 if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
 images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
-if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="../wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script></body>
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="../wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+
+    <!-- Cart System JavaScript -->
+    <script src='../cart-system.js'></script>
+
+    <!-- Header Blocking Fix -->
+    <script>
+        // Fix header interactability when scrolled out of view
+        function initializeHeaderScrollFix() {
+            const headerElements = [
+                // Main header containers
+                document.querySelector('.elementor-element-cb73338'),
+                document.querySelector('.elementor-element-36eaf0d'),
+                // REMOVED .elementor-148 - this is the navigation menu container!
+                document.querySelector('#elementor-header'), // THE MISSING CULPRIT!
+                document.querySelector('.main-menu-wrapper'), // Alternative selector
+                // Correct header elements (found the right IDs!)
+                document.querySelector('.elementor-element-9c402bf'), // Menu Button (hamburger)
+                document.querySelector('.elementor-element-2df9abe'), // Logo
+                document.querySelector('.elementor-element-d816994'), // RSVP Button
+                document.querySelector('.elementor-element-5133fca'), // Logo container
+                document.querySelector('.elementor-element-ea80152'), // RSVP container
+                document.querySelector('.elementor-element-ab4359f') // Menu button container
+                // REMOVED full menu elements - these are INSIDE the navigation menu and should NOT be disabled!
+                // document.querySelector('.elementor-element-74166a6'), // Full menu logo - REMOVED
+                // document.querySelector('.elementor-element-03cf286'), // Full menu RSVP - REMOVED
+                // document.querySelector('.elementor-element-1a659ab')  // Full menu RSVP button - REMOVED
+            ];
+
+            function checkHeaderVisibility() {
+                headerElements.forEach((header, index) => {
+                    if (!header) return;
+
+                    const rect = header.getBoundingClientRect();
+                    const style = window.getComputedStyle(header);
+
+                    // Check if header is scrolled out of view or hidden
+                    const isScrolledOut = rect.bottom < 0 || rect.top > window.innerHeight;
+                    const isHidden = style.opacity === '0' ||
+                                   style.visibility === 'hidden' ||
+                                   style.display === 'none' ||
+                                   style.transform.includes('translateY(-') ||
+                                   parseFloat(style.opacity) < 0.1; // Also catch very low opacity
+
+                    // More aggressive detection - check parent opacity too
+                    let parentElement = header.parentElement;
+                    let parentHidden = false;
+                    while (parentElement && parentElement !== document.body) {
+                        const parentStyle = window.getComputedStyle(parentElement);
+                        if (parseFloat(parentStyle.opacity) < 0.1 ||
+                            parentStyle.visibility === 'hidden' ||
+                            parentStyle.display === 'none' ||
+                            parentStyle.transform.includes('translateY(-')) {
+                            parentHidden = true;
+                            break;
+                        }
+                        parentElement = parentElement.parentElement;
+                    }
+
+                    if (isScrolledOut || isHidden || parentHidden) {
+                        header.style.pointerEvents = 'none';
+                        // Also disable child elements
+                        const clickableChildren = header.querySelectorAll('*');
+                        clickableChildren.forEach(child => {
+                            child.style.pointerEvents = 'none';
+                        });
+                    } else {
+                        header.style.pointerEvents = '';
+                        // Re-enable child elements
+                        const clickableChildren = header.querySelectorAll('*');
+                        clickableChildren.forEach(child => {
+                            child.style.pointerEvents = '';
+                        });
+                    }
+                });
+            }
+
+            // Check on scroll and resize
+            window.addEventListener('scroll', checkHeaderVisibility);
+            window.addEventListener('resize', checkHeaderVisibility);
+
+            // Initial check
+            checkHeaderVisibility();
+
+            // Also check periodically in case of dynamic changes
+            setInterval(checkHeaderVisibility, 500);
+
+            // Additional targeted fix for header blocking
+            function targetedHeaderFix() {
+                const scrollY = window.scrollY;
+
+                if (scrollY > 80) {
+                    // Find all elements that might be in the header area
+                    const allElements = document.querySelectorAll('*');
+
+                    allElements.forEach(element => {
+                        const elementRect = element.getBoundingClientRect();
+
+                        // Only target elements in the top 100px area
+                        if (elementRect.top < 100 && elementRect.bottom > -10) {
+                            const style = window.getComputedStyle(element);
+
+                            // Only target elements that are likely header-related
+                            // EXCLUDE navigation menu elements to prevent blocking menu interactions
+                            if ((style.position === 'fixed' || style.position === 'sticky' ||
+                                element.closest('.elementor-element-36eaf0d') ||
+                                element.closest('#elementor-header') ||
+                                element.classList.contains('elementor-element-36eaf0d') ||
+                                element.classList.contains('elementor-element-897d875') ||
+                                element.classList.contains('elementor-element-9c402bf') ||
+                                element.classList.contains('elementor-element-2df9abe') ||
+                                element.classList.contains('elementor-element-d816994') ||
+                                element.classList.contains('elementor-element-5133fca') ||
+                                element.classList.contains('elementor-element-ea80152') ||
+                                element.id === 'elementor-header' ||
+                                element.classList.contains('main-menu-wrapper')) &&
+                                // EXCLUDE navigation menu elements
+                                !element.closest('#fullmenu-wrapper-148') &&
+                                !element.closest('.elementor-148') &&
+                                !element.classList.contains('elementor-148') &&
+                                element.id !== 'fullmenu-wrapper-148') {
+
+                                element.style.pointerEvents = 'none';
+                            }
+                        }
+                    });
+                } else {
+                    // Re-enable elements when at top
+                    const elementsToRestore = document.querySelectorAll('[style*="pointer-events: none"]');
+                    elementsToRestore.forEach(element => {
+                        // Only restore header-related elements, EXCLUDE navigation menu
+                        if ((element.closest('.elementor-element-36eaf0d') ||
+                            element.closest('#elementor-header') ||
+                            element.classList.contains('elementor-element-36eaf0d') ||
+                            element.classList.contains('elementor-element-897d875') ||
+                            element.classList.contains('elementor-element-9c402bf') ||
+                            element.classList.contains('elementor-element-2df9abe') ||
+                            element.classList.contains('elementor-element-d816994') ||
+                            element.classList.contains('elementor-element-5133fca') ||
+                            element.classList.contains('elementor-element-ea80152') ||
+                            element.id === 'elementor-header' ||
+                            element.classList.contains('main-menu-wrapper')) &&
+                            // EXCLUDE navigation menu elements from restoration
+                            !element.closest('#fullmenu-wrapper-148') &&
+                            !element.closest('.elementor-148') &&
+                            !element.classList.contains('elementor-148') &&
+                            element.id !== 'fullmenu-wrapper-148') {
+
+                            element.style.pointerEvents = '';
+                        }
+                    });
+                }
+            }
+
+            // Run targeted fix on scroll
+            window.addEventListener('scroll', targetedHeaderFix);
+            targetedHeaderFix(); // Run immediately
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeHeaderScrollFix);
+        } else {
+            initializeHeaderScrollFix();
+        }
+    </script>
+
+</body>
 
 </html>
 

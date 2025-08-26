@@ -9,7 +9,78 @@ let cartTotal = 0;
 document.addEventListener('DOMContentLoaded', function() {
     initializeCart();
     initializeHeaderScrollFix();
+    initializeCrossTabSync();
 });
+
+// Cross-tab synchronization
+function initializeCrossTabSync() {
+    // Listen for storage changes from other tabs
+    window.addEventListener('storage', function(e) {
+        if (e.key === 'zoca-cart') {
+            // Update cart from other tab's changes
+            cart = JSON.parse(e.newValue) || {};
+            updateCartUI();
+            updateAllMenuButtons();
+        }
+    });
+}
+
+// Function to update all menu buttons across the page
+function updateAllMenuButtons() {
+    // Update all add buttons and quantity controls
+    Object.keys(cart).forEach(itemId => {
+        const quantity = cart[itemId].quantity;
+
+        // Find all buttons for this item (both desktop and mobile)
+        const addButtons = document.querySelectorAll(`[onclick*="'${itemId}'"]`);
+
+        addButtons.forEach(button => {
+            if (button.classList.contains('add-btn')) {
+                const controls = button.parentElement;
+                const addBtn = controls.querySelector('.add-btn');
+                const quantityControls = controls.querySelector('.quantity-controls');
+                const quantitySpan = controls.querySelector('.quantity');
+
+                if (quantity > 0) {
+                    addBtn.style.display = 'none';
+                    quantityControls.style.display = 'flex';
+                    if (quantitySpan) {
+                        quantitySpan.textContent = quantity;
+                    }
+                } else {
+                    addBtn.style.display = 'flex';
+                    quantityControls.style.display = 'none';
+                }
+            }
+        });
+    });
+
+    // Reset buttons for items not in cart
+    const allAddButtons = document.querySelectorAll('.add-btn');
+    allAddButtons.forEach(button => {
+        const onclickAttr = button.getAttribute('onclick');
+        if (onclickAttr) {
+            const itemIdMatch = onclickAttr.match(/'([^']+)'/);
+            if (itemIdMatch) {
+                const itemId = itemIdMatch[1];
+                if (!cart[itemId] || cart[itemId].quantity === 0) {
+                    const controls = button.parentElement;
+                    const addBtn = controls.querySelector('.add-btn');
+                    const quantityControls = controls.querySelector('.quantity-controls');
+
+                    addBtn.style.display = 'flex';
+                    quantityControls.style.display = 'none';
+                }
+            }
+        }
+    });
+}
+
+// Function to save cart and trigger cross-tab sync
+function saveCartAndSync() {
+    localStorage.setItem('zoca-cart', JSON.stringify(cart));
+    // The storage event will automatically trigger in other tabs
+}
 
 // Initialize cart system
 function initializeCart() {
@@ -106,8 +177,8 @@ function addToCart(itemId, itemName, itemPrice, buttonElement) {
         };
     }
 
-    // Save to localStorage
-    localStorage.setItem('zoca-cart', JSON.stringify(cart));
+    // Save to localStorage and sync across tabs
+    saveCartAndSync();
 
     // Update UI
     updateCartUI();
@@ -132,7 +203,7 @@ function showQuantityControls(buttonElement, itemId) {
 // Increase quantity
 function increaseQuantity(itemId, buttonElement) {
     cart[itemId].quantity += 1;
-    localStorage.setItem('zoca-cart', JSON.stringify(cart));
+    saveCartAndSync();
     
     const quantitySpan = buttonElement.parentElement.querySelector('.quantity');
     quantitySpan.textContent = cart[itemId].quantity;
@@ -152,7 +223,7 @@ function decreaseQuantity(itemId, buttonElement) {
         quantitySpan.textContent = cart[itemId].quantity;
     }
     
-    localStorage.setItem('zoca-cart', JSON.stringify(cart));
+    saveCartAndSync();
     updateCartUI();
 }
 
@@ -282,7 +353,7 @@ function updateCartItem(itemId, change) {
         updateMenuItemQuantityDisplay(itemId, cart[itemId].quantity);
     }
 
-    localStorage.setItem('zoca-cart', JSON.stringify(cart));
+    saveCartAndSync();
     updateCartUI();
 }
 
