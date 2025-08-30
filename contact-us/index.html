@@ -579,7 +579,7 @@ Barmer, Rajasthan</p>
             <div class="e-con-inner">
                 <div class="elementor-element elementor-element-4b579b2 elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="4b579b2" data-element_type="widget" data-settings='{"grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="text-editor.default">
                     <div class="elementor-widget-container">
-                        <p>For private event enquiries, or for any other Grand Restaurant enquiries, please email us on enquiries@grandrestaurant.com.Our bookings & enquiries team will get in touch with you within 2 business days.</p>
+                        <p>For private event enquiries, or for any other enquiries, please email us on <a href="mailto:enquiries@zoca.com">enquiries@zoca.com</a>. Our bookings & enquiries team will get in touch with you within 2 business days.</p>
                     </div>
                 </div>
 
@@ -587,89 +587,64 @@ Barmer, Rajasthan</p>
                     <div class="elementor-widget-container">
                         <div class="grandrestaurant-contact-form-content-wrapper two_cols content-align-center">
 
-                            <div class="wpcf7 no-js" id="wpcf7-f4-p92-o1" lang="en-US" dir="ltr">
-                                <div class="screen-reader-response">
-                                    <p role="status" aria-live="polite" aria-atomic="true"></p>
-                                    <ul></ul>
-                                </div>
+                            <form action="https://formsubmit.co/9aeb0fb75a4356b0517921d943901680" method="POST" class="wpcf7-form">
+                                <!-- FormSubmit Configuration -->
+                                <input type="hidden" name="_subject" value="New Private Event Inquiry from Website">
+                                <input type="hidden" name="_captcha" value="true">
+                                <input type="hidden" name="_template" value="table">
+                                
+                                <p>
+                                    <label> Your name<br />
+                                        <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" value="" type="text" name="name" required />
+                                    </label>
+                                </p>
 
-                                <form action="#" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init" onsubmit="return false;">
-                                    <div style="display: none;">
-                                        <input type="hidden" name="_wpcf7" value="4" />
-                                        <input type="hidden" name="_wpcf7_version" value="5.8.2" />
-                                        <input type="hidden" name="_wpcf7_locale" value="en_US" />
-                                        <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f4-p92-o1" />
-                                        <input type="hidden" name="_wpcf7_container_post" value="92" />
-                                        <input type="hidden" name="_wpcf7_posted_data_hash" value="" />
-                                    </div>
+                                <p>
+                                    <label> Your email<br />
+                                        <input size="40" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" aria-required="true" aria-invalid="false" value="" type="email" name="email" required />
+                                    </label>
+                                </p>
 
-                                    <p>
-                                        <label> Your name<br />
-                                            <span class="wpcf7-form-control-wrap" data-name="your-name">
-                                                <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" value="" type="text" name="your-name" />
-                                            </span>
-                                        </label>
-                                    </p>
+                                <p>
+                                    <label> Phone Number<br />
+                                        <input size="40" class="wpcf7-form-control wpcf7-tel wpcf7-text wpcf7-validates-as-tel" aria-invalid="false" value="" type="tel" name="phone" />
+                                    </label>
+                                </p>
 
-                                    <p>
-                                        <label> Your email<br />
-                                            <span class="wpcf7-form-control-wrap" data-name="your-email">
-                                                <input size="40" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" aria-required="true" aria-invalid="false" value="" type="email" name="your-email" />
-                                            </span>
-                                        </label>
-                                    </p>
+                                <p>
+                                    <label> Type of Event<br />
+                                        <select class="wpcf7-form-control wpcf7-select" aria-invalid="false" name="event_type" required>
+                                            <option value="">—Please choose an option—</option>
+                                            <option value="Open House">Open House</option>
+                                            <option value="Wedding">Wedding</option>
+                                            <option value="Business Event">Business Event</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </label>
+                                </p>
 
-                                    <p>
-                                        <label> Phone Number<br />
-                                            <span class="wpcf7-form-control-wrap" data-name="tel-number">
-                                                <input size="40" class="wpcf7-form-control wpcf7-tel wpcf7-text wpcf7-validates-as-tel" aria-invalid="false" value="" type="tel" name="tel-number" />
-                                            </span>
-                                        </label>
-                                    </p>
+                                <p>
+                                    <label> Number of Guests<br />
+                                        <select class="wpcf7-form-control wpcf7-select" aria-invalid="false" name="guest_count" required>
+                                            <option value="">—Please choose an option—</option>
+                                            <option value="0-10">0-10</option>
+                                            <option value="10-25">10-25</option>
+                                            <option value="26-50">26-50</option>
+                                            <option value="51+">51+</option>
+                                        </select>
+                                    </label>
+                                </p>
 
-                                    <p>
-                                        <label> Type of Event<br />
-                                            <span class="wpcf7-form-control-wrap" data-name="event-type">
-                                                <select class="wpcf7-form-control wpcf7-select" aria-invalid="false" name="event-type">
-                                                    <option value="">—Please choose an option—</option>
-                                                    <option value="Open House">Open House</option>
-                                                    <option value="Wedding">Wedding</option>
-                                                    <option value="Business Event">Business Event</option>
-                                                    <option value="Other">Other</option>
-                                                </select>
-                                            </span>
-                                        </label>
-                                    </p>
+                                <p>
+                                    <label> Date of Event<br />
+                                        <input class="wpcf7-form-control wpcf7-date wpcf7-validates-as-date" aria-invalid="false" value="" type="date" name="event_date" required />
+                                    </label>
+                                </p>
 
-                                    <p>
-                                        <label> Number of Guests<br />
-                                            <span class="wpcf7-form-control-wrap" data-name="guests">
-                                                <select class="wpcf7-form-control wpcf7-select" aria-invalid="false" name="guests">
-                                                    <option value="">—Please choose an option—</option>
-                                                    <option value="0-25">0-10</option>
-                                                    <option value="0-25">10-25</option>
-                                                    <option value="26-50">26-50</option>
-                                                    <option value="51+">51+</option>
-                                                </select>
-                                            </span>
-                                        </label>
-                                    </p>
-
-                                    <p>
-                                        <label> Date of Event<br />
-                                            <span class="wpcf7-form-control-wrap" data-name="event-date">
-                                                <input class="wpcf7-form-control wpcf7-date wpcf7-validates-as-date" aria-invalid="false" value="" type="date" name="event-date" />
-                                            </span>
-                                        </label>
-                                    </p>
-
-                                    <p>
-                                        <input class="wpcf7-form-control wpcf7-submit has-spinner" type="submit" value="Submit" />
-                                    </p>
-
-                                    <div class="wpcf7-response-output" aria-hidden="true"></div>
-                                </form>
-                            </div>
+                                <p>
+                                    <input class="wpcf7-form-control wpcf7-submit has-spinner" type="submit" value="Submit" />
+                                </p>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -682,17 +657,18 @@ Barmer, Rajasthan</p>
             </div>
         </div>
 
+
         <div id="eb-map-eb1163b" class="eb-map" style="all:unset; display:block; width:100%; height:auto;">
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3593.7547057831393!2d71.3911928769072!3d25.745624209266456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39443b63032d7af7%3A0x882a00d2aefe2fa6!2sZoca%20Courtyard%20Barmer!5e0!3m2!1sen!2sin!4v1756528230489!5m2!1sen!2sin"
-    width="100%"
-    height="450"
-    style="border:0; display:block;"
-    allowfullscreen=""
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
-</div>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3593.7547057831393!2d71.3911928769072!3d25.745624209266456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39443b63032d7af7%3A0x882a00d2aefe2fa6!2sZoca%20Courtyard%20Barmer!5e0!3m2!1sen!2sin!4v1756528230489!5m2!1sen!2sin"
+                width="100%"
+                height="450"
+                style="border:0; display:block;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
 
     </div>
 
