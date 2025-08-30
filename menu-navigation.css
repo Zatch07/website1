@@ -1,0 +1,261 @@
+/* Menu Navigation Button Styles */
+
+/* Menu Navigation Icon */
+.menu-nav-icon {
+    position: fixed;
+    bottom: 90px; /* Position above cart button */
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #07252d;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999; /* Below cart but above other content */
+    box-shadow: 0 4px 20px rgba(7, 37, 45, 0.3);
+    transition: all 0.3s ease;
+    border: 2px solid #e3dac6;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.menu-nav-icon:hover {
+    transform: scale(1.1) translateY(0);
+    box-shadow: 0 6px 25px rgba(7, 37, 45, 0.5);
+}
+
+.menu-nav-icon i {
+    color: #e3dac6;
+    font-size: 24px;
+}
+
+/* Hide when hamburger menu is open */
+body.js_nav .menu-nav-icon {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+}
+
+/* Menu Navigation Modal */
+.menu-nav-modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.menu-nav-content {
+    background-color: #07252d;
+    margin: 10% auto;
+    padding: 0;
+    border: 2px solid #e3dac6;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    max-height: 70vh;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Menu Navigation Header */
+.menu-nav-header {
+    background: linear-gradient(135deg, #07252d 0%, #0a2f38 100%);
+    padding: 20px;
+    border-bottom: 2px solid #e3dac6;
+    position: relative;
+}
+
+.menu-nav-header h2 {
+    color: #e3dac6;
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+}
+
+.menu-nav-close {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #e3dac6;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(227, 218, 198, 0.1);
+}
+
+.menu-nav-close:hover {
+    background: rgba(227, 218, 198, 0.2);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Menu Navigation Items */
+.menu-nav-items {
+    max-height: 50vh;
+    overflow-y: auto;
+    padding: 10px 0;
+}
+
+.menu-nav-item {
+    display: block;
+    padding: 15px 25px;
+    color: #e3dac6;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(227, 218, 198, 0.1);
+    transition: all 0.2s ease;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    background: transparent;
+}
+
+.menu-nav-item:hover {
+    background: rgba(227, 218, 198, 0.1);
+    color: #fff;
+    padding-left: 35px;
+}
+
+.menu-nav-item:before {
+    content: "→";
+    position: absolute;
+    left: 25px;
+    opacity: 0;
+    transition: all 0.2s ease;
+    color: #e3dac6;
+}
+
+.menu-nav-item:hover:before {
+    opacity: 1;
+    left: 15px;
+}
+
+.menu-nav-item:last-child {
+    border-bottom: none;
+}
+
+/* Custom scrollbar for menu items */
+.menu-nav-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+.menu-nav-items::-webkit-scrollbar-track {
+    background: rgba(227, 218, 198, 0.1);
+    border-radius: 3px;
+}
+
+.menu-nav-items::-webkit-scrollbar-thumb {
+    background: #e3dac6;
+    border-radius: 3px;
+}
+
+.menu-nav-items::-webkit-scrollbar-thumb:hover {
+    background: #d4c5a8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-nav-icon {
+        width: 55px;
+        height: 55px;
+        bottom: 80px;
+        right: 15px;
+    }
+
+    .menu-nav-icon i {
+        font-size: 22px;
+    }
+
+    .menu-nav-content {
+        width: 95%;
+        margin: 15% auto;
+        max-height: 65vh;
+    }
+
+    .menu-nav-header h2 {
+        font-size: 20px;
+    }
+
+    .menu-nav-item {
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+
+    .menu-nav-item:hover {
+        padding-left: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-nav-icon {
+        width: 50px;
+        height: 50px;
+        bottom: 75px;
+    }
+
+    .menu-nav-icon i {
+        font-size: 20px;
+    }
+
+    .menu-nav-content {
+        margin: 20% auto;
+        max-height: 60vh;
+    }
+
+    .menu-nav-header {
+        padding: 15px;
+    }
+
+    .menu-nav-header h2 {
+        font-size: 18px;
+    }
+
+    .menu-nav-item {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .menu-nav-item:hover {
+        padding-left: 25px;
+    }
+}
+
+/* Hide on very small screens if needed */
+@media (max-width: 320px) {
+    .menu-nav-icon {
+        width: 45px;
+        height: 45px;
+        bottom: 70px;
+    }
+
+    .menu-nav-icon i {
+        font-size: 18px;
+    }
+}

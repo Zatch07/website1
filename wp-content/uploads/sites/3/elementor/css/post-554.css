@@ -100,7 +100,7 @@
 
 .elementor-554 .elementor-element.elementor-element-1957990:not(.elementor-motion-effects-element-type-background),
 .elementor-554 .elementor-element.elementor-element-1957990>.elementor-motion-effects-container>.elementor-motion-effects-layer {
-    background-image: url("../../../../../../images/home-gallary1.jpg");
+    background-image: url("../../2023/10/thai-style-grilled-pork-with-rice-and-vegetable-m-2022-12-16-02-12-15-utc.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -116,44 +116,6 @@
 }
 
 
-
-.elementor-554 .elementor-element.elementor-element-1957991 {
-    --display: flex;
-    --min-height: 520px;
-    --flex-direction: column;
-    --container-widget-width: 100%;
-    --container-widget-height: initial;
-    --container-widget-flex-grow: 0;
-    --container-widget-align-self: initial;
-    --justify-content: center;
-    --overflow: hidden;
-    --background-transition: 0.3s;
-    --margin-block-start: 0px;
-    --margin-block-end: 0px;
-    --margin-inline-start: 0px;
-    --margin-inline-end: 0px;
-    --padding-block-start: 0px;
-    --padding-block-end: 0px;
-    --padding-inline-start: 0px;
-    --padding-inline-end: 0px;
-}
-
-.elementor-554 .elementor-element.elementor-element-1957991:not(.elementor-motion-effects-element-type-background),
-.elementor-554 .elementor-element.elementor-element-1957991>.elementor-motion-effects-container>.elementor-motion-effects-layer {
-    background-image: url("../../2023/10/thai-style-grilled-pork-with-rice-and-vegetable-m-2022-12-16-02-12-15-utc.jpg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.elementor-554 .elementor-element.elementor-element-1957991,
-.elementor-554 .elementor-element.elementor-element-1957991::before {
-    --border-transition: 0.3s;
-}
-
-.elementor-554 .elementor-element.elementor-element-1957991.e-con {
-    --align-self: center;
-}
 
 
 
