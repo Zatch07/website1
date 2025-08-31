@@ -294,12 +294,48 @@ function animateToCart(sourceElement) {
 function toggleCart() {
     const modal = document.getElementById('cart-modal');
     if (!modal) return;
-    
+
     if (modal.style.display === 'block') {
-        modal.style.display = 'none';
+        closeCart();
     } else {
-        modal.style.display = 'block';
-        updateCartModal();
+        openCart();
+    }
+}
+
+// Store scroll position to prevent jump
+let cartScrollPosition = 0;
+
+// Open cart modal
+function openCart() {
+    const modal = document.getElementById('cart-modal');
+    if (!modal) return;
+
+    // Close menu nav if it's open
+    if (typeof closeMenuNav === 'function') {
+        closeMenuNav();
+    }
+
+    // Store current scroll position
+    cartScrollPosition = window.pageYOffset;
+
+    // Show modal and add body class
+    modal.style.display = 'block';
+    document.body.classList.add('cart-open');
+    document.body.classList.remove('menu-nav-open');
+
+    // Don't change body position - let CSS handle the overflow
+
+    updateCartModal();
+}
+
+// Close cart modal
+function closeCart() {
+    const modal = document.getElementById('cart-modal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.classList.remove('cart-open');
+
+        // No need to restore scroll position since we didn't change it
     }
 }
 
@@ -563,6 +599,6 @@ function initializeHeaderScrollFix() {
 window.addEventListener('click', function(event) {
     const modal = document.getElementById('cart-modal');
     if (event.target === modal) {
-        modal.style.display = 'none';
+        closeCart();
     }
 });

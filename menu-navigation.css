@@ -42,36 +42,40 @@ body.js_nav .menu-nav-icon {
 .menu-nav-modal {
     display: none;
     position: fixed;
-    z-index: 1001;
+    z-index: 1002; /* Higher than cart modal */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    pointer-events: all; /* Ensure modal captures all clicks */
 }
 
 .menu-nav-content {
     background-color: #07252d;
-    margin: 10% auto;
+    position: fixed;
+    bottom: 160px; /* Position above menu nav icon */
+    right: 20px;
     padding: 0;
     border: 2px solid #e3dac6;
     border-radius: 15px;
-    width: 90%;
-    max-width: 400px;
-    max-height: 70vh;
+    width: 320px;
+    max-width: calc(100vw - 40px);
+    max-height: 60vh;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    animation: slideIn 0.3s ease;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    animation: slideInFromBottom 0.3s ease;
+    pointer-events: all;
 }
 
-@keyframes slideIn {
+@keyframes slideInFromBottom {
     from {
-        transform: translateY(-50px);
+        transform: translateY(30px) scale(0.9);
         opacity: 0;
     }
     to {
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
         opacity: 1;
     }
 }
@@ -98,22 +102,28 @@ body.js_nav .menu-nav-icon {
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
-    color: #e3dac6;
-    font-size: 28px;
-    font-weight: bold;
     cursor: pointer;
     transition: all 0.2s ease;
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: rgba(227, 218, 198, 0.1);
+    background: rgba(227, 218, 198, 0.15);
+    color: #e3dac6;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.menu-nav-close:before {
+    content: "×";
+    line-height: 1;
 }
 
 .menu-nav-close:hover {
-    background: rgba(227, 218, 198, 0.2);
+    background: #e3dac6;
+    color: #07252d;
     transform: translateY(-50%) scale(1.1);
 }
 
@@ -138,8 +148,8 @@ body.js_nav .menu-nav-icon {
 }
 
 .menu-nav-item:hover {
-    background: rgba(227, 218, 198, 0.1);
-    color: #fff;
+    background: #e3dac6;
+    color: #07252d;
     padding-left: 35px;
 }
 
@@ -155,6 +165,7 @@ body.js_nav .menu-nav-icon {
 .menu-nav-item:hover:before {
     opacity: 1;
     left: 15px;
+    color: #07252d;
 }
 
 .menu-nav-item:last-child {
@@ -194,9 +205,10 @@ body.js_nav .menu-nav-icon {
     }
 
     .menu-nav-content {
-        width: 95%;
-        margin: 15% auto;
-        max-height: 65vh;
+        width: 300px;
+        bottom: 145px;
+        right: 15px;
+        max-height: 55vh;
     }
 
     .menu-nav-header h2 {
@@ -225,8 +237,10 @@ body.js_nav .menu-nav-icon {
     }
 
     .menu-nav-content {
-        margin: 20% auto;
-        max-height: 60vh;
+        width: 280px;
+        bottom: 135px;
+        right: 10px;
+        max-height: 50vh;
     }
 
     .menu-nav-header {
@@ -258,4 +272,44 @@ body.js_nav .menu-nav-icon {
     .menu-nav-icon i {
         font-size: 18px;
     }
+
+    .menu-nav-content {
+        width: 260px;
+        bottom: 125px;
+        right: 5px;
+        max-height: 45vh;
+    }
+}
+
+/* Prevent background interactions when menu nav is open */
+body.menu-nav-open {
+    overflow: hidden;
+}
+
+body.menu-nav-open * {
+    pointer-events: none !important;
+}
+
+body.menu-nav-open .menu-nav-modal,
+body.menu-nav-open .menu-nav-modal *,
+body.menu-nav-open .menu-nav-icon {
+    pointer-events: all !important;
+}
+
+/* Show menu nav icon in hover state when modal is open */
+body.menu-nav-open .menu-nav-icon {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(7, 37, 45, 0.5);
+    background: #0a2f38;
+}
+
+/* Hide cart when menu nav is open and vice versa */
+body.menu-nav-open .cart-icon {
+    opacity: 0.3;
+    pointer-events: none !important;
+}
+
+body.cart-open .menu-nav-icon {
+    opacity: 0.3;
+    pointer-events: none !important;
 }

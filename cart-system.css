@@ -601,3 +601,18 @@
     pointer-events: auto !important;
     z-index: 999999 !important;
 }
+
+/* Prevent background interactions when cart is open */
+body.cart-open {
+    overflow: hidden;
+}
+
+body.cart-open * {
+    pointer-events: none !important;
+}
+
+body.cart-open .cart-modal,
+body.cart-open .cart-modal *,
+body.cart-open .cart-icon {
+    pointer-events: all !important;
+}

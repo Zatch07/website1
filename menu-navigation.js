@@ -76,7 +76,7 @@ function createMenuNavModal() {
         <div class="menu-nav-content">
             <div class="menu-nav-header">
                 <h2>Menu Sections</h2>
-                <span class="menu-nav-close" onclick="closeMenuNav()">&times;</span>
+                <div class="menu-nav-close" onclick="closeMenuNav()"></div>
             </div>
             <div class="menu-nav-items">
                 ${menuItemsHTML}
@@ -95,27 +95,16 @@ function addSectionIds() {
         const text = heading.textContent.trim();
         const section = menuSections.find(s => s.name === text);
 
-        if (section) {
-            // Find the main section container - look for the background container
+        if (section && text !== 'Our Menu') { // Skip the main "Our Menu" heading
+            // Find the heading's immediate container first
             let container = heading.closest('.elementor-element');
 
-            // Look for the parent container that has background styling
-            while (container && container.parentElement) {
-                container = container.parentElement;
-
-                // Look for containers with background images or the main section containers
-                if (container.classList.contains('elementor-element-1957990') ||
-                    container.classList.contains('elementor-element-947b812') ||
-                    container.style.backgroundImage ||
-                    container.querySelector('.elementor-element-1957990')) {
-                    break;
-                }
-            }
-
+            // For better navigation, use the heading's container directly
+            // This ensures we scroll to the actual heading, not some parent container
             if (container) {
                 container.id = section.id;
-                // Add a data attribute for easier identification
                 container.setAttribute('data-menu-section', section.name);
+                console.log(`Added ID "${section.id}" to section: ${section.name}`);
             }
         }
     });
@@ -125,12 +114,36 @@ function addSectionIds() {
 function toggleMenuNav() {
     const modal = document.getElementById('menu-nav-modal');
     if (!modal) return;
-    
+
     if (modal.style.display === 'block') {
         closeMenuNav();
     } else {
-        modal.style.display = 'block';
+        openMenuNav();
     }
+}
+
+// Store scroll position to prevent jump
+let scrollPosition = 0;
+
+// Open menu navigation modal
+function openMenuNav() {
+    const modal = document.getElementById('menu-nav-modal');
+    if (!modal) return;
+
+    // Close cart if it's open
+    if (typeof closeCart === 'function') {
+        closeCart();
+    }
+
+    // Store current scroll position
+    scrollPosition = window.pageYOffset;
+
+    // Show modal and add body class
+    modal.style.display = 'block';
+    document.body.classList.add('menu-nav-open');
+    document.body.classList.remove('cart-open');
+
+    // Don't change body position - let CSS handle the overflow
 }
 
 // Close menu navigation modal
@@ -138,71 +151,132 @@ function closeMenuNav() {
     const modal = document.getElementById('menu-nav-modal');
     if (modal) {
         modal.style.display = 'none';
+        document.body.classList.remove('menu-nav-open');
+
+        // No need to restore scroll position since we didn't change it
     }
 }
 
-// Navigate to specific menu section
+// Navigate to specific menu section with smooth animation from current position
 function navigateToSection(sectionId) {
     closeMenuNav();
 
-    let section = document.getElementById(sectionId);
+    // Wait for modal close animation
+    setTimeout(() => {
+        let section = document.getElementById(sectionId);
 
-    // If section not found by ID, try to find by data attribute
-    if (!section) {
-        const sectionData = menuSections.find(s => s.id === sectionId);
-        if (sectionData) {
-            section = document.querySelector(`[data-menu-section="${sectionData.name}"]`);
+        // If section not found by ID, try to find by data attribute
+        if (!section) {
+            const sectionData = menuSections.find(s => s.id === sectionId);
+            if (sectionData) {
+                section = document.querySelector(`[data-menu-section="${sectionData.name}"]`);
+            }
         }
-    }
 
-    // If still not found, try to find by heading text
-    if (!section) {
-        const sectionData = menuSections.find(s => s.id === sectionId);
-        if (sectionData) {
-            const headings = document.querySelectorAll('h2.elementor-heading-title');
-            for (let heading of headings) {
-                if (heading.textContent.trim() === sectionData.name) {
-                    section = heading.closest('.elementor-element');
-                    // Go up to find a suitable container
-                    for (let i = 0; i < 5; i++) {
-                        if (section && section.parentElement) {
-                            section = section.parentElement;
-                        }
+        // If still not found, try to find by heading text directly
+        if (!section) {
+            const sectionData = menuSections.find(s => s.id === sectionId);
+            if (sectionData) {
+                const headings = document.querySelectorAll('h2.elementor-heading-title');
+                for (let heading of headings) {
+                    if (heading.textContent.trim() === sectionData.name) {
+                        section = heading.closest('.elementor-element');
+                        break;
                     }
-                    break;
                 }
             }
         }
-    }
 
-    if (section) {
-        // Smooth scroll to section with offset for fixed header
-        const headerHeight = 120; // Adjust based on your header height
-        const elementPosition = section.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+        if (section) {
+            // Get current scroll position
+            const currentScroll = window.pageYOffset;
 
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-        });
+            // Calculate target position with offset for better readability
+            const headerOffset = 60; // Offset to make heading easily readable
+            const elementPosition = section.getBoundingClientRect().top;
+            const targetPosition = elementPosition + currentScroll - headerOffset;
 
-        // Add a brief highlight effect
-        section.style.transition = 'background-color 0.3s ease';
-        section.style.backgroundColor = 'rgba(227, 218, 198, 0.1)';
+            console.log(`Navigating to ${sectionId}:`, {
+                currentScroll,
+                elementPosition,
+                targetPosition,
+                distance: Math.abs(targetPosition - currentScroll)
+            });
 
-        setTimeout(() => {
-            section.style.backgroundColor = '';
-        }, 1500);
-    } else {
-        console.log('Section not found:', sectionId);
-    }
+            // Use custom smooth scrolling with easing for better control
+            smoothScrollToPosition(targetPosition, 1200); // 1.2 second duration
+
+        } else {
+            console.log('Section not found:', sectionId);
+            // Fallback: try to find any heading with the section name
+            const sectionData = menuSections.find(s => s.id === sectionId);
+            if (sectionData) {
+                const allHeadings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+                for (let heading of allHeadings) {
+                    if (heading.textContent.trim().includes(sectionData.name)) {
+                        const currentScroll = window.pageYOffset;
+                        const elementPosition = heading.getBoundingClientRect().top;
+                        const targetPosition = elementPosition + currentScroll - 60;
+                        smoothScrollToPosition(targetPosition, 1200);
+                        break;
+                    }
+                }
+            }
+        }
+    }, 300); // Wait for modal close animation
 }
 
-// Close modal when clicking outside
+// Custom smooth scrolling function with easing
+function smoothScrollToPosition(targetPosition, duration = 1200) {
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+
+    // Easing function for smooth animation (ease-in-out)
+    function easeInOutCubic(t) {
+        return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+    }
+
+    function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+
+        // Apply easing
+        const easedProgress = easeInOutCubic(progress);
+
+        // Calculate current position
+        const currentPosition = startPosition + (distance * easedProgress);
+
+        // Scroll to current position
+        window.scrollTo(0, currentPosition);
+
+        // Continue animation if not complete
+        if (progress < 1) {
+            requestAnimationFrame(animation);
+        }
+    }
+
+    // Start the animation
+    requestAnimationFrame(animation);
+}
+
+// Close modal when clicking outside the menu content
 window.addEventListener('click', function(event) {
     const modal = document.getElementById('menu-nav-modal');
-    if (event.target === modal) {
-        closeMenuNav();
+    const menuContent = document.querySelector('.menu-nav-content');
+    const menuNavIcon = document.getElementById('menu-nav-icon');
+
+    if (modal && modal.style.display === 'block') {
+        // Close if clicking on the modal backdrop (not the content)
+        if (event.target === modal) {
+            closeMenuNav();
+        }
+        // Close if clicking outside the menu content but not on the menu nav icon
+        else if (menuContent && !menuContent.contains(event.target) &&
+                 menuNavIcon && !menuNavIcon.contains(event.target)) {
+            closeMenuNav();
+        }
     }
 });
 

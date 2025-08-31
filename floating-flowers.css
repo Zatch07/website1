@@ -1,0 +1,213 @@
+/* Floating Flower Animations - Copied from main page */
+
+/* Background Decorative Images - Flowers and other decorative elements */
+@media (min-width: 769px) {
+    /* Pattern 1: Simple Vertical Float */
+    img[src*="flowers/1.png"],
+    img[src*="flowers/5.png"],
+    img[src*="flowers/9.png"] {
+        animation: bgFloat1 7s ease-in-out infinite;
+    }
+
+    /* Pattern 2: Circular Drift */
+    img[src*="flowers/2.png"],
+    img[src*="flowers/6.png"],
+    img[src*="flowers/10.png"] {
+        animation: bgFloat2 8s ease-in-out infinite;
+        animation-delay: 1s;
+    }
+
+    /* Pattern 3: Vertical Bob */
+    img[src*="flowers/3.png"],
+    img[src*="flowers/7.png"],
+    img[src*="flowers/11.png"] {
+        animation: bgFloat3 6s ease-in-out infinite;
+        animation-delay: 2s;
+    }
+
+    /* Pattern 4: Diagonal Float */
+    img[src*="flowers/4.png"],
+    img[src*="flowers/8.png"],
+    img[src*="flowers/12.png"] {
+        animation: bgFloat4 9s ease-in-out infinite;
+        animation-delay: 0.5s;
+    }
+
+    /* Catch remaining decorative PNGs with random patterns */
+    .elementor-absolute img[src$=".png"]:nth-child(4n+1):not([src*="logo"]):not([src*="close"]) {
+        animation: bgFloat1 7.5s ease-in-out infinite;
+        animation-delay: 1.5s;
+    }
+
+    .elementor-absolute img[src$=".png"]:nth-child(4n+2):not([src*="logo"]):not([src*="close"]) {
+        animation: bgFloat2 6.5s ease-in-out infinite;
+        animation-delay: 2.5s;
+    }
+
+    .elementor-absolute img[src$=".png"]:nth-child(4n+3):not([src*="logo"]):not([src*="close"]) {
+        animation: bgFloat3 8.5s ease-in-out infinite;
+        animation-delay: 0.8s;
+    }
+
+    .elementor-absolute img[src$=".png"]:nth-child(4n):not([src*="logo"]):not([src*="close"]) {
+        animation: bgFloat4 7.8s ease-in-out infinite;
+        animation-delay: 3s;
+    }
+}
+
+/* Background Animation Patterns */
+@keyframes bgFloat1 {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(-8px) translateX(2px); }
+}
+
+@keyframes bgFloat2 {
+    0%, 100% { transform: translateX(0px) translateY(0px); }
+    25% { transform: translateX(3px) translateY(-4px); }
+    50% { transform: translateX(0px) translateY(-8px); }
+    75% { transform: translateX(-3px) translateY(-4px); }
+}
+
+@keyframes bgFloat3 {
+    0%, 100% { transform: translateY(0px); }
+    33% { transform: translateY(-6px); }
+    66% { transform: translateY(-3px); }
+}
+
+@keyframes bgFloat4 {
+    0%, 100% { transform: translateX(0px) translateY(0px); }
+    25% { transform: translateX(-2px) translateY(-5px); }
+    50% { transform: translateX(4px) translateY(-7px); }
+    75% { transform: translateX(-1px) translateY(-3px); }
+}
+
+/* Mobile optimizations - Reduced animations for performance */
+@media (max-width: 768px) {
+    img[src*="flowers/1.png"],
+    img[src*="flowers/5.png"],
+    img[src*="flowers/9.png"] {
+        animation: bgFloat1Mobile 5s ease-in-out infinite;
+    }
+
+    img[src*="flowers/2.png"],
+    img[src*="flowers/6.png"],
+    img[src*="flowers/10.png"] {
+        animation: bgFloat2Mobile 6s ease-in-out infinite;
+        animation-delay: 1s;
+    }
+
+    img[src*="flowers/3.png"],
+    img[src*="flowers/7.png"],
+    img[src*="flowers/11.png"] {
+        animation: bgFloat3Mobile 4.5s ease-in-out infinite;
+        animation-delay: 2s;
+    }
+
+    img[src*="flowers/4.png"],
+    img[src*="flowers/8.png"],
+    img[src*="flowers/12.png"] {
+        animation: bgFloat4Mobile 5.5s ease-in-out infinite;
+        animation-delay: 0.5s;
+    }
+}
+
+/* Mobile Animation Keyframes - Reduced movement */
+@keyframes bgFloat1Mobile {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-4px); }
+}
+
+@keyframes bgFloat2Mobile {
+    0%, 100% { transform: translateX(0px) translateY(0px); }
+    25% { transform: translateX(2px) translateY(-2px); }
+    50% { transform: translateX(0px) translateY(-4px); }
+    75% { transform: translateX(-2px) translateY(-2px); }
+}
+
+@keyframes bgFloat3Mobile {
+    0%, 100% { transform: translateY(0px); }
+    33% { transform: translateY(-3px); }
+    66% { transform: translateY(-1px); }
+}
+
+@keyframes bgFloat4Mobile {
+    0%, 100% { transform: translateX(0px) translateY(0px); }
+    25% { transform: translateX(-1px) translateY(-3px); }
+    50% { transform: translateX(2px) translateY(-4px); }
+    75% { transform: translateX(-1px) translateY(-2px); }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    img[src*="flowers/"],
+    .elementor-absolute img[src$=".png"] {
+        animation: none !important;
+    }
+}
+
+/* Performance optimization - Only animate flowers in viewport */
+@media (min-width: 769px) {
+    img[src*="flowers/"] {
+        animation-play-state: paused;
+    }
+
+    /* This will be handled by JavaScript intersection observer */
+    .flower-in-view img[src*="flowers/"] {
+        animation-play-state: running;
+    }
+}
+
+/* Positioning for additional flowers */
+.elementor-element-starters1 {
+    top: 15% !important;
+    left: 5% !important;
+    z-index: 1 !important;
+}
+
+.elementor-element-starters2 {
+    top: 75% !important;
+    right: 8% !important;
+    z-index: 1 !important;
+}
+
+.elementor-element-pizzas1 {
+    top: 60% !important;
+    left: 10% !important;
+    z-index: 1 !important;
+}
+
+.elementor-element-momos1 {
+    top: 25% !important;
+    right: 12% !important;
+    z-index: 1 !important;
+}
+
+.elementor-element-curries1 {
+    top: 45% !important;
+    left: 8% !important;
+    z-index: 1 !important;
+}
+
+.elementor-element-mocktails1 {
+    top: 20% !important;
+    left: 6% !important;
+    z-index: 1 !important;
+}
+
+.elementor-element-mocktails2 {
+    top: 70% !important;
+    right: 10% !important;
+    z-index: 1 !important;
+}
+
+.elementor-element-chai1 {
+    top: 35% !important;
+    right: 15% !important;
+    z-index: 1 !important;
+}
+
+.elementor-element-breads1 {
+    top: 30% !important;
+    left: 12% !important;
+    z-index: 1 !important;
+}
