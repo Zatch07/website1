@@ -58,13 +58,13 @@ body.js_nav .menu-nav-icon {
     bottom: 160px; /* Position above menu nav icon */
     right: 20px;
     padding: 0;
-    border: 2px solid #e3dac6;
+    border: 3px solid #e3dac6;
     border-radius: 15px;
     width: 320px;
     max-width: calc(100vw - 40px);
     max-height: 60vh;
     overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
     animation: slideInFromBottom 0.3s ease;
     pointer-events: all;
 }
@@ -296,11 +296,13 @@ body.menu-nav-open .menu-nav-icon {
     pointer-events: all !important;
 }
 
-/* Show menu nav icon in hover state when modal is open */
+/* Highlight menu nav icon when modal is open */
 body.menu-nav-open .menu-nav-icon {
-    transform: scale(1.1);
-    box-shadow: 0 6px 25px rgba(7, 37, 45, 0.5);
+    transform: scale(1.15);
+    box-shadow: 0 8px 30px rgba(7, 37, 45, 0.8);
     background: #0a2f38;
+    border: 2px solid #e3dac6;
+    z-index: 10001;
 }
 
 /* Hide cart when menu nav is open and vice versa */

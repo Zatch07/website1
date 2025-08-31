@@ -602,3 +602,5 @@ window.addEventListener('click', function(event) {
         closeCart();
     }
 });
+
+// Mobile scroll prevention is now handled by the unified handler in menu-navigation.js

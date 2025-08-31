@@ -19,6 +19,7 @@ const menuSections = [
     { name: "Thalis & Combos", id: "thalis-section" },
     { name: "Mojito", id: "mojito-section" },
     { name: "Mocktails", id: "mocktails-section" },
+    { name: "Shakes & Cold Coffee", id: "shakes-section" },
     { name: "Chai, Coffee & Bubble Tea", id: "chai-section" },
     { name: "Cold Drinks & Lassi", id: "drinks-section" },
     { name: "Desserts", id: "desserts-section" }
@@ -286,6 +287,104 @@ document.addEventListener('keydown', function(event) {
         closeMenuNav();
     }
 });
+
+// Unified mobile scroll prevention for both menu nav and cart
+let touchStartY = 0;
+let touchStartX = 0;
+
+document.addEventListener('touchstart', function(e) {
+    if (document.body.classList.contains('menu-nav-open') ||
+        document.body.classList.contains('cart-open')) {
+        touchStartY = e.touches[0].clientY;
+        touchStartX = e.touches[0].clientX;
+    }
+}, { passive: false });
+
+document.addEventListener('touchmove', function(e) {
+    if (document.body.classList.contains('menu-nav-open') ||
+        document.body.classList.contains('cart-open')) {
+
+        const currentY = e.touches[0].clientY;
+        const currentX = e.touches[0].clientX;
+        const deltaY = touchStartY - currentY;
+        const deltaX = touchStartX - currentX;
+
+        // Only handle vertical scrolling
+        if (Math.abs(deltaY) > Math.abs(deltaX)) {
+            // Find the scrollable content
+            const scrollableElement = e.target.closest('.menu-nav-items, .cart-items');
+
+            if (scrollableElement) {
+                const scrollTop = scrollableElement.scrollTop;
+                const scrollHeight = scrollableElement.scrollHeight;
+                const clientHeight = scrollableElement.clientHeight;
+                const isScrollable = scrollHeight > clientHeight;
+
+                if (isScrollable) {
+                    // At top and trying to scroll up
+                    if (scrollTop <= 0 && deltaY < 0) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                    // At bottom and trying to scroll down
+                    else if (scrollTop + clientHeight >= scrollHeight && deltaY > 0) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                } else {
+                    // Content not scrollable, prevent all vertical scrolling
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+            } else {
+                // Not in scrollable area, prevent all scrolling
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        }
+    }
+}, { passive: false });
+
+// Prevent background scrolling on mobile devices
+function preventBackgroundScroll() {
+    // Prevent touchmove on document when modal is open
+    document.addEventListener('touchmove', function(e) {
+        if (document.body.classList.contains('menu-nav-open') ||
+            document.body.classList.contains('cart-open')) {
+
+            // Allow scrolling within modal content
+            const modalContent = e.target.closest('.menu-nav-items, .cart-content, .cart-items');
+            if (modalContent) {
+                // Check if we're at the top or bottom of the scrollable content
+                const scrollTop = modalContent.scrollTop;
+                const scrollHeight = modalContent.scrollHeight;
+                const clientHeight = modalContent.clientHeight;
+
+                // If scrolling up and already at top, prevent
+                if (scrollTop === 0 && e.touches[0].clientY > e.touches[0].previousClientY) {
+                    e.preventDefault();
+                }
+                // If scrolling down and already at bottom, prevent
+                else if (scrollTop + clientHeight >= scrollHeight && e.touches[0].clientY < e.touches[0].previousClientY) {
+                    e.preventDefault();
+                }
+            } else {
+                // Not within modal content, prevent all scrolling
+                e.preventDefault();
+            }
+        }
+    }, { passive: false });
+
+    // Store previous touch position for direction detection
+    document.addEventListener('touchstart', function(e) {
+        if (e.touches.length === 1) {
+            e.touches[0].previousClientY = e.touches[0].clientY;
+        }
+    }, { passive: false });
+}
+
+// Initialize background scroll prevention
+preventBackgroundScroll();
 
 // Monitor hamburger menu state and hide/show menu nav button accordingly
 function monitorHamburgerMenu() {
