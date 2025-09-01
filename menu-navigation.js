@@ -393,17 +393,19 @@ function monitorHamburgerMenu() {
             if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
                 const body = document.body;
                 const menuNavIcon = document.getElementById('menu-nav-icon');
-                
+
                 if (menuNavIcon) {
-                    // The hamburger menu adds 'js_nav' class to body when open
-                    if (body.classList.contains('js_nav')) {
+                    // Check for both js_nav (traditional) and fullmenu-active (Elementor) classes
+                    if (body.classList.contains('js_nav') || body.classList.contains('fullmenu-active')) {
                         menuNavIcon.style.opacity = '0';
                         menuNavIcon.style.transform = 'translateY(20px)';
                         menuNavIcon.style.pointerEvents = 'none';
+                        menuNavIcon.style.transition = 'all 0.3s ease';
                     } else {
                         menuNavIcon.style.opacity = '1';
                         menuNavIcon.style.transform = 'translateY(0)';
                         menuNavIcon.style.pointerEvents = 'auto';
+                        menuNavIcon.style.transition = 'all 0.3s ease';
                     }
                 }
             }
