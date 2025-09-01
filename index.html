@@ -1532,7 +1532,7 @@
     <div id="wrapper" class="hasbg transparent">
 
         <!-- Elementor Header -->
-        <div id="elementor-header" class="main-menu-wrapper">
+        <div id="elementor-header" class="main-menu-wrapper visible">
             <div data-elementor-type="wp-post" data-elementor-id="36" class="elementor elementor-36">
                 <div class="elementor-element elementor-element-36eaf0d e-flex e-con-boxed e-con e-parent"
                      data-id="36eaf0d"
@@ -2277,7 +2277,7 @@
                                             <div class="price-add-container">
                                                 <div class="food-menu-price">₹347.0</div>
                                                 <div class="add-to-cart-controls">
-                                                    <button class="add-btn" onclick="addToCart('cheese-ball', 'Cheese Ball', 2347, this)">Add</button>
+                                                    <button class="add-btn" onclick="addToCart('cheese-ball', 'Cheese Ball', 347, this)">Add</button>
                                                     <div class="quantity-controls" style="display: none;">
                                                         <button class="quantity-btn minus" onclick="decreaseQuantity('cheese-ball', this)">-</button>
                                                         <span class="quantity">1</span>
@@ -2688,9 +2688,11 @@ Barmer, Rajasthan</p>
 
             <!-- First Testimonial -->
             <div class="elementor-element elementor-element-2d5c00c e-con-full e-flex e-con e-child"
+                 id="testimonial-container"
                  data-id="2d5c00c"
                  data-element_type="container"
-                 data-settings='{"content_width":"full","grandrestaurant_ext_is_background_parallax":"false","grandrestaurant_ext_is_background_backdrop":"false","grandrestaurant_ext_is_background_on_scroll":"false","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}'>
+                 data-settings='{"content_width":"full","grandrestaurant_ext_is_background_parallax":"false","grandrestaurant_ext_is_background_backdrop":"false","grandrestaurant_ext_is_background_on_scroll":"false","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}'
+                 style="cursor: pointer;">
 
                 <!-- Quote Mark -->
                 <div class="elementor-element elementor-element-1cf466a elementor-widget elementor-widget-heading"
@@ -2710,7 +2712,7 @@ Barmer, Rajasthan</p>
                      data-settings='{"grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}'
                      data-widget_type="text-editor.default">
                     <div class="elementor-widget-container">
-                        <p>The food was an absolute delight. I tried the BBQ, and it was a burst of flavors in every bite. The presentation was impeccable, and it tasted even better than it looked. I can&#8217;t wait to return and explore more dishes on their menu. Highly recommended!&#8221;</p>
+                        <p id="testimonial-text">Always an amazing experience whenever I visit! The rooftop ambiance is pure elegance, offering peace and tranquility. The food is incredible, and the overall environment and service are outstanding. Zoca truly sets a new standard for restaurants here—it's our all-time favorite spot!&#8221;</p>
                     </div>
                 </div>
 
@@ -2737,7 +2739,7 @@ Barmer, Rajasthan</p>
                      data-settings='{"grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}'
                      data-widget_type="heading.default">
                     <div class="elementor-widget-container">
-                        <div class="elementor-heading-title elementor-size-default">John Michael</div>
+                        <div class="elementor-heading-title elementor-size-default" id="testimonial-author">Varsha Goyal</div>
                     </div>
                 </div>
             </div>
@@ -3798,6 +3800,119 @@ Barmer, Rajasthan</p>
             window.addEventListener('scroll', targetedHeaderFix);
             targetedHeaderFix(); // Run immediately
         }
+    </script>
+
+    <!-- Testimonials Sliding Script -->
+    <script>
+        // Testimonials data
+        const testimonials = [
+            {
+                text: "Always an amazing experience whenever I visit! The rooftop ambiance is pure elegance, offering peace and tranquility. The food is incredible, and the overall environment and service are outstanding. Zoca truly sets a new standard for restaurants here—it's our all-time favorite spot!",
+                author: "Varsha Goyal",
+                link: "https://maps.app.goo.gl/W1MfVzHe179ApC4N8"
+            },
+            {
+                text: "Delicious food, excellent service, and a cozy atmosphere—Zoca is the perfect destination for a satisfying meal. Highly recommended for anyone looking for quality dining.",
+                author: "Navneet Saran",
+                link: "https://maps.app.goo.gl/oWCXw9CYVWKj3fXc8"
+            },
+            {
+                text: "A fantastic restaurant with an exceptional ambiance—the staff at Zoca exemplifies true hospitality. They're always eager to help, whether it's recommending the perfect dish to match your taste or ensuring every detail of your dining experience is impeccable. The team consistently goes above and beyond.",
+                author: "Mohammed Feroz",
+                link: "https://maps.app.goo.gl/Zs6Zd2FP858Dfht66"
+            },
+            {
+                text: "Zoca is a fine dining restaurant, newly opened in Barmer and part of a renowned chain across India. Barmer is fortunate to have it! The food, ambiance, and atmosphere are all top-notch. Keep up the great reputation, Zoca. A must-visit for both locals and visitors!",
+                author: "Pankaj Dalal",
+                link: "https://maps.app.goo.gl/ASkTuMqTbf84486o9"
+            },
+            {
+                text: "I absolutely love this place! The rooftop café with live shows, delicious food—especially the momos—chilled shakes, and mocktails, plus fun games and photo zones, all make it perfect for spending time with friends and family. Most importantly, the vibe is unmatched; Zoca has the best atmosphere in Barmer.",
+                author: "Devika Solanki",
+                link: "https://maps.app.goo.gl/P3BBztQujGy57RDRA"
+            }
+        ];
+
+        let currentTestimonialIndex = 0;
+        let testimonialInterval;
+
+        function updateTestimonial(index) {
+            const textElement = document.getElementById('testimonial-text');
+            const authorElement = document.getElementById('testimonial-author');
+
+            if (textElement && authorElement) {
+                // Add fade out effect
+                textElement.style.opacity = '0';
+                authorElement.style.opacity = '0';
+
+                setTimeout(() => {
+                    // Update content
+                    textElement.innerHTML = testimonials[index].text + '&#8221;';
+                    authorElement.textContent = testimonials[index].author;
+
+                    // Fade in effect
+                    textElement.style.opacity = '1';
+                    authorElement.style.opacity = '1';
+                }, 300);
+            }
+        }
+
+        function nextTestimonial() {
+            currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+            updateTestimonial(currentTestimonialIndex);
+        }
+
+        function startTestimonialSlider() {
+            // Clear any existing interval
+            if (testimonialInterval) {
+                clearInterval(testimonialInterval);
+            }
+
+            // Start auto-sliding every 5 seconds
+            testimonialInterval = setInterval(nextTestimonial, 5000);
+        }
+
+        function stopTestimonialSlider() {
+            if (testimonialInterval) {
+                clearInterval(testimonialInterval);
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const textElement = document.getElementById('testimonial-text');
+            const authorElement = document.getElementById('testimonial-author');
+            const container = document.getElementById('testimonial-container');
+
+            if (textElement && authorElement) {
+                // Add smooth transition CSS
+                textElement.style.transition = 'opacity 0.3s ease';
+                authorElement.style.transition = 'opacity 0.3s ease';
+
+                // Start the slider
+                startTestimonialSlider();
+
+                // Add click handler to container
+                if (container) {
+                    container.addEventListener('click', function() {
+                        window.open(testimonials[currentTestimonialIndex].link, '_blank');
+                    });
+
+                    // Pause slider on hover
+                    container.addEventListener('mouseenter', stopTestimonialSlider);
+                    container.addEventListener('mouseleave', startTestimonialSlider);
+                }
+            }
+        });
+
+        // Pause slider when page is not visible
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                stopTestimonialSlider();
+            } else {
+                startTestimonialSlider();
+            }
+        });
     </script>
 
 </body>

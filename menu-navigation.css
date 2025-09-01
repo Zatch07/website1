@@ -133,8 +133,16 @@ body.fullmenu-active .menu-nav-icon {
 .menu-nav-items {
     max-height: calc(60vh - 80px); /* Account for header space */
     overflow-y: auto;
+    overflow-x: hidden;
     padding: 10px 0;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+    /* Enhanced mobile scrolling */
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    overscroll-behavior: contain;
+    /* Better momentum scrolling */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: scroll-position;
 }
 
 .menu-nav-item {
@@ -177,21 +185,34 @@ body.fullmenu-active .menu-nav-icon {
 
 /* Custom scrollbar for menu items */
 .menu-nav-items::-webkit-scrollbar {
-    width: 6px;
+    width: 4px; /* Thinner for mobile */
 }
 
 .menu-nav-items::-webkit-scrollbar-track {
     background: rgba(227, 218, 198, 0.1);
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
 .menu-nav-items::-webkit-scrollbar-thumb {
-    background: #e3dac6;
-    border-radius: 3px;
+    background: rgba(227, 218, 198, 0.6);
+    border-radius: 2px;
+    transition: background 0.2s ease;
 }
 
 .menu-nav-items::-webkit-scrollbar-thumb:hover {
-    background: #d4c5a8;
+    background: #e3dac6;
+}
+
+/* Hide scrollbar on mobile for cleaner look */
+@media (max-width: 768px) {
+    .menu-nav-items {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
+    }
+
+    .menu-nav-items::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
 }
 
 /* Responsive Design */
@@ -216,6 +237,10 @@ body.fullmenu-active .menu-nav-icon {
 
     .menu-nav-items {
         max-height: calc(65vh - 80px);
+        /* Enhanced mobile scrolling for 768px */
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        overscroll-behavior: contain;
     }
 
     .menu-nav-header h2 {
@@ -252,6 +277,10 @@ body.fullmenu-active .menu-nav-icon {
 
     .menu-nav-items {
         max-height: calc(60vh - 80px);
+        /* Enhanced mobile scrolling for 480px */
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        overscroll-behavior: contain;
     }
 
     .menu-nav-header {
@@ -293,6 +322,10 @@ body.fullmenu-active .menu-nav-icon {
 
     .menu-nav-items {
         max-height: calc(55vh - 80px);
+        /* Enhanced mobile scrolling for 320px */
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        overscroll-behavior: contain;
     }
 }
 
