@@ -78,10 +78,10 @@
 
 
         <!-- Favicons -->
-        <link rel="icon" href="../../../grandrestaurantv6-8.b-cdn.net/asian/wp-content/uploads/sites/3/2023/10/cropped-TG-Thumb-192x192-1-100x100.png" sizes="32x32" />
-        <link rel="icon" href="../../../grandrestaurantv6-8.b-cdn.net/asian/wp-content/uploads/sites/3/2023/10/cropped-TG-Thumb-192x192-1.png" sizes="192x192" />
-        <link rel="apple-touch-icon" href="../../../grandrestaurantv6-8.b-cdn.net/asian/wp-content/uploads/sites/3/2023/10/cropped-TG-Thumb-192x192-1.png" />
-        <meta name="msapplication-TileImage" content="https://grandrestaurantv6-8.b-cdn.net/asian/wp-content/uploads/sites/3/2023/10/cropped-TG-Thumb-192x192-1.png" />
+        <link rel="icon" href="..//images/favicon.ico" sizes="32x32" />
+        <link rel="icon" href="..//images/favicon.ico" sizes="192x192" />
+        <link rel="apple-touch-icon" href="..//images/favicon.ico" />
+        <meta name="msapplication-TileImage" content="/images/favicon.ico" />
         <!-- Custom CSS -->
         <style type="text/css" id="wp-custom-css">
             ::-webkit-calendar-picker-indicator {
@@ -831,6 +831,72 @@
                                     font-size: 59px;
                                 }
                             </style>
+
+                            <!-- Menu Category Controls (excludes "Our Menu" heading) -->
+                            <style>
+                                :root {
+                                    /* EASY HEADING SIZE CONTROLS - Change these numbers to adjust menu category heading sizes */
+                                    --menu-heading-desktop: 60px;     /* Desktop heading size */
+                                    --menu-heading-tablet: 50px;      /* Tablet heading size */
+                                    --menu-heading-mobile: 40px;      /* Mobile heading size */
+                                    --menu-heading-small-mobile: 25px; /* Small mobile heading size */
+
+                                    /* EASY MOBILE SIDE LINE WIDTH CONTROLS - Change these numbers to adjust decorative line widths on mobile */
+                                    --mobile-line-width: 60px;        /* Mobile side line width */
+                                    --small-mobile-line-width: 40px;  /* Small mobile side line width */
+                                }
+
+                                /* Apply custom sizes to menu category headings ONLY (excludes "Our Menu") */
+                                .elementor-element-03f3f4a .elementor-heading-title,
+                                .elementor-element-928a2fc .elementor-heading-title {
+                                    font-size: var(--menu-heading-desktop) !important;
+                                }
+
+                                /* Tablet responsive heading sizes */
+                                @media (max-width: 1024px) {
+                                    .elementor-element-03f3f4a .elementor-heading-title,
+                                    .elementor-element-928a2fc .elementor-heading-title {
+                                        font-size: var(--menu-heading-tablet) !important;
+                                    }
+                                }
+
+                                /* Mobile responsive heading sizes and side line width controls */
+                                @media (max-width: 768px) {
+                                    .elementor-element-03f3f4a .elementor-heading-title,
+                                    .elementor-element-928a2fc .elementor-heading-title {
+                                        font-size: var(--menu-heading-mobile) !important;
+                                    }
+
+                                    /* Mobile side line width controls for menu categories only */
+                                    .elementor-element-03f3f4a + .elementor-widget-divider .elementor-divider-separator:before,
+                                    .elementor-element-03f3f4a + .elementor-widget-divider .elementor-divider-separator:after,
+                                    .elementor-element-928a2fc + .elementor-widget-divider .elementor-divider-separator:before,
+                                    .elementor-element-928a2fc + .elementor-widget-divider .elementor-divider-separator:after {
+                                        max-width: var(--mobile-line-width) !important;
+                                        min-width: var(--mobile-line-width) !important;
+                                        width: var(--mobile-line-width) !important;
+                                    }
+                                }
+
+                                /* Small mobile responsive heading sizes and side line width controls */
+                                @media (max-width: 480px) {
+                                    .elementor-element-03f3f4a .elementor-heading-title,
+                                    .elementor-element-928a2fc .elementor-heading-title {
+                                        font-size: var(--menu-heading-small-mobile) !important;
+                                    }
+
+                                    /* Small mobile side line width controls for menu categories only */
+                                    .elementor-element-03f3f4a + .elementor-widget-divider .elementor-divider-separator:before,
+                                    .elementor-element-03f3f4a + .elementor-widget-divider .elementor-divider-separator:after,
+                                    .elementor-element-928a2fc + .elementor-widget-divider .elementor-divider-separator:before,
+                                    .elementor-element-928a2fc + .elementor-widget-divider .elementor-divider-separator:after {
+                                        max-width: var(--small-mobile-line-width) !important;
+                                        min-width: var(--small-mobile-line-width) !important;
+                                        width: var(--small-mobile-line-width) !important;
+                                    }
+                                }
+                            </style>
+
                             <h2 class="elementor-heading-title elementor-size-default">Our Menu</h2>
                         </div>
                     </div>
@@ -1320,11 +1386,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="elementor-element elementor-element-7f47b31 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="7f47b31" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
-                            <div class="elementor-widget-container">
-                                <img loading="lazy" decoding="async" width="336" height="160" src="..\images\flowers\2.png" class="attachment-full size-full wp-image-115" alt="" />
-                            </div>
-                        </div>
                         <div class="elementor-element elementor-element-bb850c2 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="bb850c2" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
                                 <img decoding="async" width="466" height="518" src="..\images\flowers\3.png" class="attachment-full size-full wp-image-134" alt="" />
@@ -1650,7 +1711,7 @@
                         </div>
                         <div class="elementor-element elementor-element-b42a7c7 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="b42a7c7" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img loading="lazy" decoding="async" width="296" height="208" src="..\images\flowers\5.png" class="attachment-full size-full wp-image-605" alt="" />
+                                <img loading="lazy" decoding="async" width="296" height="208" src="..\images\flowers\7.png" class="attachment-full size-full wp-image-605" alt="" />
                             </div>
                         </div>
 
@@ -2107,9 +2168,9 @@
                 </div>
             </div>
         </div>
-        <div class="elementor-element elementor-element-803ceee elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="803ceee" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
+        <div class="elementor-element elementor-element-2c57168 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="2c57168" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
             <div class="elementor-widget-container">
-                <img loading="lazy" decoding="async" width="555" height="404" src="..\images\flowers\1.png" class="attachment-full size-full wp-image-606" alt="" />
+                <img decoding="async" width="320" height="310" src="..\images\flowers\6.png" class="attachment-full size-full wp-image-584" alt="" />
             </div>
         </div>
     </div>
@@ -2471,12 +2532,7 @@
                         </div>
                         <div class="elementor-element elementor-element-bb850c2 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="bb850c2" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img decoding="async" width="466" height="518" src="..\images\flowers\8.png" class="attachment-full size-full wp-image-134" alt="" />
-                            </div>
-                        </div>
-                        <div class="elementor-element elementor-element-7f47b31 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="7f47b31" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
-                            <div class="elementor-widget-container">
-                                <img loading="lazy" decoding="async" width="336" height="160" src="..\images\flowers\4.png" class="attachment-full size-full wp-image-115" alt="" />
+                                <img decoding="async" width="466" height="518" src="..\images\flowers\3.png" class="attachment-full size-full wp-image-134" alt="" />
                             </div>
                         </div>
                     </div>
@@ -2693,7 +2749,7 @@
                         </div>
                         <div class="elementor-element elementor-element-803ceee elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="803ceee" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img loading="lazy" decoding="async" width="555" height="404" src="..\images\flowers\6.png" class="attachment-full size-full wp-image-606" alt="" />
+                                <img loading="lazy" decoding="async" width="555" height="404" src="..\images\flowers\7.png" class="attachment-full size-full wp-image-606" alt="" />
                             </div>
                         </div>
                     </div>
@@ -2850,12 +2906,12 @@
                         </div>
                         <div class="elementor-element elementor-element-7f47b31 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="7f47b31" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img loading="lazy" decoding="async" width="336" height="160" src="..\images\flowers\9.png" class="attachment-full size-full wp-image-115" alt="" />
+                                <img loading="lazy" decoding="async" width="336" height="160" src="..\images\flowers\1.png" class="attachment-full size-full wp-image-115" alt="" />
                             </div>
                         </div>
                         <div class="elementor-element elementor-element-b42a7c7 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="b42a7c7" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img loading="lazy" decoding="async" width="296" height="208" src="..\images\flowers\2.png" class="attachment-full size-full wp-image-605" alt="" />
+                                <img loading="lazy" decoding="async" width="296" height="208" src="..\images\flowers\5.png" class="attachment-full size-full wp-image-605" alt="" />
                             </div>
                         </div>
                     </div>
@@ -3002,86 +3058,86 @@
                                         <div class="food-menu-desc">Creamy tandoori malai chaap rolled with onions and chutney.</div>
                                     </div>
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="elementor-element elementor-element-2c57168 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="2c57168" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
-                        <div class="elementor-widget-container">
-                            <img decoding="async" width="320" height="310" src="..\images\flowers\4.png" class="attachment-full size-full wp-image-584" alt="" />
                         </div>
                     </div>
                 </div>
-                <div class="elementor-element elementor-element-4ba28ec e-con-full e-flex e-con e-child" data-id="4ba28ec" data-element_type="container" data-settings='{"content_width":"full","grandrestaurant_ext_is_background_parallax":"false","grandrestaurant_ext_is_background_backdrop":"false","grandrestaurant_ext_is_background_on_scroll":"false","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}'>
-                    <div class="elementor-element elementor-element-48a0a03 elementor-widget elementor-widget-grandrestaurant-food-menu" data-id="48a0a03" data-element_type="widget" data-settings='{"divider_color":"#FFFFFF45","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="grandrestaurant-food-menu.default">
-                        <div class="elementor-widget-container">
-                            <div class="food-menu-container">
-                                <div class="food-menu-content-wrapper food-menu">
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-2c57168 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="2c57168" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
+            <div class="elementor-widget-container">
+                <img decoding="async" width="320" height="310" src="..\images\flowers\4.png" class="attachment-full size-full wp-image-584" alt="" />
+            </div>
+        </div>
+    </div>
+    <div class="elementor-element elementor-element-4ba28ec e-con-full e-flex e-con e-child" data-id="4ba28ec" data-element_type="container" data-settings='{"content_width":"full","grandrestaurant_ext_is_background_parallax":"false","grandrestaurant_ext_is_background_backdrop":"false","grandrestaurant_ext_is_background_on_scroll":"false","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}'>
+        <div class="elementor-element elementor-element-48a0a03 elementor-widget elementor-widget-grandrestaurant-food-menu" data-id="48a0a03" data-element_type="widget" data-settings='{"divider_color":"#FFFFFF45","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="grandrestaurant-food-menu.default">
+            <div class="elementor-widget-container">
+                <div class="food-menu-container">
+                    <div class="food-menu-content-wrapper food-menu">
 
-                                <div class="food-menu-grid-wrapper food-tooltip food-menu-1">
-                                    <div class="food-menu-content no-food-img">
-                                    <div class="menu-item-header">
-                                        <h3 class="food-menu-title">Tandoori Paneer Swarma Roll</h3>
-                                        <div class="add-to-cart-controls">
-                                        <button class="add-btn" onclick="addToCart('tandoori-paneer-swarma-roll', 'Tandoori Paneer Swarma Roll', 227, this)">Add</button>
-                                        <div class="quantity-controls" style="display: none;">
-                                            <button class="quantity-btn minus" onclick="decreaseQuantity('tandoori-paneer-swarma-roll', this)">-</button>
-                                            <span class="quantity">1</span>
-                                            <button class="quantity-btn plus" onclick="increaseQuantity('tandoori-paneer-swarma-roll', this)">+</button>
-                                        </div>
-                                        </div>
-                                    </div>
-                                    <div class="price-add-container">
-                                        <div class="food-menu-price">₹227.0</div>
-                                        <div class="add-to-cart-controls">
-                                        <button class="add-btn" onclick="addToCart('tandoori-paneer-swarma-roll', 'Tandoori Paneer Swarma Roll', 227, this)">Add</button>
-                                        <div class="quantity-controls" style="display: none;">
-                                            <button class="quantity-btn minus" onclick="decreaseQuantity('tandoori-paneer-swarma-roll', this)">-</button>
-                                            <span class="quantity">1</span>
-                                            <button class="quantity-btn plus" onclick="increaseQuantity('tandoori-paneer-swarma-roll', this)">+</button>
-                                        </div>
-                                        </div>
-                                    </div>
-                                    <div class="food-menu-desc">Tandoori paneer shawarma-style wrap with sauces.</div>
-                                    </div>
-                                </div>
-
-                                <div class="food-menu-grid-wrapper food-tooltip food-menu-2">
-                                    <div class="food-menu-content no-food-img">
-                                    <div class="menu-item-header">
-                                        <h3 class="food-menu-title">Vegetable Roll</h3>
-                                        <div class="add-to-cart-controls">
-                                        <button class="add-btn" onclick="addToCart('vegetable-roll', 'Vegetable Roll', 179, this)">Add</button>
-                                        <div class="quantity-controls" style="display: none;">
-                                            <button class="quantity-btn minus" onclick="decreaseQuantity('vegetable-roll', this)">-</button>
-                                            <span class="quantity">1</span>
-                                            <button class="quantity-btn plus" onclick="increaseQuantity('vegetable-roll', this)">+</button>
-                                        </div>
-                                        </div>
-                                    </div>
-                                    <div class="price-add-container">
-                                        <div class="food-menu-price">₹179.0</div>
-                                        <div class="add-to-cart-controls">
-                                        <button class="add-btn" onclick="addToCart('vegetable-roll', 'Vegetable Roll', 179, this)">Add</button>
-                                        <div class="quantity-controls" style="display: none;">
-                                            <button class="quantity-btn minus" onclick="decreaseQuantity('vegetable-roll', this)">-</button>
-                                            <span class="quantity">1</span>
-                                            <button class="quantity-btn plus" onclick="increaseQuantity('vegetable-roll', this)">+</button>
-                                        </div>
-                                        </div>
-                                    </div>
-                                    <div class="food-menu-desc">Simple veg roll with sautéed veggies and chutneys.</div>
-                                    </div>
-                                </div>
-
-                                </div>
+                    <div class="food-menu-grid-wrapper food-tooltip food-menu-1">
+                        <div class="food-menu-content no-food-img">
+                        <div class="menu-item-header">
+                            <h3 class="food-menu-title">Tandoori Paneer Swarma Roll</h3>
+                            <div class="add-to-cart-controls">
+                            <button class="add-btn" onclick="addToCart('tandoori-paneer-swarma-roll', 'Tandoori Paneer Swarma Roll', 227, this)">Add</button>
+                            <div class="quantity-controls" style="display: none;">
+                                <button class="quantity-btn minus" onclick="decreaseQuantity('tandoori-paneer-swarma-roll', this)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-btn plus" onclick="increaseQuantity('tandoori-paneer-swarma-roll', this)">+</button>
                             </div>
                             </div>
                         </div>
+                        <div class="price-add-container">
+                            <div class="food-menu-price">₹227.0</div>
+                            <div class="add-to-cart-controls">
+                            <button class="add-btn" onclick="addToCart('tandoori-paneer-swarma-roll', 'Tandoori Paneer Swarma Roll', 227, this)">Add</button>
+                            <div class="quantity-controls" style="display: none;">
+                                <button class="quantity-btn minus" onclick="decreaseQuantity('tandoori-paneer-swarma-roll', this)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-btn plus" onclick="increaseQuantity('tandoori-paneer-swarma-roll', this)">+</button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="food-menu-desc">Tandoori paneer shawarma-style wrap with sauces.</div>
+                        </div>
+                    </div>
+
+                    <div class="food-menu-grid-wrapper food-tooltip food-menu-2">
+                        <div class="food-menu-content no-food-img">
+                        <div class="menu-item-header">
+                            <h3 class="food-menu-title">Vegetable Roll</h3>
+                            <div class="add-to-cart-controls">
+                            <button class="add-btn" onclick="addToCart('vegetable-roll', 'Vegetable Roll', 179, this)">Add</button>
+                            <div class="quantity-controls" style="display: none;">
+                                <button class="quantity-btn minus" onclick="decreaseQuantity('vegetable-roll', this)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-btn plus" onclick="increaseQuantity('vegetable-roll', this)">+</button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="price-add-container">
+                            <div class="food-menu-price">₹179.0</div>
+                            <div class="add-to-cart-controls">
+                            <button class="add-btn" onclick="addToCart('vegetable-roll', 'Vegetable Roll', 179, this)">Add</button>
+                            <div class="quantity-controls" style="display: none;">
+                                <button class="quantity-btn minus" onclick="decreaseQuantity('vegetable-roll', this)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-btn plus" onclick="increaseQuantity('vegetable-roll', this)">+</button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="food-menu-desc">Simple veg roll with sautéed veggies and chutneys.</div>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+                </div>
+            </div>
                         <div class="elementor-element elementor-element-bb850c2 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="bb850c2" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img decoding="async" width="466" height="518" src="..\images\flowers\6.png" class="attachment-full size-full wp-image-134" alt="" />
+                                <img decoding="async" width="466" height="518" src="..\images\flowers\3.png" class="attachment-full size-full wp-image-134" alt="" />
                             </div>
                         </div>
                     </div>
@@ -3215,9 +3271,9 @@
     
                             
                         </div>
-                        <div class="elementor-element elementor-element-2c57168 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="2c57168" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
+                        <div class="elementor-element elementor-element-803ceee elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="803ceee" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img decoding="async" width="320" height="310" src="..\images\flowers\9.png" class="attachment-full size-full wp-image-584" alt="" />
+                                <img loading="lazy" decoding="async" width="555" height="404" src="..\images\flowers\7.png" class="attachment-full size-full wp-image-606" alt="" />
                             </div>
                         </div>
                     </div>
@@ -3288,9 +3344,14 @@
                                 </div>
 
                         </div>
-                        <div class="elementor-element elementor-element-bb850c2 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="bb850c2" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
+                        <div class="elementor-element elementor-element-7f47b31 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="7f47b31" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img decoding="async" width="466" height="518" src="..\images\flowers\3.png" class="attachment-full size-full wp-image-134" alt="" />
+                                <img loading="lazy" decoding="async" width="336" height="160" src="..\images\flowers\4.png" class="attachment-full size-full wp-image-115" alt="" />
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-b42a7c7 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="b42a7c7" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
+                            <div class="elementor-widget-container">
+                                <img loading="lazy" decoding="async" width="296" height="208" src="..\images\flowers\3.png" class="attachment-full size-full wp-image-605" alt="" />
                             </div>
                         </div>
                     </div>
@@ -3525,169 +3586,169 @@
                             </div>
                         </div>
 
-                        </div>
-                        <div class="elementor-element elementor-element-803ceee elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="803ceee" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
-                            <div class="elementor-widget-container">
-                                <img loading="lazy" decoding="async" width="555" height="404" src="..\images\flowers\7.png" class="attachment-full size-full wp-image-606" alt="" />
+        </div>
+        <div class="elementor-element elementor-element-2c57168 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="2c57168" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
+            <div class="elementor-widget-container">
+                <img decoding="async" width="320" height="310" src="..\images\flowers\2.png" class="attachment-full size-full wp-image-584" alt="" />
+            </div>
+        </div>
+
+
+    </div>
+    <div class="elementor-element elementor-element-4ba28ec e-con-full e-flex e-con e-child" data-id="4ba28ec" data-element_type="container" data-settings='{"content_width":"full","grandrestaurant_ext_is_background_parallax":"false","grandrestaurant_ext_is_background_backdrop":"false","grandrestaurant_ext_is_background_on_scroll":"false","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}'>
+        <div class="elementor-element elementor-element-48a0a03 elementor-widget elementor-widget-grandrestaurant-food-menu" data-id="48a0a03" data-element_type="widget" data-settings='{"divider_color":"#FFFFFF45","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="grandrestaurant-food-menu.default">
+            <div class="elementor-widget-container">
+                <div class="food-menu-container">
+                    <div class="food-menu-content-wrapper food-menu">
+
+                    <div class="food-menu-grid-wrapper food-tooltip food-menu-1">
+                        <div class="food-menu-content no-food-img">
+                        <div class="menu-item-header">
+                            <h3 class="food-menu-title">Paneer Tandoori Momos</h3>
+                            <div class="add-to-cart-controls">
+                            <button class="add-btn" onclick="addToCart('paneer-tandoori-momos', 'Paneer Tandoori Momos', 287, this)">Add</button>
+                            <div class="quantity-controls" style="display: none;">
+                                <button class="quantity-btn minus" onclick="decreaseQuantity('paneer-tandoori-momos', this)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-btn plus" onclick="increaseQuantity('paneer-tandoori-momos', this)">+</button>
+                            </div>
                             </div>
                         </div>
-
-
+                        <div class="price-add-container">
+                            <div class="food-menu-price">₹287.0</div>
+                            <div class="add-to-cart-controls">
+                            <button class="add-btn" onclick="addToCart('paneer-tandoori-momos', 'Paneer Tandoori Momos', 287, this)">Add</button>
+                            <div class="quantity-controls" style="display: none;">
+                                <button class="quantity-btn minus" onclick="decreaseQuantity('paneer-tandoori-momos', this)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-btn plus" onclick="increaseQuantity('paneer-tandoori-momos', this)">+</button>
+                            </div>
+                            </div>
                         </div>
-                        <div class="elementor-element elementor-element-4ba28ec e-con-full e-flex e-con e-child" data-id="4ba28ec" data-element_type="container" data-settings='{"content_width":"full","grandrestaurant_ext_is_background_parallax":"false","grandrestaurant_ext_is_background_backdrop":"false","grandrestaurant_ext_is_background_on_scroll":"false","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}'>
-                            <div class="elementor-element elementor-element-48a0a03 elementor-widget elementor-widget-grandrestaurant-food-menu" data-id="48a0a03" data-element_type="widget" data-settings='{"divider_color":"#FFFFFF45","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="grandrestaurant-food-menu.default">
-                                <div class="elementor-widget-container">
-                                    <div class="food-menu-container">
-                                        <div class="food-menu-content-wrapper food-menu">
+                        <div class="food-menu-desc">Tandoor-smoked paneer momos with a spicy rub.</div>
+                        </div>
+                    </div>
 
-                                        <div class="food-menu-grid-wrapper food-tooltip food-menu-1">
-                                            <div class="food-menu-content no-food-img">
-                                            <div class="menu-item-header">
-                                                <h3 class="food-menu-title">Paneer Tandoori Momos</h3>
-                                                <div class="add-to-cart-controls">
-                                                <button class="add-btn" onclick="addToCart('paneer-tandoori-momos', 'Paneer Tandoori Momos', 287, this)">Add</button>
-                                                <div class="quantity-controls" style="display: none;">
-                                                    <button class="quantity-btn minus" onclick="decreaseQuantity('paneer-tandoori-momos', this)">-</button>
-                                                    <span class="quantity">1</span>
-                                                    <button class="quantity-btn plus" onclick="increaseQuantity('paneer-tandoori-momos', this)">+</button>
-                                                </div>
-                                                </div>
-                                            </div>
-                                            <div class="price-add-container">
-                                                <div class="food-menu-price">₹287.0</div>
-                                                <div class="add-to-cart-controls">
-                                                <button class="add-btn" onclick="addToCart('paneer-tandoori-momos', 'Paneer Tandoori Momos', 287, this)">Add</button>
-                                                <div class="quantity-controls" style="display: none;">
-                                                    <button class="quantity-btn minus" onclick="decreaseQuantity('paneer-tandoori-momos', this)">-</button>
-                                                    <span class="quantity">1</span>
-                                                    <button class="quantity-btn plus" onclick="increaseQuantity('paneer-tandoori-momos', this)">+</button>
-                                                </div>
-                                                </div>
-                                            </div>
-                                            <div class="food-menu-desc">Tandoor-smoked paneer momos with a spicy rub.</div>
-                                            </div>
-                                        </div>
+                    <div class="food-menu-grid-wrapper food-tooltip food-menu-2">
+                        <div class="food-menu-content no-food-img">
+                        <div class="menu-item-header">
+                            <h3 class="food-menu-title">Veg Fried Momos</h3>
+                            <div class="add-to-cart-controls">
+                            <button class="add-btn" onclick="addToCart('veg-fried-momos', 'Veg Fried Momos', 251, this)">Add</button>
+                            <div class="quantity-controls" style="display: none;">
+                                <button class="quantity-btn minus" onclick="decreaseQuantity('veg-fried-momos', this)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-btn plus" onclick="increaseQuantity('veg-fried-momos', this)">+</button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="price-add-container">
+                            <div class="food-menu-price">₹251.0</div>
+                            <div class="add-to-cart-controls">
+                            <button class="add-btn" onclick="addToCart('veg-fried-momos', 'Veg Fried Momos', 251, this)">Add</button>
+                            <div class="quantity-controls" style="display: none;">
+                                <button class="quantity-btn minus" onclick="decreaseQuantity('veg-fried-momos', this)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-btn plus" onclick="increaseQuantity('veg-fried-momos', this)">+</button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="food-menu-desc">Fried dumplings with a mixed vegetable filling.</div>
+                        </div>
+                    </div>
 
-                                        <div class="food-menu-grid-wrapper food-tooltip food-menu-2">
-                                            <div class="food-menu-content no-food-img">
-                                            <div class="menu-item-header">
-                                                <h3 class="food-menu-title">Veg Fried Momos</h3>
-                                                <div class="add-to-cart-controls">
-                                                <button class="add-btn" onclick="addToCart('veg-fried-momos', 'Veg Fried Momos', 251, this)">Add</button>
-                                                <div class="quantity-controls" style="display: none;">
-                                                    <button class="quantity-btn minus" onclick="decreaseQuantity('veg-fried-momos', this)">-</button>
-                                                    <span class="quantity">1</span>
-                                                    <button class="quantity-btn plus" onclick="increaseQuantity('veg-fried-momos', this)">+</button>
-                                                </div>
-                                                </div>
-                                            </div>
-                                            <div class="price-add-container">
-                                                <div class="food-menu-price">₹251.0</div>
-                                                <div class="add-to-cart-controls">
-                                                <button class="add-btn" onclick="addToCart('veg-fried-momos', 'Veg Fried Momos', 251, this)">Add</button>
-                                                <div class="quantity-controls" style="display: none;">
-                                                    <button class="quantity-btn minus" onclick="decreaseQuantity('veg-fried-momos', this)">-</button>
-                                                    <span class="quantity">1</span>
-                                                    <button class="quantity-btn plus" onclick="increaseQuantity('veg-fried-momos', this)">+</button>
-                                                </div>
-                                                </div>
-                                            </div>
-                                            <div class="food-menu-desc">Fried dumplings with a mixed vegetable filling.</div>
-                                            </div>
-                                        </div>
+                    <div class="food-menu-grid-wrapper food-tooltip food-menu-3">
+                        <div class="food-menu-content no-food-img">
+                        <div class="menu-item-header">
+                            <h3 class="food-menu-title">Veg Gravy Latpate Momos</h3>
+                            <div class="add-to-cart-controls">
+                            <button class="add-btn" onclick="addToCart('veg-gravy-latpate-momos', 'Veg Gravy Latpate Momos', 275, this)">Add</button>
+                            <div class="quantity-controls" style="display: none;">
+                                <button class="quantity-btn minus" onclick="decreaseQuantity('veg-gravy-latpate-momos', this)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-btn plus" onclick="increaseQuantity('veg-gravy-latpate-momos', this)">+</button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="price-add-container">
+                            <div class="food-menu-price">₹275.0</div>
+                            <div class="add-to-cart-controls">
+                            <button class="add-btn" onclick="addToCart('veg-gravy-latpate-momos', 'Veg Gravy Latpate Momos', 275, this)">Add</button>
+                            <div class="quantity-controls" style="display: none;">
+                                <button class="quantity-btn minus" onclick="decreaseQuantity('veg-gravy-latpate-momos', this)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-btn plus" onclick="increaseQuantity('veg-gravy-latpate-momos', this)">+</button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="food-menu-desc">Veg momos tossed in a flavorful gravy.</div>
+                        </div>
+                    </div>
 
-                                        <div class="food-menu-grid-wrapper food-tooltip food-menu-3">
-                                            <div class="food-menu-content no-food-img">
-                                            <div class="menu-item-header">
-                                                <h3 class="food-menu-title">Veg Gravy Latpate Momos</h3>
-                                                <div class="add-to-cart-controls">
-                                                <button class="add-btn" onclick="addToCart('veg-gravy-latpate-momos', 'Veg Gravy Latpate Momos', 275, this)">Add</button>
-                                                <div class="quantity-controls" style="display: none;">
-                                                    <button class="quantity-btn minus" onclick="decreaseQuantity('veg-gravy-latpate-momos', this)">-</button>
-                                                    <span class="quantity">1</span>
-                                                    <button class="quantity-btn plus" onclick="increaseQuantity('veg-gravy-latpate-momos', this)">+</button>
-                                                </div>
-                                                </div>
-                                            </div>
-                                            <div class="price-add-container">
-                                                <div class="food-menu-price">₹275.0</div>
-                                                <div class="add-to-cart-controls">
-                                                <button class="add-btn" onclick="addToCart('veg-gravy-latpate-momos', 'Veg Gravy Latpate Momos', 275, this)">Add</button>
-                                                <div class="quantity-controls" style="display: none;">
-                                                    <button class="quantity-btn minus" onclick="decreaseQuantity('veg-gravy-latpate-momos', this)">-</button>
-                                                    <span class="quantity">1</span>
-                                                    <button class="quantity-btn plus" onclick="increaseQuantity('veg-gravy-latpate-momos', this)">+</button>
-                                                </div>
-                                                </div>
-                                            </div>
-                                            <div class="food-menu-desc">Veg momos tossed in a flavorful gravy.</div>
-                                            </div>
-                                        </div>
+                    <div class="food-menu-grid-wrapper food-tooltip food-menu-4">
+                        <div class="food-menu-content no-food-img">
+                        <div class="menu-item-header">
+                            <h3 class="food-menu-title">Veg Steamed Momos</h3>
+                            <div class="add-to-cart-controls">
+                            <button class="add-btn" onclick="addToCart('veg-steamed-momos', 'Veg Steamed Momos', 227, this)">Add</button>
+                            <div class="quantity-controls" style="display: none;">
+                                <button class="quantity-btn minus" onclick="decreaseQuantity('veg-steamed-momos', this)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-btn plus" onclick="increaseQuantity('veg-steamed-momos', this)">+</button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="price-add-container">
+                            <div class="food-menu-price">₹227.0</div>
+                            <div class="add-to-cart-controls">
+                            <button class="add-btn" onclick="addToCart('veg-steamed-momos', 'Veg Steamed Momos', 227, this)">Add</button>
+                            <div class="quantity-controls" style="display: none;">
+                                <button class="quantity-btn minus" onclick="decreaseQuantity('veg-steamed-momos', this)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-btn plus" onclick="increaseQuantity('veg-steamed-momos', this)">+</button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="food-menu-desc">Steamed dumplings filled with fresh vegetables.</div>
+                        </div>
+                    </div>
 
-                                        <div class="food-menu-grid-wrapper food-tooltip food-menu-4">
-                                            <div class="food-menu-content no-food-img">
-                                            <div class="menu-item-header">
-                                                <h3 class="food-menu-title">Veg Steamed Momos</h3>
-                                                <div class="add-to-cart-controls">
-                                                <button class="add-btn" onclick="addToCart('veg-steamed-momos', 'Veg Steamed Momos', 227, this)">Add</button>
-                                                <div class="quantity-controls" style="display: none;">
-                                                    <button class="quantity-btn minus" onclick="decreaseQuantity('veg-steamed-momos', this)">-</button>
-                                                    <span class="quantity">1</span>
-                                                    <button class="quantity-btn plus" onclick="increaseQuantity('veg-steamed-momos', this)">+</button>
-                                                </div>
-                                                </div>
-                                            </div>
-                                            <div class="price-add-container">
-                                                <div class="food-menu-price">₹227.0</div>
-                                                <div class="add-to-cart-controls">
-                                                <button class="add-btn" onclick="addToCart('veg-steamed-momos', 'Veg Steamed Momos', 227, this)">Add</button>
-                                                <div class="quantity-controls" style="display: none;">
-                                                    <button class="quantity-btn minus" onclick="decreaseQuantity('veg-steamed-momos', this)">-</button>
-                                                    <span class="quantity">1</span>
-                                                    <button class="quantity-btn plus" onclick="increaseQuantity('veg-steamed-momos', this)">+</button>
-                                                </div>
-                                                </div>
-                                            </div>
-                                            <div class="food-menu-desc">Steamed dumplings filled with fresh vegetables.</div>
-                                            </div>
-                                        </div>
+                    <div class="food-menu-grid-wrapper food-tooltip food-menu-5">
+                        <div class="food-menu-content no-food-img">
+                        <div class="menu-item-header">
+                            <h3 class="food-menu-title">Veg Tandoori Momos</h3>
+                            <div class="add-to-cart-controls">
+                            <button class="add-btn" onclick="addToCart('veg-tandoori-momos', 'Veg Tandoori Momos', 263, this)">Add</button>
+                            <div class="quantity-controls" style="display: none;">
+                                <button class="quantity-btn minus" onclick="decreaseQuantity('veg-tandoori-momos', this)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-btn plus" onclick="increaseQuantity('veg-tandoori-momos', this)">+</button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="price-add-container">
+                            <div class="food-menu-price">₹263.0</div>
+                            <div class="add-to-cart-controls">
+                            <button class="add-btn" onclick="addToCart('veg-tandoori-momos', 'Veg Tandoori Momos', 263, this)">Add</button>
+                            <div class="quantity-controls" style="display: none;">
+                                <button class="quantity-btn minus" onclick="decreaseQuantity('veg-tandoori-momos', this)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-btn plus" onclick="increaseQuantity('veg-tandoori-momos', this)">+</button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="food-menu-desc">Tandoori-spiced veg momos, charred to perfection.</div>
+                        </div>
+                    </div>
 
-                                        <div class="food-menu-grid-wrapper food-tooltip food-menu-5">
-                                            <div class="food-menu-content no-food-img">
-                                            <div class="menu-item-header">
-                                                <h3 class="food-menu-title">Veg Tandoori Momos</h3>
-                                                <div class="add-to-cart-controls">
-                                                <button class="add-btn" onclick="addToCart('veg-tandoori-momos', 'Veg Tandoori Momos', 263, this)">Add</button>
-                                                <div class="quantity-controls" style="display: none;">
-                                                    <button class="quantity-btn minus" onclick="decreaseQuantity('veg-tandoori-momos', this)">-</button>
-                                                    <span class="quantity">1</span>
-                                                    <button class="quantity-btn plus" onclick="increaseQuantity('veg-tandoori-momos', this)">+</button>
-                                                </div>
-                                                </div>
-                                            </div>
-                                            <div class="price-add-container">
-                                                <div class="food-menu-price">₹263.0</div>
-                                                <div class="add-to-cart-controls">
-                                                <button class="add-btn" onclick="addToCart('veg-tandoori-momos', 'Veg Tandoori Momos', 263, this)">Add</button>
-                                                <div class="quantity-controls" style="display: none;">
-                                                    <button class="quantity-btn minus" onclick="decreaseQuantity('veg-tandoori-momos', this)">-</button>
-                                                    <span class="quantity">1</span>
-                                                    <button class="quantity-btn plus" onclick="increaseQuantity('veg-tandoori-momos', this)">+</button>
-                                                </div>
-                                                </div>
-                                            </div>
-                                            <div class="food-menu-desc">Tandoori-spiced veg momos, charred to perfection.</div>
-                                            </div>
-                                        </div>
-
-                                        </div>
-                                    </div>
-                                    </div>
+                    </div>
+                </div>
+                </div>
 
                         </div>
                         <div class="elementor-element elementor-element-bb850c2 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="bb850c2" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img decoding="async" width="466" height="518" src="..\images\flowers\8.png" class="attachment-full size-full wp-image-134" alt="" />
+                                <img decoding="async" width="466" height="518" src="..\images\flowers\3.png" class="attachment-full size-full wp-image-134" alt="" />
                             </div>
                         </div>
                     </div>
@@ -3819,9 +3880,9 @@
                                 </div>
 
                         </div>
-                        <div class="elementor-element elementor-element-2c57168 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="2c57168" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
+                        <div class="elementor-element elementor-element-803ceee elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="803ceee" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img decoding="async" width="320" height="310" src="..\images\flowers\9.png" class="attachment-full size-full wp-image-584" alt="" />
+                                <img loading="lazy" decoding="async" width="555" height="404" src="..\images\flowers\7.png" class="attachment-full size-full wp-image-606" alt="" />
                             </div>
                         </div>
                     </div>
@@ -5092,9 +5153,9 @@
                                 </div>
 
                         </div>
-                        <div class="elementor-element elementor-element-803ceee elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="803ceee" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
+                        <div class="elementor-element elementor-element-2c57168 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="2c57168" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img loading="lazy" decoding="async" width="555" height="404" src="..\images\flowers\4.png" class="attachment-full size-full wp-image-606" alt="" />
+                                <img decoding="async" width="320" height="310" src="..\images\flowers\4.png" class="attachment-full size-full wp-image-584" alt="" />
                             </div>
                         </div>
                     </div>
@@ -5414,9 +5475,9 @@
     
                             
                         </div>
-                        <div class="elementor-element elementor-element-2c57168 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="2c57168" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
+                        <div class="elementor-element elementor-element-803ceee elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="803ceee" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img decoding="async" width="320" height="310" src="..\images\flowers\8.png" class="attachment-full size-full wp-image-584" alt="" />
+                                <img loading="lazy" decoding="async" width="555" height="404" src="..\images\flowers\7.png" class="attachment-full size-full wp-image-606" alt="" />
                             </div>
                         </div>
                     </div>
@@ -5518,12 +5579,12 @@
                         </div>
                         <div class="elementor-element elementor-element-7f47b31 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="7f47b31" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img loading="lazy" decoding="async" width="336" height="160" src="..\images\flowers\10.png" class="attachment-full size-full wp-image-115" alt="" />
+                                <img loading="lazy" decoding="async" width="336" height="160" src="..\images\flowers\7.png" class="attachment-full size-full wp-image-115" alt="" />
                             </div>
                         </div>
                         <div class="elementor-element elementor-element-b42a7c7 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="b42a7c7" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img loading="lazy" decoding="async" width="336" height="300" src="..\images\flowers\13.png" class="attachment-full size-full wp-image-605" alt="" />
+                                <img loading="lazy" decoding="async" width="296" height="208" src="..\images\flowers\1.png" class="attachment-full size-full wp-image-605" alt="" />
                             </div>
                         </div>
 
@@ -5573,7 +5634,7 @@
                          data-settings='{"grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}'
                          data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                            <h2 class="elementor-heading-title elementor-size-default">Sides & Accompaniments</h2>
+                            <h2 class="elementor-heading-title elementor-size-default">Sides & Extras</h2>
                         </div>
                     </div>
                     <!-- Heading Divider -->
@@ -5786,12 +5847,12 @@
                                 </div>
                                 </div>
 
-                        </div>
-                        <div class="elementor-element elementor-element-803ceee elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="803ceee" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
-                            <div class="elementor-widget-container">
-                                <img loading="lazy" decoding="async" width="555" height="404" src="..\images\flowers\12.png" class="attachment-full size-full wp-image-606" alt="" />
-                            </div>
-                        </div>
+        </div>
+        <div class="elementor-element elementor-element-2c57168 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="2c57168" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
+            <div class="elementor-widget-container">
+                <img decoding="async" width="320" height="310" src="..\images\flowers\4.png" class="attachment-full size-full wp-image-584" alt="" />
+            </div>
+        </div>
     </div>
     <div class="elementor-element elementor-element-4ba28ec e-con-full e-flex e-con e-child" data-id="4ba28ec" data-element_type="container" data-settings='{"content_width":"full","grandrestaurant_ext_is_background_parallax":"false","grandrestaurant_ext_is_background_backdrop":"false","grandrestaurant_ext_is_background_on_scroll":"false","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}'>
         <div class="elementor-element elementor-element-48a0a03 elementor-widget elementor-widget-grandrestaurant-food-menu" data-id="48a0a03" data-element_type="widget" data-settings='{"divider_color":"#FFFFFF45","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="grandrestaurant-food-menu.default">
@@ -5950,7 +6011,7 @@
             </div>
                         <div class="elementor-element elementor-element-bb850c2 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="bb850c2" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img decoding="async" width="466" height="518" src="..\images\flowers\16.png" class="attachment-full size-full wp-image-134" alt="" />
+                                <img decoding="async" width="466" height="518" src="..\images\flowers\3.png" class="attachment-full size-full wp-image-134" alt="" />
                             </div>
                         </div>
                     </div>
@@ -6435,12 +6496,12 @@
                                 </div>
                                 </div>
 
+                    </div>
+                    <div class="elementor-element elementor-element-2c57168 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="2c57168" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
+                        <div class="elementor-widget-container">
+                            <img decoding="async" width="320" height="310" src="..\images\flowers\4.png" class="attachment-full size-full wp-image-584" alt="" />
                         </div>
-                        <div class="elementor-element elementor-element-803ceee elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="803ceee" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
-                            <div class="elementor-widget-container">
-                                <img loading="lazy" decoding="async" width="555" height="404" src="..\images\flowers\15.png" class="attachment-full size-full wp-image-606" alt="" />
-                            </div>
-                        </div>
+                    </div>
                 </div>
                 <div class="elementor-element elementor-element-4ba28ec e-con-full e-flex e-con e-child" data-id="4ba28ec" data-element_type="container" data-settings='{"content_width":"full","grandrestaurant_ext_is_background_parallax":"false","grandrestaurant_ext_is_background_backdrop":"false","grandrestaurant_ext_is_background_on_scroll":"false","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}'>
                     <div class="elementor-element elementor-element-48a0a03 elementor-widget elementor-widget-grandrestaurant-food-menu" data-id="48a0a03" data-element_type="widget" data-settings='{"divider_color":"#FFFFFF45","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="grandrestaurant-food-menu.default">
@@ -6572,7 +6633,7 @@
                         </div>
                         <div class="elementor-element elementor-element-bb850c2 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="bb850c2" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img decoding="async" width="300" height="300" src="..\images\flowers\2.png" class="attachment-full size-full wp-image-134" alt="" />
+                                <img decoding="async" width="466" height="518" src="..\images\flowers\3.png" class="attachment-full size-full wp-image-134" alt="" />
                             </div>
                         </div>
                     </div>
@@ -7223,12 +7284,7 @@
             </div>
                         <div class="elementor-element elementor-element-bb850c2 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="bb850c2" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img decoding="async" width="466" height="518" src="..\images\flowers\6.png" class="attachment-full size-full wp-image-134" alt="" />
-                            </div>
-                        </div>
-                        <div class="elementor-element elementor-element-7f47b31 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="7f47b31" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
-                            <div class="elementor-widget-container">
-                                <img loading="lazy" decoding="async" width="336" height="160" src="..\images\flowers\10.png" class="attachment-full size-full wp-image-115" alt="" />
+                                <img decoding="async" width="466" height="518" src="..\images\flowers\3.png" class="attachment-full size-full wp-image-134" alt="" />
                             </div>
                         </div>
                     </div>
@@ -7806,12 +7862,12 @@
                         </div>
                         <div class="elementor-element elementor-element-7f47b31 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="7f47b31" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img loading="lazy" decoding="async" width="336" height="160" src="..\images\flowers\16.png" class="attachment-full size-full wp-image-115" alt="" />
+                                <img loading="lazy" decoding="async" width="336" height="160" src="..\images\flowers\9.png" class="attachment-full size-full wp-image-115" alt="" />
                             </div>
                         </div>
                         <div class="elementor-element elementor-element-b42a7c7 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="b42a7c7" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img loading="lazy" decoding="async" width="296" height="208" src="..\images\flowers\11.png" class="attachment-full size-full wp-image-605" alt="" />
+                                <img loading="lazy" decoding="async" width="296" height="208" src="..\images\flowers\2.png" class="attachment-full size-full wp-image-605" alt="" />
                             </div>
                         </div>
 
@@ -7861,7 +7917,7 @@
                          data-settings='{"grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}'
                          data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                            <h2 class="elementor-heading-title elementor-size-default"> Chai, Coffee & Bubble Tea </h2>
+                            <h2 class="elementor-heading-title elementor-size-default">Tea & Coffee</h2>
                         </div>
                     </div>
                     <!-- Heading Divider -->
@@ -8080,12 +8136,12 @@
                                 </div>
                                 </div>
 
+                    </div>
+                    <div class="elementor-element elementor-element-2c57168 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="2c57168" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
+                        <div class="elementor-widget-container">
+                            <img decoding="async" width="320" height="310" src="..\images\flowers\4.png" class="attachment-full size-full wp-image-584" alt="" />
                         </div>
-                        <div class="elementor-element elementor-element-803ceee elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="803ceee" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
-                            <div class="elementor-widget-container">
-                                <img loading="lazy" decoding="async" width="555" height="404" src="..\images\flowers\12.png" class="attachment-full size-full wp-image-606" alt="" />
-                            </div>
-                        </div>
+                    </div>
                 </div>
                 <div class="elementor-element elementor-element-4ba28ec e-con-full e-flex e-con e-child" data-id="4ba28ec" data-element_type="container" data-settings='{"content_width":"full","grandrestaurant_ext_is_background_parallax":"false","grandrestaurant_ext_is_background_backdrop":"false","grandrestaurant_ext_is_background_on_scroll":"false","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}'>
                     <div class="elementor-element elementor-element-48a0a03 elementor-widget elementor-widget-grandrestaurant-food-menu" data-id="48a0a03" data-element_type="widget" data-settings='{"divider_color":"#FFFFFF45","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="grandrestaurant-food-menu.default">
@@ -8241,7 +8297,7 @@
                         </div>
                         <div class="elementor-element elementor-element-bb850c2 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="bb850c2" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img decoding="async" width="466" height="518" src="..\images\flowers\10.png" class="attachment-full size-full wp-image-134" alt="" />
+                                <img decoding="async" width="466" height="518" src="..\images\flowers\3.png" class="attachment-full size-full wp-image-134" alt="" />
                             </div>
                         </div>
                     </div>
@@ -8380,9 +8436,9 @@
     
                             
                         </div>
-                        <div class="elementor-element elementor-element-2c57168 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="2c57168" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
+                        <div class="elementor-element elementor-element-803ceee elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="803ceee" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img decoding="async" width="320" height="310" src="..\images\flowers\15.png" class="attachment-full size-full wp-image-584" alt="" />
+                                <img loading="lazy" decoding="async" width="555" height="404" src="..\images\flowers\7.png" class="attachment-full size-full wp-image-606" alt="" />
                             </div>
                         </div>
                     </div>
@@ -8461,7 +8517,7 @@
                         </div>
                         <div class="elementor-element elementor-element-b42a7c7 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="b42a7c7" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img loading="lazy" decoding="async" width="296" height="208" src="..\images\flowers\4.png" class="attachment-full size-full wp-image-605" alt="" />
+                                <img loading="lazy" decoding="async" width="296" height="208" src="..\images\flowers\7.png" class="attachment-full size-full wp-image-605" alt="" />
                             </div>
                         </div>
                     </div>
@@ -8833,7 +8889,7 @@
                         </div>
                         <div class="elementor-element elementor-element-bb850c2 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="bb850c2" data-element_type="widget" data-settings='{"_position":"absolute","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}' data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img decoding="async" width="466" height="518" src="..\images\flowers\16.png" class="attachment-full size-full wp-image-134" alt="" />
+                                <img decoding="async" width="466" height="518" src="..\images\flowers\3.png" class="attachment-full size-full wp-image-134" alt="" />
                             </div>
                         </div>
                     </div>
