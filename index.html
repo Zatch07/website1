@@ -191,15 +191,15 @@
 
     <!-- Favicons -->
     <link rel="icon"
-          href="images/favicon.ico"
+          href="images/Favicons/zoca.png"
           sizes="32x32" />
     <link rel="icon"
-          href="images/favicon.ico"
+          href="images/Favicons/zoca.png"
           sizes="192x192" />
     <link rel="apple-touch-icon"
-          href="images/favicon.ico" />
+          href="images/Favicons/zoca.png" />
     <meta name="msapplication-TileImage"
-          content="images/favicon.ico" />
+          content="images/Favicons/zoca.png" />
     <!-- Custom CSS -->
     <style type="text/css" id="wp-custom-css">
         ::-webkit-calendar-picker-indicator {
@@ -1488,6 +1488,50 @@
             src: url(wp-content/fonts/kristi/uK_y4ricdeU6zwdhDRcS.woff2) format('woff2');
             unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
         }
+
+        /* Custom Background Slideshow Styles */
+        .custom-slideshow-container {
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        .slideshow-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            z-index: 1;
+        }
+
+        .slideshow-background.active {
+            opacity: 1;
+        }
+
+        .slideshow-background.ken-burns {
+            animation: kenBurns 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes kenBurns {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Ensure content appears above slideshow */
+        .custom-slideshow-container .e-con-inner {
+            position: relative;
+            z-index: 2;
+        }
     </style>
     
     <!-- NoScript Styles -->
@@ -1628,12 +1672,12 @@
     <!-- Main Page Content -->
     <div data-elementor-type="wp-page" data-elementor-id="633" class="elementor elementor-633">
 
-        <!-- Hero Section with Background Slideshow -->
-        <div class="elementor-element elementor-element-690984b e-flex e-con-boxed e-con e-parent"
+        <!-- Hero Section with Custom Background Slideshow -->
+        <div class="elementor-element elementor-element-690984b e-flex e-con-boxed e-con e-parent custom-slideshow-container"
              data-id="690984b"
              data-element_type="container"
-             data-settings='{"background_background":"slideshow","background_slideshow_gallery":[{"id":643,"url":"images/background1.jpg"},{"id":781,"url":"images/background2.jpg"},{"id":670,"url":"images/background3.jpg"}],"background_slideshow_lazyload":"yes","background_slideshow_ken_burns":"yes","content_width":"boxed","background_slideshow_loop":"yes","background_slideshow_slide_duration":5000,"background_slideshow_slide_transition":"fade","background_slideshow_transition_duration":500,"background_slideshow_ken_burns_zoom_direction":"in","grandrestaurant_ext_is_background_parallax":"false","grandrestaurant_ext_is_background_backdrop":"false","grandrestaurant_ext_is_background_on_scroll":"false","grandrestaurant_ext_link_reservation":"false","grandrestaurant_ext_link_sidemenu":"false","grandrestaurant_ext_link_fullmenu":"false","grandrestaurant_ext_link_closed_fullmenu":"false","grandrestaurant_ext_is_scrollme":"false","grandrestaurant_ext_is_smoove":"false","grandrestaurant_ext_is_parallax_mouse":"false","grandrestaurant_ext_is_infinite":"false","grandrestaurant_ext_is_fadeout_animation":"false","grandrestaurant_ext_mobile_static":"false"}'
-             data-core-v316-plus="true">
+             data-core-v316-plus="true"
+             id="hero-slideshow">
             <div class="e-con-inner">
 
                 <!-- Hero Content Container -->
@@ -2069,7 +2113,7 @@
                         <div class="elementor-button-wrapper">
                             <a class="elementor-button elementor-button-link elementor-size-sm" href="gallery/index.html">
                                 <span class="elementor-button-content-wrapper">
-                                    <span class="elementor-button-text">View Gallery</span>
+                                    <span class="elementor-button-text">View More</span>
                                 </span>
                             </a>
                         </div>
@@ -3404,7 +3448,7 @@ Barmer, Rajasthan</p>
                 "e_image_loading_optimization": true,
                 "e_global_styleguide": true
             },
-            "urls": {"assets": "https:\/\/grandrestaurantv6-8.themegoods.com\/asian\/wp-content\/plugins\/elementor\/assets\/"},
+            "urls": {"assets": "wp-content\/plugins\/elementor\/assets\/"},
             "swiperClass": "swiper",
             "settings": {"page": [], "editorPreferences": []},
             "kit": {
@@ -3911,6 +3955,87 @@ Barmer, Rajasthan</p>
             } else {
                 startTestimonialSlider();
             }
+        });
+    </script>
+
+    <!-- Custom Background Slideshow Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Slideshow configuration
+            const slideshowImages = [
+                'images/background1.jpg',
+                'images/background2.jpg',
+                'images/background3.jpg'
+            ];
+
+            const slideshowContainer = document.getElementById('hero-slideshow');
+            if (!slideshowContainer) return;
+
+            let currentSlide = 0;
+            let slideElements = [];
+            let slideshowInterval;
+
+            // Create slideshow background elements
+            function createSlideshow() {
+                slideshowImages.forEach((imageSrc, index) => {
+                    const slideDiv = document.createElement('div');
+                    slideDiv.className = 'slideshow-background ken-burns';
+                    slideDiv.style.backgroundImage = `url('${imageSrc}')`;
+
+                    // Make first slide active
+                    if (index === 0) {
+                        slideDiv.classList.add('active');
+                    }
+
+                    slideshowContainer.insertBefore(slideDiv, slideshowContainer.firstChild);
+                    slideElements.push(slideDiv);
+                });
+            }
+
+            // Change to next slide
+            function nextSlide() {
+                if (slideElements.length === 0) return;
+
+                // Remove active class from current slide
+                slideElements[currentSlide].classList.remove('active');
+
+                // Move to next slide
+                currentSlide = (currentSlide + 1) % slideElements.length;
+
+                // Add active class to new slide
+                slideElements[currentSlide].classList.add('active');
+            }
+
+            // Start slideshow
+            function startSlideshow() {
+                if (slideElements.length > 1) {
+                    slideshowInterval = setInterval(nextSlide, 5000); // 5 seconds per slide
+                }
+            }
+
+            // Stop slideshow
+            function stopSlideshow() {
+                if (slideshowInterval) {
+                    clearInterval(slideshowInterval);
+                }
+            }
+
+            // Initialize slideshow
+            createSlideshow();
+            startSlideshow();
+
+            // Pause slideshow when page is not visible
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    stopSlideshow();
+                } else {
+                    startSlideshow();
+                }
+            });
+
+            // Pause slideshow on hover (optional)
+            slideshowContainer.addEventListener('mouseenter', stopSlideshow);
+            slideshowContainer.addEventListener('mouseleave', startSlideshow);
         });
     </script>
 
